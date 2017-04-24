@@ -1,0 +1,57 @@
+@import "app/styles/config";
+
+* {
+  box-sizing: border-box;
+  transform: none;
+  transform-origin: 50% 50% 0;
+  transition: none 0s ease 0s;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  outline-offset: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  border: 0;
+  cursor: pointer;
+  line-height: var(--line-height);
+  font-family: var(--sans-font);
+}
+
+a {
+  /* Remove the gray background on active links in IE 10 */
+  background-color: transparent;
+
+  /* Remove gaps in links underline in iOS 8+ and Safari 8+ */
+  -webkit-text-decoration-skip: objects;
+}
+
+svg:not(:root) {
+  /* Hide the overflow in IE */
+  overflow: hidden;
+}
+
+button,
+input {
+  /* Show the overflow in Edge */
+  overflow: visible;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  /* Remove the inner border and padding in Firefox */
+  border-style: none;
+  padding: 0;
+}

@@ -1,0 +1,20 @@
+@import "app/styles/config";
+
+.header {
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+  width: 100%;
+  height: 70vh;
+  padding: 20px;
+  background-color: var(--header-bg-color);
+  color: #fff;
+  text-shadow: var(--header-text-shadow);
+
+  @media (--small-screen) {
+    height: 100vh;
+  }
+}

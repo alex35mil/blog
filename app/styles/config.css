@@ -1,0 +1,37 @@
+@custom-media --small-screen only screen and (max-width: 767px);
+@custom-media --medium-screen only screen and (max-width: 1023px);
+
+:root {
+  --bg-color: #fff;
+  --header-bg-color: #242729;
+  --header-text-shadow: 0 0 6px #000;
+
+  --content-width: 700px;
+  --small-screen-paddings: 30px;
+
+  --font-size: 20px;
+  --text-color: rgba(0, 0, 0, .8);
+  --line-height: 1.5;
+
+  --sans-font: "Noto Sans", sans-serif;
+  --serif-font: "Lora", serif;
+
+  --sans-regular-font: {
+    font-family: var(--sans-font);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  --sans-bold-font: {
+    font-family: var(--sans-font);
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  --serif-regular-font: {
+    font-family: var(--serif-font);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: .005rem;
+  }
+}

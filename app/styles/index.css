@@ -1,0 +1,8 @@
+@import "app/styles/resets";
+@import "app/styles/fonts";
+@import "app/styles/layout";
+
+@import "app/components/H1/styles";
+@import "app/components/Header/styles";
+@import "app/components/P/styles";
+@import "app/components/Post/styles";

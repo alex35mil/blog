@@ -1,0 +1,33 @@
+{
+  "name": "blog",
+  "description": "My blog",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "author": "Alex Fedoseev <alex.fedoseev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:re": "bsb -clean-world -make-world -w",
+    "start:js": "webpack -w",
+    "build:re": "bsb -clean-world -make-world",
+    "build:js": "webpack"
+  },
+  "dependencies": {
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "reason-react": "0.1.1"
+  },
+  "devDependencies": {
+    "bs-platform": "1.7.1",
+    "css-loader": "0.28.0",
+    "file-loader": "0.11.1",
+    "postcss-cssnext": "2.10.0",
+    "postcss-hexrgba": "0.2.1",
+    "postcss-import": "9.1.0",
+    "postcss-loader": "1.3.3",
+    "postcss-url": "6.0.4",
+    "style-loader": "0.16.1",
+    "url-loader": "0.5.8",
+    "webpack": "2.4.1"
+  }
+}

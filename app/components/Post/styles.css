@@ -1,0 +1,10 @@
+@import "app/styles/config";
+
+.post {
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}

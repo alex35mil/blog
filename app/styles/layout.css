@@ -1,0 +1,24 @@
+@import "app/styles/config";
+
+html,
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+
+body {
+  @apply --sans-regular-font;
+
+  background-color: var(--bg-color);
+  font-size: var(--font-size);
+  color: var(--text-color);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+@import "app/styles/config";
+
+.paragraph {
+  @apply --serif-regular-font;
+
+  display: flex;
+  width: var(--content-width);
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media (--small-screen) {
+    width: 100%;
+    padding: 0 var(--small-screen-paddings);
+  }
+}
