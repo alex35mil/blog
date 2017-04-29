@@ -1,0 +1,49 @@
+---
+extends: "airbnb"
+
+parser: "babel-eslint"
+
+plugins:
+  - "flowtype"
+
+settings:
+  import/resolver:
+    babel-module: true
+
+env:
+  node: true
+  browser: true
+
+globals:
+  __DEV__: true
+
+rules:
+  import/prefer-default-export: "off"
+
+  import/first:
+    - "error"
+    - absolute-first: false
+
+  import/order:
+    - "error"
+    - groups:
+      - ["builtin", "external"]
+      - ["internal", "parent", "sibling", "index"]
+
+  react/require-default-props: "off"
+  react/sort-comp: "off"
+
+  react/jsx-filename-extension:
+    - "error"
+    - extensions:
+      - ".js"
+
+  flowtype/require-valid-file-annotation:
+    - "error"
+    - "always"
+
+  flowtype/type-id-match:
+    - "error"
+    - "^\\$([A-Z][A-Za-z]+)+$"
+
+  flowtype/define-flow-type: 1

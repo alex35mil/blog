@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    base(href="/")
+    title alexfedoseev.com
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+  body
+    #app!= body
+    script(src=`${manifest}`)
+    script(src=`${vendor}`)
+    script(src=`${app}`)

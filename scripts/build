@@ -1,0 +1,6 @@
+#!/bin/sh
+
+scripts/clean
+
+$(yarn bin)/webpack \
+  --config config/webpack.prod.config.babel.js

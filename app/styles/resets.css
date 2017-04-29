@@ -11,10 +11,9 @@
   outline-offset: 0;
 }
 
-ul,
-ol,
-li {
-  list-style: none;
+nav ol,
+nav ul {
+	list-style: none;
 }
 
 button,
@@ -34,6 +33,19 @@ a {
 
   /* Remove gaps in links underline in iOS 8+ and Safari 8+ */
   -webkit-text-decoration-skip: objects;
+}
+
+/* Remove the text shadow on text selections */
+::-moz-selection {
+	background-color: #b3d4fc;
+	color: #000000;
+	text-shadow: none;
+}
+
+::selection {
+	background-color: #b3d4fc;
+	color: #000000;
+	text-shadow: none;
 }
 
 svg:not(:root) {

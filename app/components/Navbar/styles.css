@@ -1,0 +1,19 @@
+@import "app/styles/config";
+
+:root {
+  --bleed: 20px;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: calc(var(--content-width) + var(--bleed));
+  padding: 20px var(--bleed);
+  font-size: .6em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eee;
+}

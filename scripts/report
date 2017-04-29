@@ -1,0 +1,15 @@
+#!/bin/sh
+
+scripts/clean
+mkdir -p reports
+
+NODE_ENV=production \
+$(yarn bin)/webpack \
+  --profile \
+  --json \
+  --config config/webpack.prod.config.babel.js \
+  > reports/stats.json
+
+$(yarn bin)/webpack-bundle-analyzer \
+  reports/stats.json \
+  public/assets

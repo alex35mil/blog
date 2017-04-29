@@ -1,0 +1,10 @@
+{
+  "test-post": {
+    "title": "Test Post",
+    "date": "April 01, 2017"
+  },
+  "very-test-post": {
+    "title": "Very Test Post",
+    "date": "March 01, 2017"
+  }
+}

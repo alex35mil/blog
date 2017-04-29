@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+const cp = require('child_process');
+
+cp.spawn('./scripts/start:dev', [], { stdio: 'inherit' });
+cp.spawn('./scripts/start:hot', [], { stdio: 'inherit' });

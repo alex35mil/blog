@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  web:
+    build: "."
+    command: "yarn start"
+    volumes:
+      - ".:/blog"
+    ports:
+      - "80:3000"
+      - "3500:3500"
+    environment:
+      NODE_ENV: "development"
+      HOSTNAME: "alexfedoseev.dev"
+      WEB_PORT: 3000
+      HOT_PORT: 3500
