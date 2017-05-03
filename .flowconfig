@@ -6,6 +6,7 @@
 
 [libs]
 ./flow-typed
+./app/declarations
 
 [options]
 module.system=node

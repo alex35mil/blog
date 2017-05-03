@@ -7,7 +7,7 @@ NODE_ENV=production \
 $(yarn bin)/webpack \
   --profile \
   --json \
-  --config config/webpack.prod.config.babel.js \
+  --config config/webpack/client.prod.babel.js \
   > reports/stats.json
 
 $(yarn bin)/webpack-bundle-analyzer \

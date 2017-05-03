@@ -16,10 +16,14 @@ class LoadingComponent extends React.Component {
   render = () => null; // TODO: Handle failure
 }
 
-// $FlowIgnoreMe: I assume flow can't infer what's behind dynamic import
-export type $Loader = () => Promise<<P>(props?: P) => React.Element<*>>;
+type $ChunkResolvers = {|
+  // $FlowIgnoreMe: I assume flow can't infer what's behind dynamic import
+  resolve: () => Promise<<P>(props?: P) => React.Element<*>>,
+  getWebpackId: () => string,
+|};
 
-export default (loader: $Loader) => Loadable({
-  loader,
+export default (chunk: $ChunkResolvers) => Loadable({
+  loader: chunk.resolve,
+  webpackRequireWeakId: chunk.getWebpackId,
   LoadingComponent,
 });

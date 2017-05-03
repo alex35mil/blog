@@ -18,6 +18,8 @@ globals:
   __DEV__: true
 
 rules:
+  no-confusing-arrow: "off"
+
   import/prefer-default-export: "off"
 
   import/first:
@@ -30,6 +32,7 @@ rules:
       - ["builtin", "external"]
       - ["internal", "parent", "sibling", "index"]
 
+  react/no-unused-prop-types: "off"
   react/require-default-props: "off"
   react/sort-comp: "off"
 
@@ -47,3 +50,4 @@ rules:
     - "^\\$([A-Z][A-Za-z]+)+$"
 
   flowtype/define-flow-type: 1
+  flowtype/use-flow-type: 1

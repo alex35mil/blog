@@ -8,6 +8,7 @@ export const HOT_PORT = parseInt(process.env.HOT_PORT, 10);
 
 export const locations = {
   root: process.cwd(),
+  serverBuildPath: path.join(process.cwd(), 'build'),
   assetsServerPath: path.join(process.cwd(), 'public', 'assets'),
   assetsPublicPath: '/assets/',
   hotServerUrl: `http://${HOSTNAME}:${HOT_PORT}`,
@@ -17,4 +18,15 @@ export const modules = {
   jsModule: /\.js$/,
   cssModule: /\.css$/,
   minifiedJs: /\.min\.js$/,
+
+  devFilename: '[name]',
+  devChunkFilename: '[id]',
+  prodFilename: '[name].[chunkhash]',
+  prodChunkFilename: '[id].[chunkhash]',
+
+  devCssModuleClassName: '[path]__[local]__[hash:base64:5]',
+  prodCssModuleClassName: '[hash:base64]',
+
+  modulesManifestFilename: 'modules.manifest.json',
+  assetsManifestFilename: 'assets.manifest.json',
 };
