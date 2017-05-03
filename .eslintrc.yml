@@ -1,10 +1,16 @@
 ---
-extends: "airbnb"
-
 parser: "babel-eslint"
+
+extends:
+  - "airbnb"
+  - "plugin:flowtype/recommended"
+  - "prettier"
+  - "prettier/flowtype"
+  - "prettier/react"
 
 plugins:
   - "flowtype"
+  - "prettier"
 
 settings:
   import/resolver:
@@ -19,6 +25,13 @@ globals:
 
 rules:
   no-confusing-arrow: "off"
+
+  prettier/prettier:
+    - "error"
+    - printWidth: 100
+      tabWidth: 2
+      trailingComma: "all"
+      singleQuote: true
 
   import/prefer-default-export: "off"
 

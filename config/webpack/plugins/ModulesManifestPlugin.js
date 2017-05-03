@@ -16,13 +16,11 @@ function ModulesManifestPlugin(options: $Options) {
 }
 
 ModulesManifestPlugin.prototype.apply = function ApplyModulesManifestPlugin(compiler) {
-  compiler.plugin('done', (stats) => {
-    const output =
-      stats
-        .toJson()
-        .modules
-        .map(({ id, name, chunks }) => ({ id, name, chunks }))
-        .filter(module => !/^\.\/~\/*/.test(module.name)); // filtering out node_modules
+  compiler.plugin('done', stats => {
+    const output = stats
+      .toJson()
+      .modules.map(({ id, name, chunks }) => ({ id, name, chunks }))
+      .filter(module => !/^\.\/~\/*/.test(module.name)); // filtering out node_modules
 
     const outputPath = path.join(this.path, this.filename);
     const outputData = isDevelopment ? JSON.stringify(output, null, 2) : JSON.stringify(output);

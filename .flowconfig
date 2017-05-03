@@ -4,6 +4,9 @@
 .*/scripts/.*
 .*/reports/.*
 
+# Broken node_modules
+.*/node_modules/jest-validate/.*
+
 [libs]
 ./flow-typed
 ./app/declarations

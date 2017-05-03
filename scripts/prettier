@@ -1,0 +1,10 @@
+#!/bin/sh
+
+$(yarn bin)/prettier \
+  --print-width 100 \
+  --tab-width 2 \
+  --single-quote \
+  --trailing-comma all \
+  --parser babylon \
+  --write \
+  "{server.js,server.hot.js,{app,config}/**/*.js}"

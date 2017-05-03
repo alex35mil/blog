@@ -53,8 +53,7 @@ export default {
             options: {
               modules: true,
               importLoaders: 1,
-              localIdentName:
-                isDevelopment
+              localIdentName: isDevelopment
                 ? modules.devCssModuleClassName
                 : modules.prodCssModuleClassName,
             },

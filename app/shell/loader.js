@@ -22,8 +22,9 @@ type $ChunkResolvers = {|
   getWebpackId: () => string,
 |};
 
-export default (chunk: $ChunkResolvers) => Loadable({
-  loader: chunk.resolve,
-  webpackRequireWeakId: chunk.getWebpackId,
-  LoadingComponent,
-});
+export default (chunk: $ChunkResolvers) =>
+  Loadable({
+    loader: chunk.resolve,
+    webpackRequireWeakId: chunk.getWebpackId,
+    LoadingComponent,
+  });

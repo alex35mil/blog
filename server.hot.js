@@ -17,25 +17,29 @@ const compiler = webpack(buildConfig);
 
 server.use(historyApiFallback({ verbose: false }));
 
-server.use(webpackDevMiddleware(compiler, {
-  publicPath: buildConfig.output.publicPath,
-  headers: { 'Access-Control-Allow-Origin': '*' },
-  quiet: false,
-  noInfo: false,
-  lazy: false,
-  stats: { colors: true },
-}));
+server.use(
+  webpackDevMiddleware(compiler, {
+    publicPath: buildConfig.output.publicPath,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    quiet: false,
+    noInfo: false,
+    lazy: false,
+    stats: { colors: true },
+  }),
+);
 
 server.use(webpackHotMiddleware(compiler));
 
 // $FlowIgnoreMe
-server.listen(HOT_PORT, error => (
-  /* eslint-disable no-console */
-  error
-  ? console.log('=> OMG!!! 🙀 ', error)
-  : console.log('=> 🔥  HOT server is running on port', HOT_PORT)
+server.listen(
+  HOT_PORT,
+  error =>
+    /* eslint-disable no-console */
+    error
+      ? console.log('=> OMG!!! 🙀 ', error)
+      : console.log('=> 🔥  HOT server is running on port', HOT_PORT),
   /* eslint-enable no-console */
-));
+);
 
 compiler.plugin('done', () => {
   if (initialCompile) {

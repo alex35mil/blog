@@ -11,7 +11,7 @@ export const getChunks = (modules: Array<$ModuleId>): Array<$ChunkId> => {
   const manifest = require('../../../../public/assets/modules.manifest.json');
   const chunks = new Set();
 
-  modules.forEach((moduleId) => {
+  modules.forEach(moduleId => {
     const moduleChunks = manifest.find(module => module.id === moduleId).chunks;
     moduleChunks.forEach(chunkId => chunks.add(chunkId));
   });

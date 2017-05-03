@@ -16,10 +16,7 @@ export default (req: $Request, res: $Response) => {
   const context = {};
 
   const body = ReactDOMServer.renderToString(
-    <StaticRouter
-      location={req.url}
-      context={context}
-    >
+    <StaticRouter location={req.url} context={context}>
       <Routes />
     </StaticRouter>,
   );
