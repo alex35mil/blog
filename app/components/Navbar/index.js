@@ -7,7 +7,7 @@ import styles from './styles.css';
 
 export const Navbar = () => (
   <div className={styles.navbar}>
-    <Link to="/">main</Link>
+    <Link to="/blog">index</Link>
     <Link to="/">discuss</Link>
   </div>
 );

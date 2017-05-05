@@ -18,8 +18,18 @@ const Routes = () => (
         getWebpackId: () => require.resolveWeak('../pages/Main'),
       })}
     />
+    <Route
+      exact
+      path="/blog"
+      component={load({
+        resolve: () => import('../pages/Blog'),
+        // $FlowIgnoreMe: require.resolveWeak is webpack's method
+        getWebpackId: () => require.resolveWeak('../pages/Blog'),
+      })}
+    />
     {Object.keys(resolvers).map(postId => (
       <Route
+        exact
         key={postId}
         path={`/blog/${postId}`}
         component={withLoadedPostProps(postId, load(resolvers[postId]))}

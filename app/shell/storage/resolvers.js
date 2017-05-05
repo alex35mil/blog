@@ -8,12 +8,12 @@ type $Resolvers = { [slug: $PostId]: $ChunkResolvers };
 
 const resolvers: $Resolvers = {
   'test-post': {
-    resolve: () => import('../../pages/2017/TestPost'),
-    getWebpackId: () => require.resolveWeak('../../pages/2017/TestPost'),
+    resolve: () => import('../../pages/Blog/2017/TestPost'),
+    getWebpackId: () => require.resolveWeak('../../pages/Blog/2017/TestPost'),
   },
   'very-test-post': {
-    resolve: () => import('../../pages/2017/VeryTestPost'),
-    getWebpackId: () => require.resolveWeak('../../pages/2017/VeryTestPost'),
+    resolve: () => import('../../pages/Blog/2017/VeryTestPost'),
+    getWebpackId: () => require.resolveWeak('../../pages/Blog/2017/VeryTestPost'),
   },
 };
 
