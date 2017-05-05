@@ -11,7 +11,7 @@ export default {
   entry: { app: './server' },
 
   output: {
-    path: locations.serverBuildPath,
+    path: locations.buildPath,
     filename: '[name].js',
     libraryTarget: 'commonjs',
   },

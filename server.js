@@ -1,14 +1,16 @@
 /* @flow */
 
 import express from 'express';
+import favicon from 'serve-favicon';
 import path from 'path';
 
-import { WEB_PORT } from 'config';
+import { locations, WEB_PORT } from 'config';
 import App from 'app/shell/server/App';
 
 const server = express();
 
-server.use(express.static(path.join(process.cwd(), 'public')));
+server.use(express.static(locations.publicPath));
+server.use(favicon(path.join(locations.publicPath, 'favicon.ico')));
 server.use('/', App);
 
 server.listen(WEB_PORT, () => {

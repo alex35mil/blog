@@ -21,9 +21,9 @@ export const getChunks = (modules: Array<$ModuleId>): Array<$ChunkId> => {
 
 export const getAsset = (asset: string): string => {
   if (__DEV__) {
-    return `${locations.hotServerUrl}${locations.assetsPublicPath}${asset}`;
+    return `${locations.hotServerUrl}${locations.assetsPublicUrl}${asset}`;
   }
   // $FlowIgnoreMe: manifest is built by webpack
   const manifest = require('../../../../public/assets/assets.manifest.json');
-  return `${locations.assetsPublicPath}${manifest[asset]}`;
+  return `${locations.assetsPublicUrl}${manifest[asset]}`;
 };

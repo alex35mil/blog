@@ -16,8 +16,8 @@ export default {
   },
 
   output: {
-    path: locations.assetsServerPath,
-    publicPath: `${locations.hotServerUrl}${locations.assetsPublicPath}`,
+    path: locations.assetsPath,
+    publicPath: `${locations.hotServerUrl}${locations.assetsPublicUrl}`,
     filename: `${modules.devFilename}.js`,
     chunkFilename: `${modules.devChunkFilename}.js`,
   },
@@ -66,7 +66,7 @@ export default {
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new webpack.DefinePlugin({ __DEV__: true }),
     new ModulesManifestPlugin({
-      path: locations.assetsServerPath,
+      path: locations.assetsPath,
       filename: modules.modulesManifestFilename,
     }),
     new webpack.optimize.CommonsChunkPlugin({

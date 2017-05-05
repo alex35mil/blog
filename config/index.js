@@ -8,9 +8,10 @@ export const HOT_PORT = parseInt(process.env.HOT_PORT, 10);
 
 export const locations = {
   root: process.cwd(),
-  serverBuildPath: path.join(process.cwd(), 'build'),
-  assetsServerPath: path.join(process.cwd(), 'public', 'assets'),
-  assetsPublicPath: '/assets/',
+  buildPath: path.join(process.cwd(), 'build'),
+  publicPath: path.join(process.cwd(), 'public'),
+  assetsPath: path.join(process.cwd(), 'public', 'assets'),
+  assetsPublicUrl: '/assets/',
   hotServerUrl: `http://${HOSTNAME}:${HOT_PORT}`,
 };
 

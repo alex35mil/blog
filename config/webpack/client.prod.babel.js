@@ -1,8 +1,10 @@
 /* @flow */
 
 import webpack from 'webpack';
+import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import GzipPlugin from 'compression-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
 import AssetsManifestPlugin from './plugins/AssetsManifestPlugin';
 import ModulesManifestPlugin from './plugins/ModulesManifestPlugin';
@@ -15,8 +17,8 @@ export default {
   },
 
   output: {
-    path: locations.assetsServerPath,
-    publicPath: locations.assetsPublicPath,
+    path: locations.assetsPath,
+    publicPath: locations.assetsPublicUrl,
     filename: `${modules.prodFilename}.js`,
     chunkFilename: `${modules.prodChunkFilename}.js`,
   },
@@ -69,11 +71,11 @@ export default {
       allChunks: true,
     }),
     new AssetsManifestPlugin({
-      path: locations.assetsServerPath,
+      path: locations.assetsPath,
       filename: modules.assetsManifestFilename,
     }),
     new ModulesManifestPlugin({
-      path: locations.assetsServerPath,
+      path: locations.assetsPath,
       filename: modules.modulesManifestFilename,
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
@@ -107,6 +109,13 @@ export default {
       algorithm: 'gzip',
       regExp: /\.js$|\.css$/,
     }),
+    new CopyPlugin([
+      // favicon.ico
+      {
+        from: path.resolve(locations.root, 'app', 'styles', 'assets', 'favicon.ico'),
+        to: locations.publicPath,
+      },
+    ]),
     new webpack.LoaderOptionsPlugin({
       debug: false,
       minimize: true,

@@ -11,6 +11,7 @@ const Head = ({ styles }: $Props) => (
     <base href="/" />
     <title>alexfedoseev.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     {styles && <link rel="stylesheet" href={styles} />}
   </head>
 );

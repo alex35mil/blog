@@ -4,31 +4,37 @@ require('babel-register');
 
 const webpack = require('webpack');
 const nodemon = require('nodemon');
+const fsx = require('fs-extra');
 const cp = require('child_process');
-const fs = require('fs');
 const path = require('path');
 
+const { locations } = require('../config');
 const serverConfig = require('../config/webpack/server.babel').default;
 
-const root = process.cwd();
 const { NODE_ENV } = process.env;
 
 const isDevelopment = NODE_ENV !== 'production';
 
 const clean = () => {
   console.log('=> 🗑  Cleaning...');
-  const cleanScript = path.resolve(root, 'scripts', 'clean');
+  const cleanScript = path.resolve(locations.root, 'scripts', 'clean');
   cp.exec(cleanScript);
   console.log('=> 🗑  Cleaned');
 };
 
-const compileAndWatchServerBuild = (config) => {
+const copyFavicon = () => {
+  console.log('=> 🔖  Copying favicon...');
+  const src = path.resolve(locations.root, 'app', 'styles', 'assets', 'favicon.ico');
+  const dest = path.resolve(locations.publicPath, 'favicon.ico');
+  fsx.copySync(src, dest);
+  console.log('=> 🔖  Copied');
+};
+
+const compileAndWatchServerBuild = () => {
   console.log('=> 🔨  Compiling server development build...');
-
   let initialCompile = true;
-
   return new Promise(resolve => {
-    webpack(config).watch(null, (error, stats) => {
+    webpack(serverConfig).watch(null, (error, stats) => {
       if (error) return console.error(error);
 
       if (initialCompile) {
@@ -44,7 +50,7 @@ const compileAndWatchServerBuild = (config) => {
 
 const compileProductionBuilds = () => new Promise(resolve => {
   console.log('=> 🔨  Compiling production builds...');
-  const buildScript = path.resolve(root, 'scripts', 'build');
+  const buildScript = path.resolve(locations.root, 'scripts', 'build');
 
   cp
     .spawn(buildScript, [], { stdio: 'inherit' })
@@ -56,7 +62,7 @@ const compileProductionBuilds = () => new Promise(resolve => {
 
 const runHotServer = () => new Promise(resolve => {
   console.log('=> 🔥  Starting HOT server...');
-  const hotServer = path.resolve(root, 'scripts', 'start:hot');
+  const hotServer = path.resolve(locations.root, 'scripts', 'start:hot');
 
   cp
     .fork(hotServer)
@@ -69,21 +75,21 @@ const runHotServer = () => new Promise(resolve => {
 const runAppServer = () => {
   console.log('=> 🚀  Starting WEB server...');
 
-  const app = path.resolve(root, 'build', 'app.js');
-  const templates = path.resolve(root, 'app', 'shell', 'server', 'templates');
-  const manifest = path.resolve(root, 'public', 'assets', 'modules.manifest.json');
+  const app = path.resolve(locations.buildPath, 'app.js');
+  const templates = path.resolve(locations.root, 'app', 'shell', 'server', 'templates');
+  const manifest = path.resolve(locations.assetsPath, 'modules.manifest.json');
 
-  if (!fs.existsSync(app)) {
+  if (!fsx.existsSync(app)) {
     console.error(`🚨  Can't find app build at path: ${app}`);
     process.exit(1);
   }
 
-  if (!fs.existsSync(templates)) {
+  if (!fsx.existsSync(templates)) {
     console.error(`🚨  Can't find directory with server templates at path: ${templates}`);
     process.exit(1);
   }
 
-  if (!fs.existsSync(manifest)) {
+  if (!fsx.existsSync(manifest)) {
     console.error(`🚨  Can't find modules manifest at path: ${manifest}`);
     process.exit(1);
   }
@@ -98,7 +104,8 @@ const runAppServer = () => {
 const runDevelopment = async () => {
   await clean();
   await runHotServer();
-  await compileAndWatchServerBuild(serverConfig);
+  await copyFavicon();
+  await compileAndWatchServerBuild();
   await runAppServer();
 };
 
