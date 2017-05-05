@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import load from './loader';
 import resolvers from './storage/resolvers';
-import withPostProps from './withPostProps';
+import withLoadedPostProps from './withLoadedPostProps';
 
 const Routes = () => (
   <Switch>
@@ -22,7 +22,7 @@ const Routes = () => (
       <Route
         key={postId}
         path={`/blog/${postId}`}
-        component={withPostProps(postId, load(resolvers[postId]))}
+        component={withLoadedPostProps(postId, load(resolvers[postId]))}
       />
     ))}
   </Switch>

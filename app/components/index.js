@@ -5,3 +5,4 @@ export { P } from './P';
 export { Header } from './Header';
 export { Navbar } from './Navbar';
 export { Post } from './Post';
+export { ProgressBar } from './ProgressBar';
