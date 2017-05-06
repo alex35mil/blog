@@ -31,6 +31,7 @@ export default (req: $Request, res: $Response) => {
 
   const html = getHtml({
     body,
+    meta: context.meta,
     styles: __DEV__ ? null : getAsset('app.css'),
     scripts: {
       app: getAsset('app.js'),

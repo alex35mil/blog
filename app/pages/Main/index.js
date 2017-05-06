@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { ProgressBar } from 'app/components';
+import withPageMeta from 'app/shell/withPageMeta';
 
 import styles from './styles.css';
 
@@ -25,4 +26,8 @@ const Main = () => (
   </ProgressBar.Done>
 );
 
-export default Main;
+export default withPageMeta(Main, {
+  type: 'profile',
+  title: 'main',
+  description: 'Main page description',
+});

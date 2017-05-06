@@ -12,5 +12,7 @@ services:
     environment:
       NODE_ENV: "development"
       HOSTNAME: "alexfedoseev.dev"
+      SSL: "off"
       WEB_PORT: 3000
       HOT_PORT: 3500
+      FACEBOOK_APP_ID: "597319510289959"

@@ -2,9 +2,12 @@
 
 import path from 'path';
 
+export const PROTOCOL = process.env.SSL === 'off' ? 'http' : 'https';
 export const HOSTNAME = process.env.HOSTNAME;
+export const DOMAIN = `${PROTOCOL}://${HOSTNAME}`;
 export const WEB_PORT = parseInt(process.env.WEB_PORT, 10);
 export const HOT_PORT = parseInt(process.env.HOT_PORT, 10);
+export const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;
 
 export const locations = {
   root: process.cwd(),

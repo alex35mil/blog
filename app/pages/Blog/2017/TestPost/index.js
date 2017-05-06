@@ -5,6 +5,7 @@ import React from 'react';
 import type { $PostProps } from 'app/shell/types';
 
 import { Post, P } from 'app/components';
+import withPostMeta from 'app/shell/withPostMeta';
 
 const TestPost = (props: $PostProps) => (
   <Post {...props}>
@@ -38,4 +39,7 @@ const TestPost = (props: $PostProps) => (
   </Post>
 );
 
-export default TestPost;
+export default withPostMeta(TestPost, {
+  type: 'article',
+  description: 'Lorem ipsum dolor sit amet',
+});

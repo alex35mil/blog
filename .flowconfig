@@ -18,6 +18,8 @@ module.use_strict=true
 esproposal.class_instance_fields=enable
 esproposal.class_static_fields=enable
 
+module.file_ext=.js
+module.file_ext=.json
 module.file_ext=.css
 module.name_mapper.extension='css' -> 'CSSModule'
 

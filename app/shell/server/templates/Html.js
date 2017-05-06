@@ -3,11 +3,14 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
+import type { $Meta } from 'app/shell/types';
+
 import Head from './Head';
 import Body from './Body';
 
 type $Props = {|
   body: string,
+  meta: $Meta,
   styles: string | null,
   scripts: {|
     app: string,
@@ -17,9 +20,9 @@ type $Props = {|
   |},
 |};
 
-const Html = ({ body, scripts, styles }: $Props) => (
+const Html = ({ body, meta, scripts, styles }: $Props) => (
   <html lang="en">
-    <Head {...{ styles }} />
+    <Head {...{ meta, styles }} />
     <Body {...{ body, scripts }} />
   </html>
 );

@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { ProgressBar } from 'app/components';
+import withPageMeta from 'app/shell/withPageMeta';
 
 import posts from 'app/shell/storage/posts.json';
 
@@ -28,4 +29,8 @@ const Blog = () => (
   </ProgressBar.Done>
 );
 
-export default Blog;
+export default withPageMeta(Blog, {
+  type: 'website',
+  title: 'blog',
+  description: 'Blog page description',
+});
