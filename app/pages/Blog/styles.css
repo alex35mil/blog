@@ -31,6 +31,6 @@
   justify-content: flex-end;
   margin-right: 20px;
   width: 160px;
-  color: var(--gray);
+  color: var(--gray-text);
   font-size: .6em;
 }

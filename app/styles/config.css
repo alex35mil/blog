@@ -6,10 +6,17 @@
   --header-bg-color: #242729;
   --header-text-shadow: 0 0 6px #000;
 
-  --gray: #999;
+  --gray-text: #999;
+  --gray-line: #ebebeb;
+  --facebook: #3b5998;
+  --twitter: #00aced;
+  --github: #24292e;
 
   --content-width: 700px;
   --small-screen-paddings: 30px;
+
+  --transition-duration: .2s;
+  --transition-timing-function: ease-in-out;
 
   --font-size: 20px;
   --text-color: rgba(0, 0, 0, .8);

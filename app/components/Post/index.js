@@ -13,12 +13,12 @@ type $Props = $PostProps & {
   children?: React.Element<*>,
 };
 
-export const Post = ({ title, children: post }: $Props) => (
+export const Post = ({ title, date, children: post }: $Props) => (
   <section className={styles.post}>
     <Header>
       <H1>{title}</H1>
     </Header>
-    <Navbar />
+    <Navbar date={date} />
     {post}
   </section>
 );

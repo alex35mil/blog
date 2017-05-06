@@ -29,12 +29,59 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 20px;
-  padding: 20px;
-  border-left: 1px solid #eee;
+  margin-left: 30px;
+  padding: 30px;
+  border-left: 1px solid var(--gray-line);
+}
+
+.logo {
+  display: flex;
+  margin-bottom: 5px;
+  font-size: 1.2em;
 }
 
 .links {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   font-size: .8em;
-  color: #aaa;
+  color: var(--gray-text);
+}
+
+.item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.sep {
+  display: flex;
+  border: 0;
+  border-left: 1px solid var(--gray-line);
+  transform: rotate(15deg);
+}
+
+.twitter {
+  &:focus path,
+  &:hover path {
+    fill: var(--twitter);
+  }
+}
+
+.facebook {
+  &:focus path,
+  &:hover path {
+    fill: var(--facebook);
+  }
+}
+
+.github {
+  &:focus path,
+  &:hover path {
+    fill: var(--github);
+  }
 }

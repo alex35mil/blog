@@ -1,0 +1,13 @@
+@import "app/styles/config";
+
+.svg {
+  width: 16px;
+  height: 16px;
+
+  & path {
+    fill: var(--gray-text);
+    transition-property: fill;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+  }
+}

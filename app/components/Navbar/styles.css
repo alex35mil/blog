@@ -2,6 +2,7 @@
 
 :root {
   --bleed: 20px;
+  --icons-margins: 20px;
 }
 
 .navbar {
@@ -14,6 +15,25 @@
   width: calc(var(--content-width) + var(--bleed));
   padding: 20px var(--bleed);
   font-size: .6em;
+  border-bottom: 1px solid var(--gray-line);
+}
+
+.center {
+  color: var(--gray-text);
   text-transform: uppercase;
-  border-bottom: 1px solid #eee;
+}
+
+.leftSide .link {
+  margin-right: var(--icons-margins);
+}
+
+.rightSide .link {
+  margin-left: var(--icons-margins);
+}
+
+.link {
+  &:focus path,
+  &:hover path {
+    fill: #333;
+  }
 }
