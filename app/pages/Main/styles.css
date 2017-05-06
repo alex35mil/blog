@@ -51,11 +51,26 @@
   color: var(--gray-text);
 }
 
-.item {
+.link {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+}
+
+.blogLink {
+  transition: transform var(--transition-duration) var(--transition-timing-function);
+  background-color: #f00;
+  border-width: 2px 8px;
+  border-style: solid;
+  border-color: #f00;
+  color: #fff;
+
+  &:focus,
+  &:hover {
+    transform: rotate(-7deg) scale(1.1);
+  }
 }
 
 .sep {

@@ -1,10 +1,9 @@
 /* @flow */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
-import { ProgressBar } from 'app/components';
+import { Link, ProgressBar } from 'app/components';
 import * as Icon from 'app/components/Svg/icons';
 import withPageMeta from 'app/shell/withPageMeta';
 
@@ -20,20 +19,34 @@ const Main = () => (
             alex.fedoseev
           </div>
           <div className={styles.links}>
-            <Link to="/blog" className={styles.item}>blog</Link>
+            <Link to="/blog" className={cn(styles.link, styles.blogLink)}>
+              blog
+            </Link>
             <hr width="1" size="30" className={styles.sep} />
-            <a href="https://twitter.com/alexfedoseev" className={cn(styles.item, styles.twitter)}>
+            <Link
+              native
+              targetBlank
+              to="https://twitter.com/alexfedoseev"
+              className={cn(styles.link, styles.twitter)}
+            >
               <Icon.Twitter />
-            </a>
-            <a
-              href="https://www.facebook.com/alex.fedoseev"
-              className={cn(styles.item, styles.facebook)}
+            </Link>
+            <Link
+              native
+              targetBlank
+              to="https://www.facebook.com/alex.fedoseev"
+              className={cn(styles.link, styles.facebook)}
             >
               <Icon.Facebook />
-            </a>
-            <a href="https://github.com/alexfedoseev" className={cn(styles.item, styles.github)}>
+            </Link>
+            <Link
+              native
+              targetBlank
+              to="https://github.com/alexfedoseev"
+              className={cn(styles.link, styles.github)}
+            >
               <Icon.Github />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

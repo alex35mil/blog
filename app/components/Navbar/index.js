@@ -1,8 +1,8 @@
 /* @flow */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'app/components';
 import * as Icon from 'app/components/Svg/icons';
 
 import styles from './styles.css';
@@ -15,12 +15,12 @@ export const Navbar = ({ date }: $Props) => (
       <Link to="/" className={styles.link}>
         <Icon.Home />
       </Link>
-      <Link to="/blog" className={styles.link}>
-        <Icon.Posts />
-      </Link>
     </div>
     <div className={styles.center}>{date}</div>
     <div className={styles.rightSide}>
+      <Link to="/blog" className={styles.link}>
+        <Icon.Posts />
+      </Link>
       <Link to="/" className={styles.link}>
         <Icon.Discuss />
       </Link>

@@ -1,0 +1,6 @@
+@import "app/styles/config";
+
+.link {
+  transition: color var(--transition-duration) var(--transition-timing-function);
+  color: var(--text-color);
+}
