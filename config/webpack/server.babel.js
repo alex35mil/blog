@@ -14,6 +14,9 @@ export default {
     path: locations.buildPath,
     filename: '[name].js',
     libraryTarget: 'commonjs',
+    publicPath: isDevelopment
+      ? `${locations.hotServerUrl}${locations.assetsPublicUrl}`
+      : locations.assetsPublicUrl,
   },
 
   target: 'node',
@@ -60,6 +63,16 @@ export default {
           },
           'postcss-loader',
         ],
+      },
+      {
+        test: modules.image,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: modules.assetFilename,
+            emitFile: false,
+          },
+        },
       },
     ],
   },

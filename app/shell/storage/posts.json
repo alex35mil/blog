@@ -6,5 +6,9 @@
   "very-test-post": {
     "title": "Very Test Post",
     "date": "March 01, 2017"
+  },
+  "isomorphic-react-with-rails-part-i-planning-the-application": {
+    "title": "Isomorphic React with Rails: Part I",
+    "date": "September 12, 2015"
   }
 }

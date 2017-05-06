@@ -3,7 +3,7 @@
 .paragraph {
   @apply --serif-regular-font;
 
-  display: flex;
+  display: block;
   width: var(--content-width);
   margin-top: 20px;
 

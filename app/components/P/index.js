@@ -1,13 +1,17 @@
 /* @flow */
 
 import React from 'react';
+import cn from 'classnames';
 
 import styles from './styles.css';
 
-type $Props = {| children?: React.Element<*> |};
+type $Props = {|
+  className?: string,
+  children?: React.Element<*>,
+|};
 
-export const P = ({ children }: $Props) => (
-  <p className={styles.paragraph}>
+export const P = ({ className, children }: $Props) => (
+  <p className={cn(styles.paragraph, className)}>
     {children}
   </p>
 );

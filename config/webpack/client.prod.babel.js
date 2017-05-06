@@ -64,7 +64,8 @@ export default {
         test: modules.image,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: modules.assetInlineLimit,
+          name: modules.assetFilename,
         },
       },
     ],

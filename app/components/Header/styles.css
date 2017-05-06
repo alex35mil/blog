@@ -12,8 +12,28 @@
   background-color: var(--header-bg-color);
   color: #fff;
   text-shadow: var(--header-text-shadow);
+  transition: height var(--transition-duration) var(--transition-timing-function);
 
   @media (--small-screen) {
     height: 100vh;
   }
+}
+
+.cover {
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 8em #000;
+}
+
+.overlay {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .4);
+  width: 100%;
+  height: 100%;
 }

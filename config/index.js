@@ -28,10 +28,13 @@ export const modules = {
   devChunkFilename: '[id]',
   prodFilename: '[name].[chunkhash]',
   prodChunkFilename: '[id].[chunkhash]',
+  assetFilename: '[hash].[ext]',
 
   devCssModuleClassName: '[path]__[local]__[hash:base64:5]',
   prodCssModuleClassName: '[hash:base64]',
 
   modulesManifestFilename: 'modules.manifest.json',
   assetsManifestFilename: 'assets.manifest.json',
+
+  assetInlineLimit: 10000,
 };

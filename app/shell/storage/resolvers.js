@@ -15,6 +15,12 @@ const resolvers: $Resolvers = {
     resolve: () => import('../../pages/Blog/2017/VeryTestPost'),
     getWebpackId: () => require.resolveWeak('../../pages/Blog/2017/VeryTestPost'),
   },
+
+  // 2015
+  'isomorphic-react-with-rails-part-i-planning-the-application': {
+    resolve: () => import('../../pages/Blog/2015/IsomorphicReactWithRailsPartI'),
+    getWebpackId: () => require.resolveWeak('../../pages/Blog/2015/IsomorphicReactWithRailsPartI'),
+  },
 };
 
 export default resolvers;

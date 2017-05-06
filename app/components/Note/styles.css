@@ -1,0 +1,6 @@
+@import "app/styles/config";
+
+.note {
+  font-style: italic;
+  color: var(--gray-text);
+}

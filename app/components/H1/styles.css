@@ -4,6 +4,7 @@
   @apply --sans-bold-font;
 
   display: flex;
+  position: relative; /* Required for h1 to be above overlay */
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
