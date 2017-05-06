@@ -60,6 +60,13 @@ export default {
           ],
         }),
       },
+      {
+        test: modules.image,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+        },
+      },
     ],
   },
 

@@ -27,7 +27,7 @@ const Main = () => (
               native
               targetBlank
               to="https://twitter.com/alexfedoseev"
-              className={cn(styles.link, styles.twitter)}
+              className={cn(styles.link, styles.iconLink, styles.twitter)}
             >
               <Icon.Twitter />
             </Link>
@@ -35,7 +35,7 @@ const Main = () => (
               native
               targetBlank
               to="https://www.facebook.com/alex.fedoseev"
-              className={cn(styles.link, styles.facebook)}
+              className={cn(styles.link, styles.iconLink, styles.facebook)}
             >
               <Icon.Facebook />
             </Link>
@@ -43,7 +43,7 @@ const Main = () => (
               native
               targetBlank
               to="https://github.com/alexfedoseev"
-              className={cn(styles.link, styles.github)}
+              className={cn(styles.link, styles.iconLink, styles.github)}
             >
               <Icon.Github />
             </Link>

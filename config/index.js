@@ -22,6 +22,7 @@ export const modules = {
   jsModule: /\.js$/,
   cssModule: /\.css$/,
   minifiedJs: /\.min\.js$/,
+  image: [/\.jpe?g$/, /\.png$/],
 
   devFilename: '[name]',
   devChunkFilename: '[id]',
