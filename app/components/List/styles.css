@@ -1,0 +1,23 @@
+@import "app/styles/config";
+
+.list {
+  @apply --serif-regular-font;
+
+  display: block;
+  width: var(--content-width);
+  margin-top: 20px;
+  padding: 0 0 0 calc(var(--font-size) + 30px);
+
+  @media (--small-screen) {
+    width: 100%;
+    padding: 0 var(--small-screen-paddings);
+  }
+}
+
+.item {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

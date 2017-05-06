@@ -16,7 +16,7 @@ type $Props = {
 };
 
 export const Link = ({ to, native, targetBlank, className, children, ...otherProps }: $Props) =>
-  native
+  native || targetBlank
     ? <a
         {...otherProps}
         href={to}

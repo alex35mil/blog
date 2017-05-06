@@ -1,0 +1,17 @@
+@import "app/styles/config";
+
+.h3 {
+  @apply --sans-regular-font;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: 20px 0 10px;
+  width: var(--content-width);
+  font-size: 24px;
+  color: #777;
+
+  & + p {
+    margin-top: 0;
+  }
+}

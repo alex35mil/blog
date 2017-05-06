@@ -1,0 +1,23 @@
+@import "app/styles/config";
+
+.figure {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 10px 0;
+}
+
+.type--fill {
+  width: var(--content-width);
+
+  & img {
+    width: 100%;
+  }
+}
+
+.type--bleed {
+  width: calc(var(--content-width) + 210px);
+
+  & img {
+    width: 100%;
+  }
+}
