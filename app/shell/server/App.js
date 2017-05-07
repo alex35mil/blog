@@ -32,7 +32,10 @@ export default (req: $Request, res: $Response) => {
   const html = getHtml({
     body,
     meta: context.meta,
-    styles: __DEV__ ? null : getAsset('app.css'),
+    styles: {
+      app: __DEV__ ? null : getAsset('app.css'),
+      vendor: __DEV__ ? null : getAsset('vendor.css'),
+    },
     scripts: {
       app: getAsset('app.js'),
       vendor: getAsset('vendor.js'),

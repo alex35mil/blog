@@ -22,8 +22,11 @@ export default {
   target: 'node',
   externals: [
     // 'react-loadable' is stateful and must be included in the build
-    // to handle SSR + code splitting properly
-    getNodeExternals({ whitelist: ['react-loadable'] }),
+    // to handle SSR + code splitting properly.
+    // Also, we don't want requiring external css on the server.
+    getNodeExternals({
+      whitelist: ['react-loadable', /.*\.css$/],
+    }),
   ],
   node: {
     __dirname: true,
@@ -50,6 +53,7 @@ export default {
       },
       {
         test: modules.cssModule,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'css-loader/locals',
@@ -63,6 +67,11 @@ export default {
           },
           'postcss-loader',
         ],
+      },
+      {
+        test: modules.cssModule,
+        include: /node_modules/,
+        use: 'css-loader/locals',
       },
       {
         test: modules.image,

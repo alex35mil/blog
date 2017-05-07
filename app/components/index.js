@@ -10,6 +10,8 @@ export { Link } from './Link';
 export { List } from './List';
 export { Note } from './Note';
 export { Image } from './Image';
+export { Code } from './Code';
+export { CodeBlock } from './CodeBlock';
 export { Header } from './Header';
 export { Navbar } from './Navbar';
 export { Post } from './Post';

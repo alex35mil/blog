@@ -2,14 +2,11 @@
 
 import React from 'react';
 
+import type { $Scripts } from './Html';
+
 type $Props = {|
   body: string,
-  scripts: {|
-    app: string,
-    vendor: string,
-    manifest: string,
-    chunks: Array<string>,
-  |},
+  scripts: $Scripts,
 |};
 
 const Body = ({ body, scripts }: $Props) => (

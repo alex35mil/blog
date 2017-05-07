@@ -11,6 +11,16 @@ import ModulesManifestPlugin from './plugins/ModulesManifestPlugin';
 
 import { locations, modules } from '../index';
 
+const appStyles = new ExtractTextPlugin({
+  filename: 'app.[contenthash].css',
+  allChunks: true,
+});
+
+const vendorStyles = new ExtractTextPlugin({
+  filename: 'vendor.[contenthash].css',
+  allChunks: true,
+});
+
 export default {
   entry: {
     app: './app/shell/client/start.prod',
@@ -45,7 +55,8 @@ export default {
       },
       {
         test: modules.cssModule,
-        use: ExtractTextPlugin.extract({
+        exclude: /node_modules/,
+        use: appStyles.extract({
           fallback: 'style-loader',
           use: [
             {
@@ -61,6 +72,14 @@ export default {
         }),
       },
       {
+        test: modules.cssModule,
+        include: /node_modules/,
+        use: vendorStyles.extract({
+          fallback: 'style-loader',
+          use: 'css-loader',
+        }),
+      },
+      {
         test: modules.image,
         loader: 'url-loader',
         options: {
@@ -72,12 +91,10 @@ export default {
   },
 
   plugins: [
+    appStyles,
+    vendorStyles,
     // required to have consistend module ids
     new webpack.HashedModuleIdsPlugin(),
-    new ExtractTextPlugin({
-      filename: `${modules.prodFilename}.css`,
-      allChunks: true,
-    }),
     new AssetsManifestPlugin({
       path: locations.assetsPath,
       filename: modules.assetsManifestFilename,

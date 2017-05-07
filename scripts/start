@@ -15,6 +15,12 @@ const { NODE_ENV } = process.env;
 
 const isDevelopment = NODE_ENV !== 'production';
 
+if (isDevelopment) {
+  console.log(`=> 🚧  Starting ${NODE_ENV} environment...`);
+} else {
+  console.log(`=> 🌎  Starting ${NODE_ENV} environment...`);
+}
+
 const clean = () => {
   console.log('=> 🗑  Cleaning...');
   const cleanScript = path.resolve(locations.root, 'scripts', 'clean');

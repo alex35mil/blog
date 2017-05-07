@@ -3,12 +3,13 @@
 import React from 'react';
 
 import type { $Meta } from 'app/shell/types';
+import type { $Styles } from './Html';
 
 import { DOMAIN, FACEBOOK_APP_ID } from 'config';
 
 type $Props = {|
   meta: $Meta,
-  styles: string | null,
+  styles: $Styles,
 |};
 
 const Head = ({ meta, styles }: $Props) => (
@@ -34,7 +35,8 @@ const Head = ({ meta, styles }: $Props) => (
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="image_src" href={`${DOMAIN}/images/apple-touch-icon.png`} />
 
-    {styles && <link rel="stylesheet" href={styles} />}
+    {styles.app && <link rel="stylesheet" href={styles.app} />}
+    {styles.vendor && <link rel="stylesheet" href={styles.vendor} />}
   </head>
 );
 

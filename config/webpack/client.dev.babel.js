@@ -42,6 +42,7 @@ export default {
       },
       {
         test: modules.cssModule,
+        exclude: /node_modules/,
         use: [
           'style-loader',
           {
@@ -54,6 +55,11 @@ export default {
           },
           'postcss-loader',
         ],
+      },
+      {
+        test: modules.cssModule,
+        include: /node_modules/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: modules.image,

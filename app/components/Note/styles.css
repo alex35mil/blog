@@ -1,6 +1,7 @@
 @import "app/styles/config";
 
 .note {
+  width: calc(var(--content-width) - 80px);
   font-style: italic;
   color: var(--gray-text);
 }

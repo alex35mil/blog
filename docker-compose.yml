@@ -10,7 +10,7 @@ services:
       - "80:3000"
       - "3500:3500"
     environment:
-      NODE_ENV: "development"
+      NODE_ENV: "${NODE_ENV:-development}"
       HOSTNAME: "alexfedoseev.dev"
       SSL: "off"
       WEB_PORT: 3000

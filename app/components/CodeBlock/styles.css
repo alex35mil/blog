@@ -1,0 +1,36 @@
+@import "app/styles/config";
+
+.pre {
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 0 !important;
+  width: 100%;
+  font-size: 16px;
+}
+
+.code {
+  width: var(--content-width);
+  font-family: var(--code-font);
+}
+
+.langBadge {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  background-color: #e7e7e7;
+  padding: 0 5px;
+  font-size: .9em;
+  text-transform: uppercase;
+}
+
+:global .token.operator,
+:global .token.entity,
+:global .token.url,
+:global .language-css .token.string,
+:global .style .token.string {
+    background: none !important;
+  }

@@ -24,6 +24,7 @@
 
   --sans-font: "Noto Sans", sans-serif;
   --serif-font: "Lora", serif;
+  --code-font: Monaco, Menlo, Consolas, Courier New, monospace;
 
   --sans-regular-font: {
     font-family: var(--sans-font);

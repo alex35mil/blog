@@ -4,7 +4,7 @@ import React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
-import { Post, H2, H3, P, B, I, Link, List, Note, Image } from 'app/components';
+import { Post, H2, H3, P, B, I, Link, List, Note, Image, Code, CodeBlock } from 'app/components';
 import withPostMeta from 'app/shell/withPostMeta';
 
 import coverImage from './images/cover.jpg';
@@ -148,7 +148,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       </List.Item>
       <List.Item>
         <I>my-app.com/api/*</I><br />
-        Except calls to `/api`, which are proxied to Rails API.
+        Except calls to <Code>/api</Code>, which are proxied to Rails API.
       </List.Item>
     </List>
     <P>
@@ -160,10 +160,113 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
     <P>
       Install <B>nginx</B>:
     </P>
+    <CodeBlock lang="bash">
+      brew install nginx
+    </CodeBlock>
+
+    <P>
+      Edit <B>nginx.conf</B>:
+    </P>
+    <CodeBlock lang="bash">
+      sudo $EDITOR /usr/local/etc/nginx/nginx.conf
+    </CodeBlock>
+
+    <P>
+      Extend <Code>http</Code> block in the config with upstreams:
+    </P>
+    <CodeBlock lang="nginx">
+      {`
+        http {
+          upstream app_proxy {
+            server lvh.me:3500;
+          }
+          upstream api_proxy {
+            server api.lvh.me:3000;
+          }
+          server {
+            listen 80;
+            server_name lvh.me;
+            location / {
+              proxy_set_header Host $http_host;
+              proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+              proxy_set_header X-NginX-Proxy true;
+              proxy_pass http://app_proxy;
+              proxy_redirect off;
+            }
+            location /api {
+              proxy_set_header Host api.lvh.me;
+              proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+              proxy_set_header X-NginX-Proxy true;
+              proxy_pass http://api_proxy/;
+              proxy_redirect off;
+            }
+          }
+          server {
+            listen 80;
+            server_name api.lvh.me;
+            location / {
+              proxy_set_header Host $http_host;
+              proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+              proxy_set_header X-NginX-Proxy true;
+              proxy_pass http://api_proxy;
+              proxy_redirect off;
+            }
+          }
+        }
+      `}
+    </CodeBlock>
+
+    <P>
+      Finally, run nginx:
+    </P>
+    <CodeBlock lang="bash">
+      sudo nginx
+    </CodeBlock>
+
+    <P>
+      Now you can visit <B><I>http://lvh.me</I></B> in your browser.
+      There will be nginx error message. It’s ok, because Node.js app is not yet running.
+    </P>
+
+    <P>
+      Stop nginx for now:
+    </P>
+    <CodeBlock lang="bash">
+      sudo nginx -s stop
+    </CodeBlock>
+
+    <H3>Hosts</H3>
+    <P>
+      Also, you may want to add <Code>lvh.me</Code> to <Code>hosts</Code> file
+      to avoid unnecessary roundtrips:
+    </P>
+    <CodeBlock lang="bash">
+      sudo $EDITOR /private/etc/hosts
+    </CodeBlock>
+
+    <P>And add:</P>
+    <CodeBlock>
+      {`
+        fe80::1%lo0   lvh.me
+        fe80::1%lo0   api.lvh.me
+
+        127.0.0.1     lvh.me
+        127.0.0.1     api.lvh.me
+      `}
+    </CodeBlock>
+
+    <H2>Conclusion</H2>
+    <P>
+      At this point we have a plan how to build the app.
+      Next time we’ll setup Rails API, which will be handling application’s data.
+    </P>
+
+    <P>Stay tuned!</P>
   </Post>
 );
 
 export default withPostMeta(IsomorphicReactWithRailsPartI, {
   type: 'article',
+  image: coverImage,
   description: 'Isomorphic JavaScript apps with React and Ruby on Rails as backend.',
 });
