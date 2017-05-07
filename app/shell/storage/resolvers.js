@@ -16,10 +16,20 @@ const resolvers: $Resolvers = {
     getWebpackId: () => require.resolveWeak('../../pages/Blog/2017/VeryTestPost'),
   },
 
+  // 2016
+  'yeoman-generator-es6': {
+    resolve: () => import('../../pages/Blog/2016/YoES6'),
+    getWebpackId: () => require.resolveWeak('../../pages/Blog/2016/YoES6'),
+  },
+
   // 2015
-  'isomorphic-react-with-rails-part-i-planning-the-application': {
-    resolve: () => import('../../pages/Blog/2015/IsomorphicReactWithRailsPartI'),
-    getWebpackId: () => require.resolveWeak('../../pages/Blog/2015/IsomorphicReactWithRailsPartI'),
+  'webpack-configs-declarative-way': {
+    resolve: () => import('../../pages/Blog/2015/WebpackDeclarative'),
+    getWebpackId: () => require.resolveWeak('../../pages/Blog/2015/WebpackDeclarative'),
+  },
+  'isomorphic-react-with-rails': {
+    resolve: () => import('../../pages/Blog/2015/IsomorphicReactWithRails'),
+    getWebpackId: () => require.resolveWeak('../../pages/Blog/2015/IsomorphicReactWithRails'),
   },
 };
 

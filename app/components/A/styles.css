@@ -3,4 +3,8 @@
 .link {
   transition: color var(--transition-duration) var(--transition-timing-function);
   color: var(--text-color);
+
+  & code {
+    text-decoration: underline;
+  }
 }

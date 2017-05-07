@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { Link, ProgressBar } from 'app/components';
+import { A, ProgressBar } from 'app/components';
 import withPageMeta from 'app/shell/withPageMeta';
 
 import posts from 'app/shell/storage/posts.json';
@@ -18,9 +18,9 @@ const Blog = () => (
             <div className={styles.date}>
               {posts[postId].date}
             </div>
-            <Link to={`/blog/${postId}`}>
+            <A internal href={`/blog/${postId}`}>
               {posts[postId].title}
-            </Link>
+            </A>
           </div>
         ))}
       </div>

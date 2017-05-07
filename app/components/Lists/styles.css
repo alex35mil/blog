@@ -5,7 +5,7 @@
 
   display: block;
   width: var(--content-width);
-  margin-top: 20px;
+  margin: 20px 0 15px;
   padding: 0 0 0 calc(var(--font-size) + 30px);
 
   @media (--small-screen) {

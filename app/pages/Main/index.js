@@ -3,7 +3,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Link, ProgressBar } from 'app/components';
+import { A, ProgressBar } from 'app/components';
 import * as Icon from 'app/components/Svg/icons';
 import withPageMeta from 'app/shell/withPageMeta';
 
@@ -19,34 +19,31 @@ const Main = () => (
             alex.fedoseev
           </div>
           <div className={styles.links}>
-            <Link to="/blog" className={cn(styles.link, styles.blogLink)}>
+            <A internal href="/blog" className={cn(styles.link, styles.blogLink)}>
               blog
-            </Link>
+            </A>
             <hr width="1" size="30" className={styles.sep} />
-            <Link
-              native
+            <A
+              href="https://twitter.com/alexfedoseev"
               targetBlank
-              to="https://twitter.com/alexfedoseev"
               className={cn(styles.link, styles.iconLink, styles.twitter)}
             >
               <Icon.Twitter />
-            </Link>
-            <Link
-              native
+            </A>
+            <A
+              href="https://www.facebook.com/alex.fedoseev"
               targetBlank
-              to="https://www.facebook.com/alex.fedoseev"
               className={cn(styles.link, styles.iconLink, styles.facebook)}
             >
               <Icon.Facebook />
-            </Link>
-            <Link
-              native
+            </A>
+            <A
+              href="https://github.com/alexfedoseev"
               targetBlank
-              to="https://github.com/alexfedoseev"
               className={cn(styles.link, styles.iconLink, styles.github)}
             >
               <Icon.Github />
-            </Link>
+            </A>
           </div>
         </div>
       </div>

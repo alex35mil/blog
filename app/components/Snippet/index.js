@@ -17,7 +17,7 @@ type $Props = {|
   children?: React.Element<*>,
 |};
 
-export const CodeBlock = ({ lang, children }: $Props) => (
+export const Snippet = ({ lang, children }: $Props) => (
   <pre className={cn(styles.pre, lang ? `language-${lang}` : 'language-none')}>
     {lang
       ? <code

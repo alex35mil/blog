@@ -7,8 +7,16 @@
     "title": "Very Test Post",
     "date": "March 01, 2017"
   },
-  "isomorphic-react-with-rails-part-i-planning-the-application": {
-    "title": "Isomorphic React with Rails: Part I",
+  "yeoman-generator-es6": {
+    "title": "Yo, ES6",
+    "date": "January 11, 2016"
+  },
+  "webpack-configs-declarative-way": {
+    "title": "Webpack Declarative",
+    "date": "November 06, 2015"
+  },
+  "isomorphic-react-with-rails": {
+    "title": "Isomorphic React with Rails",
     "date": "September 12, 2015"
   }
 }
