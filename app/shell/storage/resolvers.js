@@ -8,6 +8,15 @@ type $Resolvers = { [year: string]: { [slug: $PostId]: $ChunkResolvers } };
 
 const resolvers: $Resolvers = {
   2017: {
+    'redux-tree': {
+      resolve: () => import('../../pages/Blog/2017/ReduxTree'),
+      getWebpackId: () => require.resolveWeak('../../pages/Blog/2017/ReduxTree'),
+    },
+    'enums-using-immutable-records-and-flow': {
+      resolve: () => import('../../pages/Blog/2017/EnumsUsingImmutableRecordsAndFlow'),
+      getWebpackId: () =>
+        require.resolveWeak('../../pages/Blog/2017/EnumsUsingImmutableRecordsAndFlow'),
+    },
     'year-of-development-with-redux-part-iii': {
       resolve: () => import('../../pages/Blog/2017/YearOfDevelopmentWithReduxPartIII'),
       getWebpackId: () =>

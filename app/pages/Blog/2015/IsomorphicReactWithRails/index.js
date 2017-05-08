@@ -14,7 +14,14 @@ import corsImage from './images/02-cors.png';
 import proxyImage from './images/03-proxy.png';
 
 const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
-  <Post cover={coverImage} {...props}>
+  <Post
+    {...props}
+    cover={coverImage}
+    credit={{
+      author: 'Blueprint of Victory',
+      url: 'https://commons.wikimedia.org/wiki/File:Blueprint_of_Victory_-_NARA_-_534555.jpg',
+    }}
+  >
     <P>
       I’d like to share intermediate results of my work with
       Universal (aka “Isomorphic”) JavaScript apps, based on

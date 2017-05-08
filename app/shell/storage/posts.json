@@ -1,5 +1,13 @@
 {
   "2017": {
+    "redux-tree": {
+      "title": "Redux Tree",
+      "date": "March 18"
+    },
+    "enums-using-immutable-records-and-flow": {
+      "title": "Bulletproof Enums using Immutable Records and Flow",
+      "date": "March 13"
+    },
     "year-of-development-with-redux-part-iii": {
       "title": "A Year of development with Redux. Part III",
       "date": "February 28"
