@@ -1,22 +1,40 @@
 {
-  "test-post": {
-    "title": "Test Post",
-    "date": "April 01, 2017"
+  "2017": {
+    "year-of-development-with-redux-part-iii": {
+      "title": "A Year of development with Redux. Part III",
+      "date": "February 28"
+    },
+    "year-of-development-with-redux-part-ii": {
+      "title": "A Year of development with Redux. Part II",
+      "date": "January 20"
+    },
+    "year-of-development-with-redux-part-i": {
+      "title": "A Year of development with Redux. Part I",
+      "date": "January 10"
+    }
   },
-  "very-test-post": {
-    "title": "Very Test Post",
-    "date": "March 01, 2017"
+  "2016": {
+    "number-one-thing-that-kills-your-productivity": {
+      "title": "#1 thing that kills your productivity",
+      "date": "December 04"
+    },
+    "code-diet": {
+      "title": "Code diet",
+      "date": "November 28"
+    },
+    "yeoman-generator-es6": {
+      "title": "Yo, ES6",
+      "date": "January 11"
+    }
   },
-  "yeoman-generator-es6": {
-    "title": "Yo, ES6",
-    "date": "January 11, 2016"
-  },
-  "webpack-configs-declarative-way": {
-    "title": "Webpack Declarative",
-    "date": "November 06, 2015"
-  },
-  "isomorphic-react-with-rails": {
-    "title": "Isomorphic React with Rails",
-    "date": "September 12, 2015"
+  "2015": {
+    "webpack-configs-declarative-way": {
+      "title": "Webpack Declarative",
+      "date": "November 06"
+    },
+    "isomorphic-react-with-rails": {
+      "title": "Isomorphic React with Rails",
+      "date": "September 12"
+    }
   }
 }

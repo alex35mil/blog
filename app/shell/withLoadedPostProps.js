@@ -15,12 +15,18 @@ type $Props = {
   staticContext?: $StaticContext,
 };
 
-const withLoadedPostProps = (postId: string, Post: () => React.Element<*>) => ({
+const withLoadedPostProps = (year: string, postId: string, Post: () => React.Element<*>) => ({
   location,
   staticContext,
 }: $Props) => (
   <ProgressBar.Done>
-    <Post slug={postId} location={location} staticContext={staticContext} {...posts[postId]} />
+    <Post
+      year={year}
+      slug={postId}
+      location={location}
+      staticContext={staticContext}
+      {...posts[year][postId]}
+    />
   </ProgressBar.Done>
 );
 

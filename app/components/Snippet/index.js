@@ -14,11 +14,16 @@ import styles from './styles.css';
 
 type $Props = {|
   lang?: 'js' | 'jsx' | 'bash' | 'nginx',
+  file?: string,
   children?: React.Element<*>,
 |};
 
-export const Snippet = ({ lang, children }: $Props) => (
-  <pre className={cn(styles.pre, lang ? `language-${lang}` : 'language-none')}>
+export const Snippet = ({ lang, file, children }: $Props) => (
+  <pre
+    className={cn(styles.pre, lang ? `language-${lang}` : 'language-none', {
+      [styles.pushABit]: file,
+    })}
+  >
     {lang
       ? <code
           className={cn(styles.code, `language-${lang}`)}
@@ -30,9 +35,16 @@ export const Snippet = ({ lang, children }: $Props) => (
       : <code className={cn(styles.code, 'language-none')}>
           {stripIndent`${children}`}
         </code>}
-    {lang &&
-      <div className={styles.langBadge}>
-        {lang === 'jsx' ? 'js' : lang}
+    {(lang || file) &&
+      <div className={styles.badges}>
+        {lang &&
+          <div className={cn(styles.badge, styles.langBadge)}>
+            {lang === 'jsx' ? 'js' : lang}
+          </div>}
+        {file &&
+          <div className={cn(styles.badge, styles.fileBadge)}>
+            {file}
+          </div>}
       </div>}
   </pre>
 );

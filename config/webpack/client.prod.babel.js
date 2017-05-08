@@ -87,6 +87,13 @@ export default {
           name: modules.assetFilename,
         },
       },
+      {
+        test: modules.animatedGif,
+        loader: 'file-loader',
+        options: {
+          name: modules.assetFilename,
+        },
+      },
     ],
   },
 

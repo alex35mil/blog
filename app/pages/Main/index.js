@@ -3,6 +3,8 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { routes } from 'app/shell/routes';
+
 import { A, ProgressBar } from 'app/components';
 import * as Icon from 'app/components/Svg/icons';
 import withPageMeta from 'app/shell/withPageMeta';
@@ -19,7 +21,7 @@ const Main = () => (
             alex.fedoseev
           </div>
           <div className={styles.links}>
-            <A internal href="/blog" className={cn(styles.link, styles.blogLink)}>
+            <A internal href={routes.blog()} className={cn(styles.link, styles.blogLink)}>
               blog
             </A>
             <hr width="1" size="30" className={styles.sep} />
@@ -54,5 +56,5 @@ const Main = () => (
 export default withPageMeta(Main, {
   type: 'profile',
   title: 'main',
-  description: 'Main page description',
+  description: 'alex.fedoseev',
 });

@@ -76,9 +76,7 @@
 .blogLink {
   transition: transform var(--transition-duration) var(--transition-timing-function);
   background-color: #f00;
-  border-width: 2px 8px;
-  border-style: solid;
-  border-color: #f00;
+  padding: 2px 8px;
   color: #fff;
 
   &:focus,

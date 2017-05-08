@@ -1,0 +1,22 @@
+@import "app/styles/config";
+
+:root {
+  --divider-space: 30px;
+}
+
+.divider {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  border: 0;
+
+  &:after {
+    display: inline-flex;
+    margin-left: -var(--divider-space);
+    letter-spacing: var(--divider-space);
+    content: "...";
+    color: var(--gray-text);
+  }
+}

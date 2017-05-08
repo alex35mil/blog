@@ -11,6 +11,7 @@ export type $PostData = {|
 
 export type $PostProps = {|
   title: string,
+  year: string,
   date: string,
   slug: $PostId,
 |};

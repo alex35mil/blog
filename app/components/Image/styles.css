@@ -3,7 +3,17 @@
 .figure {
   display: flex;
   flex-flow: column nowrap;
-  margin: 10px 0;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.type--center {
+  width: var(--content-width);
+
+  & img {
+    width: auto;
+    max-width: 90%;
+  }
 }
 
 .type--fill {

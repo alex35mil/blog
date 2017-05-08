@@ -3,5 +3,10 @@
 .note {
   width: calc(var(--content-width) - 80px);
   font-style: italic;
-  color: var(--gray-text);
+
+  &,
+  & a,
+  & code {
+    color: var(--gray-text);
+  }
 }

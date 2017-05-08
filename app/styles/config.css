@@ -44,4 +44,11 @@
     font-style: normal;
     letter-spacing: .005rem;
   }
+
+  --serif-italic-font: {
+    font-family: var(--serif-font);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: .005rem;
+  }
 }

@@ -10,6 +10,7 @@ import styles from './styles.css';
 
 type $Props = {
   title: string,
+  year: string,
   date: string,
   slug: string,
   // ...$PostProps,
@@ -17,12 +18,12 @@ type $Props = {
   children?: React.Element<*>,
 };
 
-export const Post = ({ title, date, cover, children: post }: $Props) => (
+export const Post = ({ title, year, date, cover, children: post }: $Props) => (
   <section className={styles.post}>
     <Header cover={cover}>
       <H1>{title}</H1>
     </Header>
-    <Navbar date={date} />
+    <Navbar year={year} date={date} />
     {post}
   </section>
 );

@@ -1,5 +1,15 @@
 @import "app/styles/config";
 
+:root {
+  --right-side: {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    margin-right: 20px;
+    width: 160px;
+  }
+}
+
 .posts {
   display: flex;
   flex-flow: column nowrap;
@@ -19,6 +29,31 @@
   min-height: 100vh;
 }
 
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  @apply --right-side;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.blog {
+  background-color: #f00;
+  padding: 2px 8px;
+  color: #fff;
+}
+
+.year {
+  margin-bottom: 20px;
+}
+
 .post {
   display: flex;
   flex-flow: row nowrap;
@@ -26,11 +61,12 @@
 }
 
 .date {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  margin-right: 20px;
-  width: 160px;
+  @apply --right-side;
+
   color: var(--gray-text);
   font-size: .6em;
+}
+
+.postLink {
+  font-size: .9em;
 }

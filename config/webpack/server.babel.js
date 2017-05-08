@@ -83,6 +83,16 @@ export default {
           },
         },
       },
+      {
+        test: modules.animatedGif,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: modules.assetFilename,
+            emitFile: false,
+          },
+        },
+      },
     ],
   },
 

@@ -1,5 +1,10 @@
 @import "app/styles/config";
 
+:root {
+  --snippet-padding: 20px;
+  --snippet-extra-padding: 40px;
+}
+
 .pre {
   display: flex;
   position: relative;
@@ -8,23 +13,54 @@
   justify-content: flex-start;
   margin: 20px 0 !important;
   width: 100%;
+  padding: var(--snippet-padding) !important;
   font-size: 16px;
+
+  & .badges {
+    top: -var(--snippet-padding);
+  }
+
+  &.pushABit {
+    padding-top: var(--snippet-extra-padding) !important;
+
+    & .badges {
+      top: -var(--snippet-extra-padding);
+    }
+  }
 }
 
 .code {
+  order: 2;
   width: var(--content-width);
   font-family: var(--code-font);
 }
 
-.langBadge {
+.badges {
+  display: flex;
+  position: relative;
+  order: 1;
+  z-index: 1;
+  width: var(--content-width);
+  pointer-events: none;
+}
+
+.badge {
   display: flex;
   position: absolute;
   top: 0;
-  right: 30px;
   background-color: #e7e7e7;
   padding: 0 5px;
   font-size: .9em;
+}
+
+.langBadge {
+  left: -30px;
+  transform: translateX(-100%);
   text-transform: uppercase;
+}
+
+.fileBadge {
+  left: 0;
 }
 
 :global .token.operator,

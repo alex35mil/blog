@@ -6,7 +6,7 @@ import cn from 'classnames';
 import styles from './styles.css';
 
 type $Props = {|
-  type: 'fill' | 'bleed',
+  type: 'center' | 'fill' | 'bleed',
   src: string,
   alt?: string,
   caption?: string,

@@ -1,0 +1,69 @@
+@import "app/styles/config";
+
+:root {
+  --trigger-color: #29d;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.labelWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: var(--content-width);
+}
+
+.label {
+  @apply --sans-regular-font;
+
+  display: flex;
+  position: relative;
+  margin: 0 7px 0 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  padding: 0;
+  font-size: 1em;
+  color: var(--trigger-color);
+  border-bottom: 1px dotted var(--trigger-color);
+  cursor: pointer;
+}
+
+.caret {
+  transition: transform var(--transition-duration) var(--transition-timing-function);
+}
+
+.caretDown {
+  transform: rotate(0deg);
+}
+
+.caretUp {
+  transform: rotate(180deg);
+}
+
+.contentWrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  background-color: #fafafa;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 30px 0;
+  width: 100%;
+}

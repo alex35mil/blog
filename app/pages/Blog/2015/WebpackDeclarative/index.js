@@ -5,7 +5,8 @@ import React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
-import { Post, H2, H3, P, B, I, Ul, Ol, Li, Snippet } from 'app/components';
+import { Post, H2, P, B, I, Ul, Ol, Li, Snippet } from 'app/components';
+
 import withPostMeta from 'app/shell/withPostMeta';
 
 const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
@@ -78,8 +79,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       First, let’s take a look at final configs and figure out how we can DRY them out.
     </P>
 
-    <H3>webpack.dev.config.js</H3>
-    <Snippet lang="js">
+    <Snippet lang="js" file="webpack.dev.config.js">
       {`
         import webpack from 'webpack';
         import path from 'path';
@@ -125,8 +125,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       `}
     </Snippet>
 
-    <H3>webpack.prod.config.js</H3>
-    <Snippet lang="js">
+    <Snippet lang="js" file="webpack.prod.config.js">
       {`
         import webpack from 'webpack';
         import ExtractText from 'extract-text-webpack-plugin';
@@ -174,8 +173,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       Let’s create <B>webpack.base.config.js</B> and inherit base stuff from it.
     </P>
 
-    <H3>webpack.base.config.js</H3>
-    <Snippet lang="js">
+    <Snippet lang="js" file="webpack.base.config.js">
       {`
         import path from 'path';
 
@@ -208,8 +206,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       Now we have all shared things in base config file. Let’s start inherit!
     </P>
 
-    <H3>webpack.dev.config.js</H3>
-    <Snippet lang="js">
+    <Snippet lang="js" file="webpack.dev.config.js">
       {`
         import webpack from 'webpack';
         import path from 'path';
@@ -244,8 +241,8 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
         export default config;
       `}
     </Snippet>
-    <H3>webpack.prod.config.js</H3>
-    <Snippet lang="js">
+
+    <Snippet lang="js" file="webpack.prod.config.js">
       {`
         import webpack from 'webpack';
         import ExtractText from 'extract-text-webpack-plugin';
@@ -291,8 +288,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       in another configs (whose shape will be preserved).
     </P>
 
-    <H3>config.js</H3>
-    <Snippet lang="js">
+    <Snippet lang="js" file="config.js">
       {`
         export const entryPoint = './path/to/app';
         export const vendorModules = ['react', 'react-dom'];
@@ -313,8 +309,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       `}
     </Snippet>
 
-    <H3>webpack.dev.config.js</H3>
-    <Snippet lang="js">
+    <Snippet lang="js" file="webpack.dev.config.js">
       {`
         import webpack from 'webpack';
 
@@ -358,8 +353,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       `}
     </Snippet>
 
-    <H3>webpack.prod.config.js</H3>
-    <Snippet lang="js">
+    <Snippet lang="js" file="webpack.prod.config.js">
       {`
         import webpack from 'webpack';
         import ExtractText from 'extract-text-webpack-plugin';

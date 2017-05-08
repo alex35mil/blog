@@ -1,0 +1,16 @@
+@import "app/styles/config";
+
+.highlight {
+  @apply --serif-italic-font;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: var(--content-width);
+  padding: 30px 0;
+  color: var(--gray-text);
+  font-size: 1.5em;
+  font-style: italic;
+  text-align: center;
+}

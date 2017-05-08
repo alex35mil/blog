@@ -5,6 +5,7 @@ import React from 'react';
 import type { $PostProps } from 'app/shell/types';
 
 import { Post, H2, H3, P, B, I, A, C, Ul, Ol, Li, Note, Image, Snippet } from 'app/components';
+
 import withPostMeta from 'app/shell/withPostMeta';
 
 import coverImage from './images/cover.jpg';
