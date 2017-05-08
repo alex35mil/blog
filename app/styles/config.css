@@ -18,37 +18,28 @@
   --transition-duration: .2s;
   --transition-timing-function: ease-in-out;
 
-  --font-size: 20px;
+  --regular-font-face: Menlo, Consolas, Courier New, monospace;
+  --headings-font-face: "Noto Sans", var(--regular-font-face);
+
+  --font-size: 18px;
   --text-color: rgba(0, 0, 0, .8);
   --line-height: 1.5;
 
-  --sans-font: "Noto Sans", sans-serif;
-  --serif-font: "Lora", serif;
-  --code-font: Monaco, Menlo, Consolas, Courier New, monospace;
-
-  --sans-regular-font: {
-    font-family: var(--sans-font);
+  --regular-font: {
+    font-family: var(--regular-font-face);
     font-weight: 400;
     font-style: normal;
   }
 
-  --sans-bold-font: {
-    font-family: var(--sans-font);
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  --serif-regular-font: {
-    font-family: var(--serif-font);
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: .005rem;
-  }
-
-  --serif-italic-font: {
-    font-family: var(--serif-font);
+  --regular-italic-font: {
+    font-family: var(--regular-font-face);
     font-weight: 400;
     font-style: italic;
-    letter-spacing: .005rem;
+  }
+
+  --heading-font: {
+    font-family: var(--headings-font-face);
+    font-weight: 700;
+    font-style: normal;
   }
 }

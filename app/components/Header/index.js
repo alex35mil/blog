@@ -31,7 +31,7 @@ export const Header = ({ cover, credit, children }: $Props) => (
     </div>
     {credit &&
       <div className={styles.credit}>
-        Artwork: <A href={credit.url} targetBlank>{credit.author}</A>
+        Artwork: <A unstyled href={credit.url} targetBlank>{credit.author}</A>
       </div>}
   </header>
 );

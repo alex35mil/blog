@@ -11,13 +11,15 @@ import withPageMeta from 'app/shell/withPageMeta';
 
 import styles from './styles.css';
 
+const years = Object.keys(posts).sort((a, b) => b - a);
+
 const Blog = () => (
   <ProgressBar.Done>
     <section className={styles.posts}>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.logo}>
-            <A internal href="/" className={styles.link}>
+            <A internal unstyled href="/" className={styles.link}>
               alex.fedoseev
             </A>
           </div>
@@ -25,15 +27,16 @@ const Blog = () => (
             blog
           </div>
         </div>
-        {Object.keys(posts).sort((a, b) => b - a).map(year => (
-          <div key={year} className={styles.year}>
+        {years.map(year => (
+          <div key={year} className={styles.yearPosts}>
             {Object.keys(posts[year]).map((postId, index) => (
               <div key={postId} className={styles.post}>
-                <div className={styles.date}>
+                <div className={styles.year}>
                   {index === 0 && year}
                 </div>
                 <A
                   internal
+                  unstyled
                   href={routes.post(year, postId)}
                   className={cn(styles.link, styles.postLink)}
                 >
@@ -43,6 +46,12 @@ const Blog = () => (
             ))}
           </div>
         ))}
+        <div className={styles.footer}>
+          <div className={styles.push} />
+          <div className={styles.copy}>
+            © {years[years.length - 1]}—{years[0]}
+          </div>
+        </div>
       </div>
     </section>
   </ProgressBar.Done>

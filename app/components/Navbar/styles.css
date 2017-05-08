@@ -13,8 +13,8 @@
   align-items: center;
   margin-bottom: 30px;
   width: calc(var(--content-width) + var(--bleed));
-  padding: 20px var(--bleed);
-  font-size: .6em;
+  padding: 14px var(--bleed);
+  font-size: .7em;
   border-bottom: 1px solid var(--gray-line);
 }
 

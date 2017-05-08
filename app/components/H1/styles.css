@@ -1,17 +1,18 @@
 @import "app/styles/config";
 
 .h1 {
-  @apply --sans-bold-font;
+  @apply --heading-font;
 
   display: flex;
   position: relative; /* Required for h1 to be above overlay */
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
-  font-size: 50px;
+  padding: 2em;
+  font-size: 3em;
   text-align: center;
 
   @media (--small-screen) {
-    font-size: 30px;
+    font-size: 1.5em;
   }
 }

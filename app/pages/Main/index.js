@@ -21,11 +21,12 @@ const Main = () => (
             alex.fedoseev
           </div>
           <div className={styles.links}>
-            <A internal href={routes.blog()} className={cn(styles.link, styles.blogLink)}>
+            <A internal unstyled href={routes.blog()} className={cn(styles.link, styles.blogLink)}>
               blog
             </A>
             <hr width="1" size="30" className={styles.sep} />
             <A
+              unstyled
               href="https://twitter.com/alexfedoseev"
               targetBlank
               className={cn(styles.link, styles.iconLink, styles.twitter)}
@@ -33,6 +34,7 @@ const Main = () => (
               <Icon.Twitter />
             </A>
             <A
+              unstyled
               href="https://www.facebook.com/alex.fedoseev"
               targetBlank
               className={cn(styles.link, styles.iconLink, styles.facebook)}
@@ -40,6 +42,7 @@ const Main = () => (
               <Icon.Facebook />
             </A>
             <A
+              unstyled
               href="https://github.com/alexfedoseev"
               targetBlank
               className={cn(styles.link, styles.iconLink, styles.github)}

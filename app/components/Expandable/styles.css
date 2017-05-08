@@ -22,7 +22,7 @@
 }
 
 .label {
-  @apply --sans-regular-font;
+  /*@apply --sans-regular-font;*/
 
   display: flex;
   position: relative;

@@ -55,5 +55,6 @@
 
   & a {
     color: var(--gray-text);
+    text-decoration: underline;
   }
 }

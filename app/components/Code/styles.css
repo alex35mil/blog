@@ -1,11 +1,6 @@
 @import "app/styles/config";
 
 .code {
-  display: inline-block;
-  padding: 1px 4px;
-  font-family: var(--code-font);
-  font-size: .75em;
-  color: #333;
-  background-color: #eee;
-  border-radius: 3px;
+  @apply --regular-italic-font;
+  color: color(var(--gray-text) b(+10%));
 }

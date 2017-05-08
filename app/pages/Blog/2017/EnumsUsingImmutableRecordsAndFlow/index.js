@@ -22,8 +22,8 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
         <C>flow</C>
       </A>{' '}
       in your projects, you can have statically type-checked Enums.
-      This means you’ll errors right in your editor and on CI
-      when you try to access an Enum property that is misspelled or doesn’t exist.
+      This means you’ll get errors right in your editor and on CI
+      if you try to access an Enum property that is misspelled or doesn’t exist.
     </P>
 
     <H2>Immutable Record</H2>

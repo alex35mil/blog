@@ -14,7 +14,8 @@
   margin: 20px 0 !important;
   width: 100%;
   padding: var(--snippet-padding) !important;
-  font-size: 16px;
+  font-family: var(--regular-font-face) !important;
+  font-size: 16px !important;
 
   & .badges {
     top: -var(--snippet-padding);
@@ -32,7 +33,8 @@
 .code {
   order: 2;
   width: var(--content-width);
-  font-family: var(--code-font);
+  font-family: var(--regular-font-face) !important;
+  line-height: 1.8 !important;
 }
 
 .badges {
@@ -49,7 +51,7 @@
   position: absolute;
   top: 0;
   background-color: #e7e7e7;
-  padding: 0 5px;
+  padding: 1px 7px;
   font-size: .9em;
 }
 

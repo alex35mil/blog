@@ -1,12 +1,12 @@
 @import "app/styles/config";
 
 .list {
-  @apply --serif-regular-font;
+  @apply --regular-font;
 
   display: block;
   width: var(--content-width);
   margin: 20px 0 15px;
-  padding: 0 0 0 calc(var(--font-size) + 30px);
+  padding: 0 0 0 calc(var(--font-size) * 2);
 
   @media (--small-screen) {
     width: 100%;
@@ -15,7 +15,7 @@
 }
 
 .item {
-  margin-top: 20px;
+  margin-top: 15px;
 
   &:first-child {
     margin-top: 0;

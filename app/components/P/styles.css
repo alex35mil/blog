@@ -1,7 +1,7 @@
 @import "app/styles/config";
 
 .paragraph {
-  @apply --serif-regular-font;
+  @apply --regular-font;
 
   display: block;
   width: var(--content-width);

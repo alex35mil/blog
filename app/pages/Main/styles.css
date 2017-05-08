@@ -61,7 +61,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  font-size: .8em;
+  font-size: .9em;
   color: var(--gray-text);
 }
 
@@ -93,6 +93,8 @@
 }
 
 .iconLink {
+  transition: fill var(--transition-duration) var(--transition-timing-function);
+
   &:focus,
   &:hover {
     transition-property: transform;

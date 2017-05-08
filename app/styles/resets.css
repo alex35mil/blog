@@ -24,7 +24,7 @@ input[type="submit"] {
   border: 0;
   cursor: pointer;
   line-height: var(--line-height);
-  font-family: var(--sans-font);
+  font-family: var(--regular-font-face);
 }
 
 a {

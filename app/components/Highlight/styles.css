@@ -1,7 +1,7 @@
 @import "app/styles/config";
 
 .highlight {
-  @apply --serif-italic-font;
+  @apply --regular-italic-font;
 
   display: flex;
   flex-flow: row nowrap;
@@ -13,4 +13,8 @@
   font-size: 1.5em;
   font-style: italic;
   text-align: center;
+
+  & a {
+    box-shadow: inset 0 -6px 0 0 #fff, inset 0 -7px 0 0 color(var(--text-color) l(+55%));
+  }
 }

@@ -9,14 +9,23 @@ import styles from './styles.css';
 type $Props = {
   href: string,
   internal?: boolean,
+  unstyled?: boolean,
   targetBlank?: boolean,
   className?: string,
   children?: React.Element<*>,
 };
 
-export const A = ({ href, internal, targetBlank, className, children, ...otherProps }: $Props) =>
+export const A = ({
+  href,
+  internal,
+  unstyled,
+  targetBlank,
+  className,
+  children,
+  ...otherProps
+}: $Props) =>
   internal
-    ? <RouterLink to={href} className={cn(styles.link, className)} {...otherProps}>
+    ? <RouterLink to={href} className={cn({ [styles.link]: !unstyled }, className)} {...otherProps}>
         {children}
       </RouterLink>
     : <a
@@ -24,7 +33,7 @@ export const A = ({ href, internal, targetBlank, className, children, ...otherPr
         href={href}
         target={targetBlank && '_blank'}
         rel={targetBlank && 'noopener noreferrer'}
-        className={cn(styles.link, className)}
+        className={cn({ [styles.link]: !unstyled }, className)}
       >
         {children}
       </a>;

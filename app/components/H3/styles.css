@@ -1,14 +1,15 @@
 @import "app/styles/config";
 
 .h3 {
-  @apply --sans-regular-font;
+  /*@apply --heading-font;*/
 
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  margin: 20px 0 10px;
+  margin: 30px 0 10px;
   width: var(--content-width);
-  font-size: 24px;
+  font-size: 1.2em;
+  font-weight: 700;
   color: #777;
 
   & + p {

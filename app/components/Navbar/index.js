@@ -17,19 +17,19 @@ type $Props = {|
 export const Navbar = ({ year, date }: $Props) => (
   <div className={styles.navbar}>
     <div className={styles.leftSide}>
-      <A internal href="/" className={styles.link}>
+      <A internal unstyled href="/" className={styles.link}>
         <Icon.Home />
       </A>
     </div>
     <div className={styles.center}>{date}, {year}</div>
     <div className={styles.rightSide}>
-      <A internal href={routes.blog()} className={styles.link}>
+      <A internal unstyled href={routes.blog()} className={styles.link}>
         <Icon.Posts />
       </A>
-      <A internal href="/" className={styles.link}>
+      <A internal unstyled href="/" className={styles.link}>
         <Icon.Discuss />
       </A>
-      <A internal href="/" className={styles.link}>
+      <A internal unstyled href="/" className={styles.link}>
         <Icon.Share />
       </A>
     </div>
