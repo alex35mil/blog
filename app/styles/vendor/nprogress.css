@@ -1,3 +1,5 @@
+@import "app/styles/z-indexes";
+
 :global #nprogress {
   pointer-events: none;
 }
@@ -6,7 +8,7 @@
   background: #29d;
 
   position: fixed;
-  z-index: 1031;
+  z-index: var(--z-index-progressbar);
   top: 0;
   left: 0;
 

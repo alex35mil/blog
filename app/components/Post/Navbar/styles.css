@@ -1,4 +1,5 @@
 @import "app/styles/config";
+@import "app/styles/z-indexes";
 
 :root {
   --navbar-height: 50px;
@@ -21,7 +22,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: var(--z-index-navbar);
   background-color: #fff;
   width: 100%;
   height: var(--navbar-height);
