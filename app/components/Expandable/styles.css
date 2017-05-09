@@ -1,7 +1,7 @@
 @import "app/styles/config";
 
 :root {
-  --trigger-color: #29d;
+  --trigger-color: var(--text-color);
 }
 
 .wrapper {
@@ -22,19 +22,11 @@
 }
 
 .label {
-  /*@apply --sans-regular-font;*/
-
   display: flex;
   position: relative;
   margin: 0 7px 0 0;
-  border: 0;
-  background: none;
-  appearance: none;
-  padding: 0;
-  font-size: 1em;
   color: var(--trigger-color);
   border-bottom: 1px dotted var(--trigger-color);
-  cursor: pointer;
 }
 
 .caret {

@@ -3,6 +3,7 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { Control } from 'app/components';
 import * as Icon from 'app/components/Svg/icons';
 
 import styles from './styles.css';
@@ -23,9 +24,9 @@ export class Expandable extends React.Component {
   render = () => (
     <div className={styles.wrapper}>
       <div className={styles.labelWrapper}>
-        <button type="button" className={styles.label} onClick={this.toggle}>
+        <Control className={styles.label} onClick={this.toggle}>
           {this.props.label}
-        </button>
+        </Control>
         <Icon.Caret
           className={cn(styles.caret, this.state.isExpanded ? styles.caretUp : styles.caretDown)}
         />

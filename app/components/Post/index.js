@@ -4,7 +4,9 @@ import React from 'react';
 
 // import type { $PostProps } from 'app/shell/types';
 
-import { Header, Navbar, H1 } from 'app/components';
+import { H1 } from 'app/components';
+import { Header } from './Header';
+import { Navbar } from './Navbar';
 
 import styles from './styles.css';
 
