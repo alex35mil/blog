@@ -14,6 +14,10 @@ export type $PostProps = {|
   year: string,
   date: string,
   slug: $PostId,
+  copyright: {|
+    start: string,
+    end: string,
+  |},
 |};
 
 export type $Meta = {|

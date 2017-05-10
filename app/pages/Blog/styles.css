@@ -43,7 +43,7 @@
 
 .link {
   transition-property: background-color, box-shadow, text-shadow;
-  transition-duration: .05s;
+  transition-duration: .03s;
   transition-timing-function: ease-in;
   box-shadow: none;
   text-shadow: none;

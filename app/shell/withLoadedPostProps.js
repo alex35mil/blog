@@ -15,6 +15,8 @@ type $Props = {
   staticContext?: $StaticContext,
 };
 
+const years = Object.keys(posts).sort();
+
 const withLoadedPostProps = (year: string, postId: string, Post: () => React.Element<*>) => ({
   location,
   staticContext,
@@ -25,6 +27,10 @@ const withLoadedPostProps = (year: string, postId: string, Post: () => React.Ele
       slug={postId}
       location={location}
       staticContext={staticContext}
+      copyright={{
+        start: years[0],
+        end: years[years.length - 1],
+      }}
       {...posts[year][postId]}
     />
   </ProgressBar.Done>
