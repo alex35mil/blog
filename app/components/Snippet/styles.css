@@ -9,6 +9,7 @@
 .pre {
   display: flex;
   position: relative;
+  z-index: var(--z-index-snippet);
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
