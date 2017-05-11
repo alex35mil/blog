@@ -1,5 +1,14 @@
 @import "app/styles/config";
 
+.section {
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
 .post {
   display: flex;
   position: relative;
@@ -7,4 +16,6 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  background-color: var(--bg-color);
+  padding-top: 30px;
 }

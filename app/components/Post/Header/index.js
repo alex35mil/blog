@@ -16,22 +16,10 @@ type $Props = {|
   children?: React.Element<*>,
 |};
 
-export const Header = ({ cover, credit, children }: $Props) => (
-  <header
-    className={cn(styles.header, { [styles.cover]: cover })}
-    style={
-      cover && {
-        backgroundImage: `url(${cover})`,
-      }
-    }
-  >
-    {cover && <div className={styles.overlay} />}
+export const Header = ({ credit, children }: $Props) => (
+  <header className={styles.header}>
     <div className={styles.title}>
       {children}
     </div>
-    {credit &&
-      <div className={styles.credit}>
-        Artwork: <A unstyled href={credit.url} targetBlank>{credit.author}</A>
-      </div>}
   </header>
 );

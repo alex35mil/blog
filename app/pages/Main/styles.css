@@ -1,6 +1,6 @@
 @import "app/styles/config";
 
-.main {
+.section {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;

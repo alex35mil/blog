@@ -44,4 +44,12 @@
     font-weight: 700;
     font-style: normal;
   }
+
+  --header-height: {
+    height: 75vh;
+
+    @media (--small-screen) {
+      height: 100vh;
+    }
+  }
 }

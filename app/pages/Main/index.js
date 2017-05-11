@@ -13,7 +13,7 @@ import styles from './styles.css';
 
 const Main = () => (
   <ProgressBar.Done>
-    <section className={styles.main}>
+    <section className={styles.section}>
       <div className={styles.hero}>
         <div className={styles.photo} />
         <div className={styles.text}>

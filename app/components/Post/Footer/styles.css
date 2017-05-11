@@ -1,5 +1,13 @@
 @import "app/styles/config";
 
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .footer {
   display: flex;
   flex-flow: row nowrap;

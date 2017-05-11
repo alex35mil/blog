@@ -15,7 +15,7 @@ const years = Object.keys(posts).sort((a, b) => b - a);
 
 const Blog = () => (
   <ProgressBar.Done>
-    <section className={styles.posts}>
+    <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.logo}>
