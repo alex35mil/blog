@@ -18,6 +18,8 @@ type $Props = {
   year: string,
   date: string,
   slug: string,
+  shareLink: string,
+  facebookAppId: string,
   copyright: {|
     start: string,
     end: string,
@@ -31,7 +33,17 @@ type $Props = {
   children?: React.Element<*>,
 };
 
-export const Post = ({ title, year, date, cover, credit, copyright, children: post }: $Props) => (
+export const Post = ({
+  title,
+  year,
+  date,
+  cover,
+  credit,
+  copyright,
+  shareLink,
+  facebookAppId,
+  children: post,
+}: $Props) => (
   <section className={styles.section}>
     <Cover cover={cover} credit={credit} />
     <Header>
@@ -41,7 +53,7 @@ export const Post = ({ title, year, date, cover, credit, copyright, children: po
     <div className={styles.post}>
       {post}
     </div>
-    <SocialSharing />
+    <SocialSharing title={title} shareLink={shareLink} facebookAppId={facebookAppId} />
     <Footer copyright={copyright} />
   </section>
 );

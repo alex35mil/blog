@@ -1,0 +1,61 @@
+@import "app/styles/config";
+@import "app/styles/z-indexes";
+
+:root {
+  --visible-opacity: .5;
+}
+
+.container {
+  display: flex;
+  width: calc(var(--content-width) + 300px);
+  margin: 0 auto;
+}
+
+.widget {
+  display: flex;
+  position: fixed;
+  z-index: var(--z-index-social-sharing);
+  top: 80px;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title,
+.shareButton,
+.shareIcon {
+  transition-property: transform, opacity;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.title {
+  font-size: .8em;
+  color: var(--gray-text);
+  opacity: var(--visible-opacity);
+  text-transform: uppercase;
+}
+
+.shareButton {
+  margin-top: 15px;
+
+  &:focus,
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.shareIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.visible {
+  opacity: var(--visible-opacity);
+  transform: scale(1);
+}

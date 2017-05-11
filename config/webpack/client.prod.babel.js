@@ -110,7 +110,7 @@ export default {
       path: locations.assetsPath,
       filename: modules.modulesManifestFilename,
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'SSL', 'HOSTNAME', 'FACEBOOK_APP_ID']),
     new webpack.DefinePlugin({ __DEV__: false }),
     new webpack.optimize.CommonsChunkPlugin({
       children: true,

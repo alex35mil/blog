@@ -14,6 +14,8 @@ export type $PostProps = {|
   year: string,
   date: string,
   slug: $PostId,
+  shareLink: string,
+  facebookAppId: string,
   copyright: {|
     start: string,
     end: string,

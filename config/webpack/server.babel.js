@@ -109,7 +109,6 @@ export default {
       raw: true,
       entryOnly: false,
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new webpack.DefinePlugin({ __DEV__: isDevelopment }),
     new webpack.LoaderOptionsPlugin({
       debug: false,

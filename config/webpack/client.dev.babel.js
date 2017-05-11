@@ -84,7 +84,7 @@ export default {
     new webpack.NoEmitOnErrorsPlugin(),
     // required to have consistend module ids
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'SSL', 'HOSTNAME', 'FACEBOOK_APP_ID']),
     new webpack.DefinePlugin({ __DEV__: true }),
     new ModulesManifestPlugin({
       path: locations.assetsPath,

@@ -10,3 +10,5 @@ export { Instagram } from './Instagram';
 export { LinkedIn } from './LinkedIn';
 export { Caret } from './Caret';
 export { Up } from './Up';
+export { TwitterShare } from './TwitterShare';
+export { FacebookShare } from './FacebookShare';

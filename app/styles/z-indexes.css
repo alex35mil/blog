@@ -1,5 +1,6 @@
 :root {
   --z-index-progressbar: 100;
   --z-index-navbar: 10;
+  --z-index-social-sharing: 5;
   --z-index-snippet-badges: 1;
 }
