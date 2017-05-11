@@ -1,16 +1,40 @@
 @import "app/styles/config";
 
-.cover {
+.background {
   @apply --header-height;
 
   display: flex;
   position: absolute;
   top: 0;
+  background-color: var(--header-bg-color);
+  width: 100%;
+}
+
+.cover {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition-property: transform, opacity;
+  transition-duration: .4s;
+  transition-timing-function: ease-in-out;
   width: 100%;
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--header-bg-color);
+}
+
+.loading {
+  transform: scale(1.07);
+  opacity: 0;
+}
+
+.loaded {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .overlay {
