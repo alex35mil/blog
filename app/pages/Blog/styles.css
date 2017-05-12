@@ -1,12 +1,18 @@
 @import "app/styles/config";
 
 :root {
-  --right-side: {
+  --prefix-side: {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     margin-right: 20px;
     width: 160px;
+
+    @media (--small-screen) {
+      justify-content: flex-start;
+      margin-right: 0;
+      width: 100%;
+    }
   }
 }
 
@@ -28,6 +34,15 @@
   padding: 40px 0;
   width: var(--content-width);
   min-height: 100vh;
+
+  @media (--small-screen) {
+    @apply --small-screen-paddings;
+
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 
 .header {
@@ -35,10 +50,100 @@
   flex-flow: row nowrap;
   align-items: center;
   margin-bottom: 20px;
+
+  @media (--small-screen) {
+    align-items: center;
+    margin-bottom: 20px;
+  }
 }
 
 .logo {
-  @apply --right-side;
+  @apply --prefix-side;
+
+  @media (--small-screen) {
+    &:after {
+      content: "/";
+    }
+  }
+}
+
+.blog {
+  background-color: #f00;
+  padding: 2px 8px;
+  color: #fff;
+
+  @media (--small-screen) {
+    margin-left: 6px;
+    padding: 1px 6px;
+  }
+}
+
+.yearPosts {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+
+  @media (--small-screen) {
+    margin: 10px 0 30px;
+    width: 100%;
+  }
+}
+
+.year {
+  @apply --prefix-side;
+
+  color: var(--gray-text);
+  font-size: .6em;
+
+  @media (--small-screen) {
+    font-size: 1em;
+  }
+}
+
+.post {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  white-space: nowrap;
+
+  @media (--small-screen) {
+    flex-direction: column;
+    margin-bottom: 20px;
+    white-space: normal;
+
+    &:first-child .postLink {
+      margin-top: 10px;
+    }
+  }
+}
+
+.postLink {
+  font-size: .9em;
+}
+
+.footer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  @media (--small-screen) {
+    width: 100%;
+  }
+}
+
+.push {
+  @apply --prefix-side;
+
+  @media (--small-screen) {
+    display: none;
+  }
+}
+
+.copy {
+  color: var(--gray-text);
+  font-size: .6em;
 }
 
 .link {
@@ -67,47 +172,4 @@
   &:hover {
     text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff;
   }
-}
-
-.blog {
-  background-color: #f00;
-  padding: 2px 8px;
-  color: #fff;
-}
-
-.yearPosts {
-  margin-bottom: 20px;
-}
-
-.post {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.year {
-  @apply --right-side;
-
-  color: var(--gray-text);
-  font-size: .6em;
-}
-
-.postLink {
-  font-size: .9em;
-}
-
-.footer {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-}
-
-.push {
-  @apply --right-side;
-}
-
-.copy {
-  color: var(--gray-text);
-  font-size: .6em;
 }

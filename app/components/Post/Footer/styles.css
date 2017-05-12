@@ -1,5 +1,11 @@
 @import "app/styles/config";
 
+:root {
+  --small-screen-item-margins: {
+    margin: 15px 0;
+  }
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;
@@ -16,6 +22,13 @@
   width: var(--content-width);
   padding: 90px 0 50px 0px;
   font-size: .8em;
+
+  @media (--small-screen) {
+    @apply --small-screen-paddings;
+
+    flex-flow: column nowrap;
+    width: 100%;
+  }
 }
 
 .index {
@@ -23,6 +36,13 @@
   flex-flow: column nowrap;
   align-items: flex-start;
   justify-content: flex-start;
+
+  @media (--small-screen) {
+    @apply --small-screen-item-margins;
+
+    order: 1;
+    margin-top: 0;
+  }
 }
 
 .indexLink {
@@ -33,6 +53,22 @@
 .copy {
   font-size: .8em;
   color: var(--gray-text);
+  @media (--small-screen) {
+    @apply --small-screen-item-margins;
+  }
+}
+
+.src {
+  @media (--small-screen) {
+    order: 2;
+  }
+}
+
+.copy {
+  @media (--small-screen) {
+    order: 4;
+    margin-bottom: 30px;
+  }
 }
 
 .srcIcon {
@@ -54,11 +90,21 @@
 .socials {
   display: flex;
   flex-flow: row nowrap;
+
+  @media (--small-screen) {
+    @apply --small-screen-item-margins;
+
+    order: 3;
+  }
 }
 
 .socialLink {
   transition: fill var(--transition-duration) var(--transition-timing-function);
   margin-left: 20px;
+
+  &:first-child {
+    margin-left: 0;
+  }
 
   &:focus,
   &:hover {

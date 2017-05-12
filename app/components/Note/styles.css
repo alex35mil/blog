@@ -13,4 +13,8 @@
   & code {
     font-weight: 700;
   }
+
+  @media (--small-screen) {
+    width: 100%;
+  }
 }

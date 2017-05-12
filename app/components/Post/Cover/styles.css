@@ -59,6 +59,7 @@
   transform: translateX(-50%);
   color: var(--gray-text);
   font-size: .55em;
+  white-space: nowrap;
 
   & a {
     color: var(--gray-text);

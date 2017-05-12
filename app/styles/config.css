@@ -1,5 +1,6 @@
 @custom-media --small-screen only screen and (max-width: 767px);
 @custom-media --medium-screen only screen and (max-width: 1023px);
+@custom-media --medium-screen-only only screen and (min-width: 768px) and (max-width: 1023px);
 
 :root {
   --bg-color: #fff;
@@ -8,6 +9,7 @@
 
   --gray-text: #999;
   --gray-line: #ebebeb;
+  --light-gray-bg: #fafafa;
   --facebook: #3b5998;
   --twitter: #00aced;
   --github: #24292e;
@@ -15,7 +17,7 @@
   --linkedin: #0077b5;
 
   --content-width: 700px;
-  --small-screen-paddings: 30px;
+  --small-screen-padding: 30px;
 
   --transition-duration: .2s;
   --transition-timing-function: ease-in-out;
@@ -51,5 +53,9 @@
     @media (--small-screen) {
       height: 100vh;
     }
+  }
+
+  --small-screen-paddings: {
+    padding: 0 var(--small-screen-padding);
   }
 }

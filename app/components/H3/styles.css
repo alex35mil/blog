@@ -15,4 +15,11 @@
   & + p {
     margin-top: 0;
   }
+
+  @media (--small-screen) {
+    @apply --small-screen-paddings;
+
+    width: 100%;
+    font-size: 1em;
+  }
 }

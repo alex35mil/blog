@@ -19,6 +19,12 @@
   align-items: center;
   justify-content: flex-start;
   width: var(--content-width);
+
+  @media (--small-screen) {
+    @apply --small-screen-paddings;
+
+    width: 100%;
+  }
 }
 
 .label {
@@ -47,7 +53,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-top: 10px;
-  background-color: #fafafa;
+  background-color: var(--light-gray-bg);
   width: 100%;
 }
 

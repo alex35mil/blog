@@ -9,6 +9,28 @@
   display: flex;
   width: calc(var(--content-width) + 300px);
   margin: 0 auto;
+
+  @media (--small-screen) {
+    @apply --small-screen-paddings;
+
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    width: 100%;
+    background-color: var(--light-gray-bg);
+    padding: 15px 0;
+  }
+
+  @media (--medium-screen-only) {
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 -20px;
+    width: 100%;
+    background-color: var(--light-gray-bg);
+    padding: 15px 0;
+  }
 }
 
 .widget {
@@ -19,6 +41,22 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+
+  @media (--small-screen) {
+    position: relative;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+  }
+
+  @media (--medium-screen-only) {
+    position: relative;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+  }
 }
 
 .title,
@@ -37,11 +75,17 @@
 }
 
 .shareButton {
-  margin-top: 15px;
+  display: flex;
+  margin-top: 20px;
 
   &:focus,
   &:hover {
     opacity: 1;
+  }
+
+  @media (--medium-screen) {
+    margin-top: 0;
+    margin-left: 20px;
   }
 }
 

@@ -21,6 +21,10 @@
 
   & .badges {
     top: -var(--snippet-padding);
+
+    @media (--small-screen) {
+      top: -var(--small-screen-padding);
+    }
   }
 
   &.pushABit {
@@ -28,7 +32,21 @@
 
     & .badges {
       top: -var(--snippet-extra-padding);
+
+      @media (--small-screen) {
+        top: -var(--small-screen-padding);
+      }
     }
+
+    @media (--small-screen) {
+      padding-top: var(--small-screen-padding) !important;
+    }
+  }
+
+  @media (--small-screen) {
+    overflow-x: auto;
+    padding: var(--small-screen-padding) !important;
+    font-size: 14px !important;
   }
 }
 
@@ -37,6 +55,10 @@
   width: var(--content-width);
   font-family: var(--regular-font-face) !important;
   line-height: 1.8 !important;
+
+  @media (--small-screen) {
+    width: 100%;
+  }
 }
 
 .badges {
@@ -46,6 +68,11 @@
   z-index: var(--z-index-snippet-badges);
   width: var(--content-width);
   pointer-events: none;
+
+  @media (--small-screen) {
+    top: -var(--small-screen-padding);
+    width: 100%;
+  }
 }
 
 .badge {
@@ -55,12 +82,22 @@
   background-color: #e7e7e7;
   padding: 1px 7px;
   font-size: .9em;
+
+  @media (--small-screen) {
+    position: relative;
+    margin-right: 10px;
+  }
 }
 
 .langBadge {
   left: -30px;
   transform: translateX(-100%);
   text-transform: uppercase;
+
+  @media (--small-screen) {
+    left: 0;
+    transform: translateX(0);
+  }
 }
 
 .fileBadge {

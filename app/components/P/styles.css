@@ -12,7 +12,8 @@
   }
 
   @media (--small-screen) {
+    @apply --small-screen-paddings;
+
     width: 100%;
-    padding: 0 var(--small-screen-paddings);
   }
 }

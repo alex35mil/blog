@@ -14,7 +14,7 @@
 
   &:after {
     display: inline-flex;
-    margin-left: -var(--divider-space);
+    margin-left: var(--divider-space);
     letter-spacing: var(--divider-space);
     content: "...";
     color: var(--gray-text);

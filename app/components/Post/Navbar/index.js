@@ -91,7 +91,7 @@ export class Navbar extends React.Component {
       <div className={cn(styles.navbar, styles[`position--${this.state.position}`])}>
         <div className={styles.content}>
           <div className={styles.leftSide}>
-            <A internal unstyled href={routes.blog()} className={styles.link}>
+            <A internal unstyled href={routes.blog()} className={styles.link} title="Posts">
               <Icon.Posts />
             </A>
           </div>
@@ -101,6 +101,7 @@ export class Navbar extends React.Component {
           <div className={styles.rightSide}>
             <Control
               className={styles.link}
+              title="Up"
               setRef={this.setScrollTopTriggerRef}
               onClick={this.scrollTop}
             >

@@ -14,6 +14,12 @@
     width: auto;
     max-width: 90%;
   }
+
+  @media (--small-screen) {
+    @apply --small-screen-paddings;
+
+    width: 100%;
+  }
 }
 
 .type--fill {
@@ -22,12 +28,22 @@
   & img {
     width: 100%;
   }
+
+  @media (--small-screen) {
+    @apply --small-screen-paddings;
+
+    width: 100%;
+  }
 }
 
 .type--bleed {
   width: calc(var(--content-width) + 210px);
 
   & img {
+    width: 100%;
+  }
+
+  @media (--small-screen) {
     width: 100%;
   }
 }
