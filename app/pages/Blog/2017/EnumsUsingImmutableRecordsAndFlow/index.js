@@ -4,11 +4,11 @@ import React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
-import { Post, H2, P, I, A, C, Image, Snippet } from 'app/components';
+import { Post, H2, P, I, A, C, AnimatedGif, Snippet } from 'app/components';
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-import enumImage from './images/enum.gif';
+import enumAnimatedGif from './images/enum.gif';
 
 const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
   <Post {...props}>
@@ -121,7 +121,7 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
     <P>
       This is how it works in the end:
     </P>
-    <Image type="bleed" src={enumImage} alt="Enum" />
+    <AnimatedGif src={enumAnimatedGif} placement="bleed" alt="Enum" />
 
     <P>
       P.S. The examples above work with <C>immutable@3.8.1</C>.

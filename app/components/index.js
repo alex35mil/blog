@@ -10,7 +10,7 @@ export { A } from './A';
 export { Ul, Ol, Li } from './Lists';
 export { C } from './Code';
 export { Snippet } from './Snippet';
-export { Image } from './Image';
+export { Image, AnimatedGif } from './Images';
 export { Note } from './Note';
 export { Highlight } from './Highlight';
 export { Divider } from './Divider';

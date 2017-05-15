@@ -4,7 +4,7 @@ import webpack from 'webpack';
 
 import ModulesManifestPlugin from './plugins/ModulesManifestPlugin';
 
-import { locations, modules } from '../index';
+import { locations, modules, loacalLoaders } from '../index';
 
 export default {
   entry: {
@@ -23,8 +23,9 @@ export default {
   },
 
   context: locations.root,
-  resolve: { extensions: ['.js'] },
   devtool: '#cheap-module-eval-source-map',
+  resolve: { extensions: ['.js'] },
+  resolveLoader: { alias: loacalLoaders },
 
   module: {
     noParse: modules.minifiedJs,
@@ -63,17 +64,30 @@ export default {
       },
       {
         test: modules.image,
-        loader: 'url-loader',
-        options: {
-          limit: modules.assetInlineLimit,
-          name: modules.assetFilename,
-        },
+        use: [
+          // must be before any other loader
+          {
+            loader: 'picture-loader',
+            options: {
+              presets: modules.imagePresets,
+            },
+          },
+          {
+            loader: 'url-loader',
+            options: {
+              limit: modules.assetInlineLimit,
+              name: modules.assetFilename,
+            },
+          },
+        ],
       },
       {
         test: modules.animatedGif,
-        loader: 'file-loader',
-        options: {
-          name: modules.assetFilename,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: modules.assetFilename,
+          },
         },
       },
     ],
@@ -92,7 +106,7 @@ export default {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       children: true,
-      // NB: Doesn't work, b/c this additional chunk must be sent to the client
+      // NB: `async` doesn't work, b/c this additional chunk must be sent to the client
       //     along w/ rendered post chunk. It might be possible to track it down
       //     in context of specific app, but it doesn't worth it for _this_ app.
       // async: true,

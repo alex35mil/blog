@@ -19,7 +19,7 @@ import {
   Ol,
   Li,
   Note,
-  Image,
+  AnimatedGif,
   Snippet,
   Highlight,
   Divider,
@@ -28,7 +28,7 @@ import {
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-import flowImage from './images/flow.gif';
+import flowAnimatedGif from './images/flow.gif';
 
 const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
   <Post {...props}>
@@ -405,7 +405,7 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
       Here’s an example of the Flow warnings in action,
       when I refactor state property name from <C>postId</C> to <C>id</C>:
     </P>
-    <Image type="bleed" src={flowImage} alt="Refactoring with Flow" />
+    <AnimatedGif src={flowAnimatedGif} placement="bleed" alt="Refactoring with Flow" />
 
     <H3>Typing action creators in representational components</H3>
     <P>

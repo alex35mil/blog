@@ -9,7 +9,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import AssetsManifestPlugin from './plugins/AssetsManifestPlugin';
 import ModulesManifestPlugin from './plugins/ModulesManifestPlugin';
 
-import { locations, modules } from '../index';
+import { locations, modules, loacalLoaders } from '../index';
 
 const appStyles = new ExtractTextPlugin({
   filename: 'app.[contenthash].css',
@@ -36,8 +36,9 @@ export default {
   performance: { hints: 'warning' },
 
   context: locations.root,
-  resolve: { extensions: ['.js'] },
   devtool: false,
+  resolve: { extensions: ['.js'] },
+  resolveLoader: { alias: loacalLoaders },
 
   module: {
     noParse: modules.minifiedJs,
@@ -81,18 +82,41 @@ export default {
       },
       {
         test: modules.image,
-        loader: 'url-loader',
-        options: {
-          limit: modules.assetInlineLimit,
-          name: modules.assetFilename,
-        },
+        use: [
+          // must be before any other loader
+          {
+            loader: 'picture-loader',
+            options: {
+              presets: modules.imagePresets,
+            },
+          },
+          {
+            loader: 'url-loader',
+            options: {
+              limit: modules.assetInlineLimit,
+              name: modules.assetFilename,
+            },
+          },
+          {
+            loader: 'img-loader',
+            options: { mozjpeg: false }, // issue on Ubuntu 16.04
+          },
+        ],
       },
       {
         test: modules.animatedGif,
-        loader: 'file-loader',
-        options: {
-          name: modules.assetFilename,
-        },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: modules.assetFilename,
+            },
+          },
+          {
+            loader: 'img-loader',
+            options: { mozjpeg: false }, // issue on Ubuntu 16.04
+          },
+        ],
       },
     ],
   },
@@ -114,7 +138,7 @@ export default {
     new webpack.DefinePlugin({ __DEV__: false }),
     new webpack.optimize.CommonsChunkPlugin({
       children: true,
-      // NB: Doesn't work, b/c this additional chunk must be sent to the client
+      // NB: `async` doesn't work, b/c this additional chunk must be sent to the client
       //     along w/ rendered post chunk. It might be possible to track it down
       //     in context of specific app, but it doesn't worth it for _this_ app.
       // async: true,

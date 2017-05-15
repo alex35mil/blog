@@ -8,7 +8,7 @@ import { Post, H2, P, B, I, A, C, Ul, Li, Note, Highlight, Snippet } from 'app/c
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-import coverImage from './images/cover.jpg';
+import coverImage from './images/cover.jpg?preset=cover';
 
 const ReduxTree = (props: $PostProps) => (
   <Post

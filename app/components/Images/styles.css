@@ -7,10 +7,11 @@
   margin: 40px 0;
 }
 
-.type--center {
+.placement--center {
   width: var(--content-width);
 
-  & img {
+  & img,
+  & picture {
     width: auto;
     max-width: 90%;
   }
@@ -22,10 +23,11 @@
   }
 }
 
-.type--fill {
+.placement--fill {
   width: var(--content-width);
 
-  & img {
+  & img,
+  & picture {
     width: 100%;
   }
 
@@ -36,14 +38,17 @@
   }
 }
 
-.type--bleed {
+.placement--bleed {
   width: calc(var(--content-width) + 210px);
 
-  & img {
+  & img,
+  & picture {
     width: 100%;
   }
 
   @media (--small-screen) {
+    @apply --small-screen-paddings;
+
     width: 100%;
   }
 }

@@ -38,4 +38,21 @@ export const modules = {
   assetsManifestFilename: 'assets.manifest.json',
 
   assetInlineLimit: 10000,
+
+  imagePresets: {
+    cover: {
+      type: 'fluid',
+      sizes: [320, 480, 750, 1024, 1366, 1920, 2560],
+      fallback: 1024,
+    },
+    inline: {
+      type: 'fixed',
+      sizes: [480, 910],
+      fallback: 910,
+    },
+  },
+};
+
+export const loacalLoaders = {
+  'picture-loader': path.join(__dirname, 'webpack', 'loaders', 'picture-loader'),
 };

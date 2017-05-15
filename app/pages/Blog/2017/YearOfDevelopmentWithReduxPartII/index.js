@@ -10,8 +10,8 @@ import { Post, H2, P, B, A, Ul, Li, C, Image, Snippet, Divider, Expandable } fro
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-import uiUnitImage from './images/01-ui-unit.png';
-import formImage from './images/02-form.png';
+import uiUnitImage from './images/01-ui-unit.png?preset=inline';
+import formImage from './images/02-form.png?preset=inline';
 
 const YearOfDevelopmentWithReduxPartII = (props: $PostProps) => (
   <Post {...props}>
@@ -96,7 +96,7 @@ const YearOfDevelopmentWithReduxPartII = (props: $PostProps) => (
       In my case, this was a major productivity boost.
     </P>
 
-    <Image type="fill" src={uiUnitImage} alt="UI Unit" />
+    <Image src={uiUnitImage} placement="fill" alt="UI Unit" />
 
     <P>
       <B>UI unit</B> is only element of the user interface, like a modal,
@@ -115,7 +115,7 @@ const YearOfDevelopmentWithReduxPartII = (props: $PostProps) => (
       and a modal with the form shows up:
     </P>
 
-    <Image type="fill" src={formImage} alt="Location form" />
+    <Image src={formImage} placement="fill" alt="Location form" />
 
     <P>
       This modal is a UI unit. Here is how it looks like in the project tree:

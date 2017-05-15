@@ -22,8 +22,8 @@ import {
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-import topDownImage from './images/01-top-down.png';
-import sideImage from './images/02-side.png';
+import topDownImage from './images/01-top-down.png?preset=inline';
+import sideImage from './images/02-side.png?preset=inline';
 
 const YearOfDevelopmentWithReduxPartI = (props: $PostProps) => (
   <Post {...props}>
@@ -133,7 +133,7 @@ const YearOfDevelopmentWithReduxPartI = (props: $PostProps) => (
       Like this:
     </P>
 
-    <Image type="bleed" src={topDownImage} alt="Passing props from the top" />
+    <Image src={topDownImage} placement="bleed" alt="Passing props from the top" />
 
     <P>
       Oh my, that was a bad idea! The render tree was nailed by data props
@@ -150,7 +150,7 @@ const YearOfDevelopmentWithReduxPartI = (props: $PostProps) => (
       Thus most of the containers appeared at the tips of the render tree. Like this:
     </P>
 
-    <Image type="fill" src={sideImage} alt="Passing props at the tips" />
+    <Image src={sideImage} placement="fill" alt="Passing props at the tips" />
 
     <P>We split our stores on 2 types:</P>
     <Ul>

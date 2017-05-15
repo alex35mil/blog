@@ -25,7 +25,10 @@ type $Props = {
     end: string,
   |},
   // ...$PostProps,
-  cover?: string,
+  cover?: {|
+    srcset: string,
+    fallback: string,
+  |},
   credit?: {|
     author: string,
     url: string,

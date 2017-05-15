@@ -2,13 +2,17 @@
 
 import React from 'react';
 import cn from 'classnames';
+import objectFitImages from 'object-fit-images';
 
 import { A } from 'app/components';
 
 import styles from './styles.css';
 
 type $Props = {|
-  cover?: string,
+  cover?: {|
+    srcset: string,
+    fallback: string,
+  |},
   credit?: {|
     author: string,
     url: string,
@@ -22,20 +26,22 @@ export class Cover extends React.Component {
   state: $State = { isLoaded: false };
 
   componentDidMount = () => {
-    this.preloadCover();
+    if (!this.cover) return;
+
+    objectFitImages(this.cover);
+
+    if (this.cover.complete) {
+      this.showCover();
+    }
   };
 
-  preloadCover = () => {
-    if (!this.props.cover) return;
+  setCoverRef = (ref: HTMLElement) => {
+    this.cover = ref;
+  };
 
-    let image = new Image();
-
-    image.onload = () => {
-      this.setState({ isLoaded: true });
-      if (image) image.src = '';
-      image = null;
-    };
-    image.src = this.props.cover;
+  showCover = () => {
+    if (this.state.isLoaded) return;
+    this.setState({ isLoaded: true });
   };
 
   render = () => {
@@ -46,17 +52,22 @@ export class Cover extends React.Component {
 
     return (
       <div className={styles.background}>
-        <div
-          className={cn(styles.cover, isLoaded ? styles.loaded : styles.loading)}
-          style={{ backgroundImage: `url(${cover})` }}
-        >
-          <div className={styles.overlay} />
-          {credit &&
-            <div className={styles.credit}>
-              Artwork:{' '}
-              <A unstyled href={credit.url} targetBlank>{credit.author}</A>
-            </div>}
+        <div className={cn(styles.cover, isLoaded ? styles.loaded : styles.loading)}>
+          <img
+            sizes="100vw"
+            src={cover.fallback}
+            srcSet={cover.srcset}
+            className={styles.image}
+            ref={this.setCoverRef}
+            onLoad={this.showCover}
+          />
         </div>
+        <div className={styles.overlay} />
+        {credit &&
+          <div className={styles.credit}>
+            Artwork:{' '}
+            <A unstyled href={credit.url} targetBlank>{credit.author}</A>
+          </div>}&gt;
       </div>
     );
   };

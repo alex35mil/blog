@@ -8,10 +8,10 @@ import { Post, H2, H3, P, B, I, A, C, Ul, Ol, Li, Note, Image, Snippet } from 'a
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-import coverImage from './images/cover.jpg';
-import draftImage from './images/01-draft.png';
-import corsImage from './images/02-cors.png';
-import proxyImage from './images/03-proxy.png';
+import coverImage from './images/cover.jpg?preset=cover';
+import draftImage from './images/01-draft.png?preset=inline';
+import corsImage from './images/02-cors.png?preset=inline';
+import proxyImage from './images/03-proxy.png?preset=inline';
 
 const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
   <Post
@@ -64,7 +64,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
     </P>
 
     <P>Here is the first draft:</P>
-    <Image type="fill" src={draftImage} alt="Draft" />
+    <Image src={draftImage} placement="fill" alt="Draft" />
 
     <P>
       Rails, which became simply <B>JSON API</B>, is responsible for data
@@ -105,7 +105,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
     </P>
 
     <H3>Option 1. Ajax CORS requests</H3>
-    <Image type="bleed" src={corsImage} alt="CORS" />
+    <Image src={corsImage} placement="bleed" alt="CORS" />
 
     <P>
       Because of the
@@ -140,7 +140,7 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
     </P>
 
     <H3>Option 2. Proxy ajax calls through front-end server</H3>
-    <Image type="bleed" src={proxyImage} alt="Proxy" />
+    <Image src={proxyImage} placement="bleed" alt="Proxy" />
 
     <P>
       Instead of enabling CORS, we can proxy requests

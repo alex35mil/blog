@@ -3,7 +3,7 @@
 import webpack from 'webpack';
 import getNodeExternals from 'webpack-node-externals';
 
-import { locations, modules } from '../index';
+import { locations, modules, loacalLoaders } from '../index';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -34,8 +34,9 @@ export default {
   },
 
   context: locations.root,
-  resolve: { extensions: ['.js'] },
   devtool: '#sourcemap',
+  resolve: { extensions: ['.js'] },
+  resolveLoader: { alias: loacalLoaders },
 
   module: {
     noParse: modules.minifiedJs,
@@ -75,23 +76,48 @@ export default {
       },
       {
         test: modules.image,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: modules.assetFilename,
-            emitFile: false,
+        use: [
+          // must be before any other loader
+          {
+            loader: 'picture-loader',
+            options: {
+              presets: modules.imagePresets,
+            },
           },
-        },
+          {
+            loader: 'file-loader',
+            options: {
+              name: modules.assetFilename,
+              emitFile: false,
+            },
+          },
+          {
+            loader: 'img-loader',
+            options: {
+              enabled: !isDevelopment,
+              mozjpeg: false, // issue on Ubuntu 16.04
+            },
+          },
+        ],
       },
       {
         test: modules.animatedGif,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: modules.assetFilename,
-            emitFile: false,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: modules.assetFilename,
+              emitFile: false,
+            },
           },
-        },
+          {
+            loader: 'img-loader',
+            options: {
+              enabled: !isDevelopment,
+              mozjpeg: false, // issue on Ubuntu 16.04
+            },
+          },
+        ],
       },
     ],
   },
