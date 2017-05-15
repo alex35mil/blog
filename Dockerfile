@@ -13,10 +13,18 @@ RUN \
     build-essential
 
 ENV APP=/home/app
+ENV DEPS=/home/deps
+
+RUN mkdir $DEPS
+COPY package.json yarn.lock $DEPS/
+RUN cd $DEPS && yarn
 
 RUN mkdir $APP
 WORKDIR $APP
 
-COPY package.json yarn.lock $APP/
+COPY scripts/entrypoint /entrypoint
+RUN chmod +x /entrypoint
 
-RUN yarn
+ENTRYPOINT ["/entrypoint"]
+
+CMD ["yarn", "start"]

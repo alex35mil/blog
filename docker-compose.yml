@@ -3,10 +3,8 @@ version: "3"
 services:
   web:
     build: "."
-    command: "yarn start"
     volumes:
       - ".:/home/app"
-      - "/home/app/node_modules"
     ports:
       - "80:3000"
       - "3500:3500"

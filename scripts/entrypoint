@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+function copy_deps() {
+  cp -a /home/deps/node_modules /home/app/
+}
+
+function calc_yarn_md5() {
+  md5sum ./yarn.lock  | awk '{print $1}' > ./node_modules/yarn-lock-md5
+}
+
+function expose_deps() {
+  if [[ ! -d './node_modules' ]]; then
+    echo "No node_modules found, exposing deps..."
+    copy_deps
+    calc_yarn_md5
+    return
+  fi
+
+  if [[ ! -f './node_modules/yarn-lock-md5' ]]; then
+    echo "No yarn-lock-md5 found, regenerating it and exposing deps..."
+    rm -rf node_modules
+    copy_deps
+    calc_yarn_md5
+    return
+  fi
+
+  if [[ "$(md5sum ./yarn.lock  | awk '{print $1}')" != "$(cat ./node_modules/yarn-lock-md5)" ]]; then
+    echo "Checksum doesn't match, regenerating it and exposing deps..."
+    rm -rf node_modules
+    copy_deps
+    calc_yarn_md5
+    return
+  fi
+
+  echo "Everything is up to date, starting container..."
+}
+
+expose_deps
+exec "$@"
