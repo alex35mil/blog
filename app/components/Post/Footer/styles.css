@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: space-between;
   width: var(--content-width);
-  padding: 90px 0 50px 0px;
+  padding: 90px 0 50px;
   font-size: .8em;
 
   @media (--small-screen) {
@@ -53,6 +53,7 @@
 .copy {
   font-size: .8em;
   color: var(--gray-text);
+
   @media (--small-screen) {
     @apply --small-screen-item-margins;
   }
@@ -78,9 +79,9 @@
 }
 
 .srcLink {
+  box-shadow: inset 0 -1px 0 0 #fff, inset 0 -2px 0 0 color(var(--gray-text) l(+15%));
   color: var(--gray-text);
   text-decoration: none;
-  box-shadow: inset 0 -1px 0 0 #fff, inset 0 -2px 0 0 color(var(--gray-text) l(+15%));
 
   &:focus {
     background-color: rgba(0, 0, 0, .05);
@@ -108,8 +109,8 @@
 
   &:focus,
   &:hover {
-    transition-property: transform;
     transform: scale(1.1);
+    transition-property: transform;
   }
 }
 

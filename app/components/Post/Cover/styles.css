@@ -6,14 +6,13 @@
   display: flex;
   position: absolute;
   top: 0;
-  background-color: var(--header-bg-color);
   width: 100%;
+  background-color: var(--header-bg-color);
 }
 
 .cover {
   display: flex;
   position: absolute;
-  overflow: hidden;
   top: 0;
   right: 0;
   bottom: 0;
@@ -22,10 +21,11 @@
   transition-duration: .4s;
   transition-timing-function: ease-in-out;
   width: 100%;
+  background-color: var(--header-bg-color);
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-color: var(--header-bg-color);
+  overflow: hidden;
 }
 
 .loading {
@@ -55,20 +55,20 @@
   right: 0;
   bottom: 0;
   left: 0;
+  width: 100%;
   background-color: rgba(0, 0, 0, .4);
   box-shadow: inset 0 0 8em #000;
-  width: 100%;
 }
 
 .credit {
   display: block;
   position: absolute;
-  left: 50%;
   bottom: 20px;
+  left: 50%;
   transform: translateX(-50%);
-  color: var(--gray-text);
   font-size: .55em;
   white-space: nowrap;
+  color: var(--gray-text);
 
   & a {
     color: var(--gray-text);

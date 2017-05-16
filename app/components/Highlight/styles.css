@@ -9,9 +9,9 @@
   justify-content: center;
   width: var(--content-width);
   padding: 30px 0;
-  color: var(--gray-text);
   font-size: 1.5em;
   font-style: italic;
+  color: var(--gray-text);
   text-align: center;
 
   & a {

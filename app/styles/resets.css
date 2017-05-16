@@ -1,19 +1,22 @@
+/* stylelint-disable max-line-length, selector-no-qualifying-type, property-no-vendor-prefix, selector-no-vendor-prefix */
+
 @import "app/styles/config";
 
+/* stylelint-disable-next-line selector-no-universal */
 * {
   box-sizing: border-box;
   transform: none;
   transform-origin: 50% 50% 0;
   transition: none 0s ease 0s;
   margin: 0;
-  padding: 0;
   outline: none;
   outline-offset: 0;
+  padding: 0;
 }
 
 nav ol,
 nav ul {
-	list-style: none;
+  list-style: none;
 }
 
 button,
@@ -23,8 +26,8 @@ input[type="submit"] {
   -webkit-appearance: none;
   border: 0;
   cursor: pointer;
-  line-height: var(--line-height);
   font-family: var(--regular-font-face);
+  line-height: var(--line-height);
 }
 
 a {
@@ -37,15 +40,15 @@ a {
 
 /* Remove the text shadow on text selections */
 ::-moz-selection {
-	background-color: #b3d4fc;
-	color: #000000;
-	text-shadow: none;
+  background-color: #b3d4fc;
+  color: #000;
+  text-shadow: none;
 }
 
 ::selection {
-	background-color: #b3d4fc;
-	color: #000000;
-	text-shadow: none;
+  background-color: #b3d4fc;
+  color: #000;
+  text-shadow: none;
 }
 
 svg:not(:root) {

@@ -2,5 +2,6 @@
 
 .code {
   @apply --regular-italic-font;
+
   color: color(var(--gray-text) b(+10%));
 }

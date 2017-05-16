@@ -1,8 +1,6 @@
 @import "app/styles/config";
 
 .h3 {
-  /*@apply --heading-font;*/
-
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;

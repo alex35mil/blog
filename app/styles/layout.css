@@ -12,11 +12,12 @@ body {
 
   background-color: var(--bg-color);
   font-size: var(--font-size);
-  color: var(--text-color);
   line-height: var(--line-height);
-  -webkit-font-smoothing: antialiased;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased; /* stylelint-disable-line order/properties-order  */
 }
 
+/* stylelint-disable-next-line selector-no-id  */
 #app {
   display: flex;
   flex-flow: column nowrap;

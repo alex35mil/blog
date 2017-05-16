@@ -3,14 +3,14 @@
 .link {
   transition: background-color var(--transition-duration) var(--transition-timing-function);
   background-color: transparent;
+  box-shadow: inset 0 -2px 0 0 #fff, inset 0 -3px 0 0 color(var(--text-color) l(+55%));
   color: var(--text-color);
   text-decoration: none;
-  box-shadow: inset 0 -2px 0 0 #fff, inset 0 -3px 0 0 color(var(--text-color) l(+55%));
   text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff;
 
   & code {
-    text-decoration: none;
     box-shadow: inset 0 -2px 0 0 #fff, inset 0 -3px 0 0 color(var(--text-color) l(+55%));
+    text-decoration: none;
   }
 
   &:focus {

@@ -4,8 +4,8 @@
   @apply --regular-font;
 
   display: block;
-  width: var(--content-width);
   margin-top: 20px;
+  width: var(--content-width);
 
   &:first-child {
     margin-top: 0;

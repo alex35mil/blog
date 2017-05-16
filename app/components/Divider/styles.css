@@ -12,11 +12,11 @@
   margin: 40px 0;
   border: 0;
 
-  &:after {
+  &::after {
     display: inline-flex;
     margin-left: var(--divider-space);
     letter-spacing: var(--divider-space);
-    content: "...";
     color: var(--gray-text);
+    content: "...";
   }
 }

@@ -4,15 +4,15 @@
   @apply --regular-font;
 
   display: block;
-  width: var(--content-width);
   margin: 20px 0 15px;
+  width: var(--content-width);
   padding: 0 0 0 calc(var(--font-size) * 2);
 
   @media (--small-screen) {
     @apply --small-screen-paddings;
 
     width: 100%;
-    padding-left: calc(var(--small-screen-padding) +  var(--font-size) * 2);
+    padding-left: calc(var(--small-screen-padding) + var(--font-size) * 2);
   }
 }
 

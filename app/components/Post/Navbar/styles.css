@@ -22,9 +22,9 @@
   align-items: center;
   justify-content: center;
   z-index: var(--z-index-navbar);
-  background-color: #fff;
   width: 100%;
   height: var(--navbar-height);
+  background-color: #fff;
   font-size: .7em;
 
   &.position--top {
@@ -65,9 +65,9 @@
 .center {
   display: flex;
   position: absolute;
-  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   color: var(--gray-text);
   text-transform: uppercase;
 }

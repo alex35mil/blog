@@ -9,10 +9,10 @@
 .pre {
   display: flex;
   position: relative;
-  z-index: var(--z-index-snippet);
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+  z-index: var(--z-index-snippet);
   margin: 20px 0 !important;
   width: 100%;
   padding: var(--snippet-padding) !important;
@@ -44,8 +44,8 @@
   }
 
   @media (--small-screen) {
-    overflow-x: auto;
     padding: var(--small-screen-padding) !important;
+    overflow-x: auto;
     font-size: 14px !important;
   }
 }
@@ -104,10 +104,11 @@
   left: 0;
 }
 
+/* stylelint-disable selector-class-pattern */
 :global .token.operator,
 :global .token.entity,
 :global .token.url,
 :global .language-css .token.string,
 :global .style .token.string {
-    background: none !important;
-  }
+  background: none !important;
+}

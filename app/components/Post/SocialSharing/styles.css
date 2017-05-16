@@ -7,8 +7,8 @@
 
 .container {
   display: flex;
-  width: calc(var(--content-width) + 300px);
   margin: 0 auto;
+  width: calc(var(--content-width) + 300px);
 
   @media (--small-screen) {
     @apply --small-screen-paddings;
@@ -36,26 +36,26 @@
 .widget {
   display: flex;
   position: fixed;
-  z-index: var(--z-index-social-sharing);
   top: 80px;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+  z-index: var(--z-index-social-sharing);
 
   @media (--small-screen) {
     position: relative;
+    top: 0;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-    top: 0;
   }
 
   @media (--medium-screen-only) {
     position: relative;
+    top: 0;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-    top: 0;
   }
 }
 
@@ -68,9 +68,9 @@
 }
 
 .title {
+  opacity: var(--visible-opacity);
   font-size: .8em;
   color: var(--gray-text);
-  opacity: var(--visible-opacity);
   text-transform: uppercase;
 }
 
@@ -95,11 +95,11 @@
 }
 
 .hidden {
-  opacity: 0;
   transform: scale(0);
+  opacity: 0;
 }
 
 .visible {
-  opacity: var(--visible-opacity);
   transform: scale(1);
+  opacity: var(--visible-opacity);
 }

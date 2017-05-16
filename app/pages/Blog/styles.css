@@ -19,21 +19,21 @@
 .section {
   display: flex;
   flex-flow: column nowrap;
-  width: 100%;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
   line-height: 1.7;
 }
 
 .container {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
   align-items: flex-start;
+  justify-content: flex-start;
   align-self: center;
-  padding: 40px 0;
   width: var(--content-width);
   min-height: 100vh;
+  padding: 40px 0;
 
   @media (--small-screen) {
     @apply --small-screen-paddings;
@@ -61,7 +61,7 @@
   @apply --prefix-side;
 
   @media (--small-screen) {
-    &:after {
+    &::after {
       content: "/";
     }
   }
@@ -94,8 +94,8 @@
 .year {
   @apply --prefix-side;
 
-  color: var(--gray-text);
   font-size: .6em;
+  color: var(--gray-text);
 
   @media (--small-screen) {
     font-size: 1em;
@@ -142,19 +142,19 @@
 }
 
 .copy {
-  color: var(--gray-text);
   font-size: .6em;
+  color: var(--gray-text);
 }
 
 .link {
   transition-property: background-color, box-shadow, text-shadow;
   transition-duration: .03s;
   transition-timing-function: ease-in;
-  box-shadow: none;
-  text-shadow: none;
   background-color: transparent;
+  box-shadow: none;
   color: var(--text-color);
   text-decoration: none;
+  text-shadow: none;
 
   &:active {
     text-shadow: none !important;

@@ -6,6 +6,7 @@
 
 # Broken node_modules
 .*/node_modules/jest-validate/.*
+.*/node_modules/stylelint/.*
 
 [libs]
 ./flow-typed

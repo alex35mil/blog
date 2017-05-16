@@ -1,0 +1,223 @@
+---
+extends: "stylelint-config-standard"
+
+plugins:
+  - "stylelint-order"
+
+defaultSeverity: "error"
+
+rules:
+
+  # General
+  max-line-length: 100
+  max-empty-lines: 2
+  max-nesting-depth: 3
+  property-no-unknown: true
+
+  # Numbers
+  number-leading-zero: "never"
+  number-max-precision: 2
+
+  # Quotes
+  string-quotes: "double"
+  font-family-name-quotes: "always-where-recommended"
+  function-url-quotes: "always"
+  selector-attribute-quotes: "always"
+
+  # Notations
+  color-named: "never"
+  font-weight-notation: "numeric"
+
+  # Declarations
+  declaration-colon-newline-after: null
+  declaration-block-single-line-max-declarations: 2
+  declaration-block-no-redundant-longhand-properties:
+    - true
+    - ignoreShorthands:
+      - "font"
+
+  # Selectors
+  selector-class-pattern: "^(?:[a-z][a-zA-Z1-9]+|(?:[a-z][a-zA-Z]+--[a-z][a-zA-Z]+)+)$"
+  selector-no-qualifying-type: true
+  selector-no-universal: true
+  selector-no-id: true
+  selector-pseudo-class-no-unknown:
+    - true
+    - ignorePseudoClasses:
+      - "global"
+      - "export"
+
+  # Comments
+  comment-empty-line-before:
+    - "always"
+    -
+      except:
+        - "first-nested"
+      ignore:
+        - "after-comment"
+        - "stylelint-commands"
+
+  # Custom properties
+  custom-property-empty-line-before: null
+
+  # At-rule
+  at-rule-no-unknown: true
+  at-rule-blacklist:
+    - "extend"
+
+  # No vendors
+  at-rule-no-vendor-prefix: true
+  media-feature-name-no-vendor-prefix: true
+  property-no-vendor-prefix: true
+  selector-no-vendor-prefix: true
+  value-no-vendor-prefix: true
+
+  # Order
+  order/properties-order:
+    - "display"
+    - "position"
+
+    - "top"
+    - "right"
+    - "bottom"
+    - "left"
+
+    - "flex-flow"
+    - "flex-direction"
+    - "flex-wrap"
+    - "align-items"
+    - "align-content"
+    - "justify-content"
+
+    - "order"
+    - "flex"
+    - "flex-grow"
+    - "flex-shrink"
+    - "flex-basis"
+    - "align-self"
+
+    - "columns"
+    - "column-gap"
+    - "column-fill"
+    - "column-rule"
+    - "column-span"
+    - "column-count"
+    - "column-width"
+
+    - "float"
+    - "clear"
+
+    - "transform"
+    - "transition"
+
+    - "animation"
+    - "animation-name"
+    - "animation-duration"
+    - "animation-timing-function"
+    - "animation-delay"
+    - "animation-iteration-count"
+    - "animation-direction"
+    - "animation-fill-mode"
+    - "animation-play-state"
+
+    - "visibility"
+    - "opacity"
+    - "z-index"
+
+    - "margin"
+    - "margin-top"
+    - "margin-right"
+    - "margin-bottom"
+    - "margin-left"
+
+    - "outline"
+
+    - "width"
+    - "min-width"
+    - "max-width"
+
+    - "height"
+    - "min-height"
+    - "max-height"
+
+    - "border"
+    - "border-top"
+    - "border-right"
+    - "border-bottom"
+    - "border-left"
+    - "border-width"
+    - "border-top-width"
+    - "border-right-width"
+    - "border-bottom-width"
+    - "border-left-width"
+
+    - "border-style"
+    - "border-top-style"
+    - "border-right-style"
+    - "border-bottom-style"
+    - "border-left-style"
+
+    - "border-radius"
+    - "border-top-left-radius"
+    - "border-top-right-radius"
+    - "border-bottom-left-radius"
+    - "border-bottom-right-radius"
+
+    - "border-color"
+    - "border-top-color"
+    - "border-right-color"
+    - "border-bottom-color"
+    - "border-left-color"
+
+    - "background"
+    - "background-color"
+    - "background-image"
+    - "background-repeat"
+    - "background-position"
+    - "background-size"
+
+    - "padding"
+    - "padding-top"
+    - "padding-right"
+    - "padding-bottom"
+    - "padding-left"
+
+    - "cursor"
+
+    - "overflow"
+
+    - "box-shadow"
+
+    - "list-style"
+    - "caption-side"
+
+    - "table-layout"
+    - "border-collapse"
+    - "border-spacing"
+    - "empty-cells"
+
+    - "vertical-align"
+
+    - "font"
+    - "font-family"
+    - "font-size"
+    - "font-weight"
+    - "font-smoothing"
+    - "font-style"
+
+    - "line-height"
+    - "word-spacing"
+    - "letter-spacing"
+    - "white-space"
+    - "color"
+
+    - "text-align"
+    - "text-indent"
+    - "text-transform"
+    - "text-decoration"
+    - "text-rendering"
+    - "text-shadow"
+    - "text-overflow"
+
+    - "content"
+    - "quotes"

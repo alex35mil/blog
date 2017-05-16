@@ -6,13 +6,13 @@
   display: flex;
   position: relative;
   flex-flow: column nowrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  transition: height var(--transition-duration) var(--transition-timing-function);
   width: 100%;
   padding: 40px 100px;
   color: #fff;
   text-shadow: var(--header-text-shadow);
-  transition: height var(--transition-duration) var(--transition-timing-function);
   pointer-events: none;
 }
 
