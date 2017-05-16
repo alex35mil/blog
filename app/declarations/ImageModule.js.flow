@@ -1,0 +1,5 @@
+/* @flow */
+
+declare module ImageModule {
+  declare var exports: string;
+}

@@ -275,6 +275,6 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
 
 export default withPostMeta(IsomorphicReactWithRailsPartI, {
   type: 'article',
-  image: coverImage,
+  image: coverImage.fallback,
   description: 'Isomorphic JavaScript apps with React and Ruby on Rails as backend.',
 });

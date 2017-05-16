@@ -24,18 +24,19 @@ type $State = {| isLoaded: boolean |};
 export class Cover extends React.Component {
   props: $Props;
   state: $State = { isLoaded: false };
+  cover: ?HTMLImageElement;
 
   componentDidMount = () => {
     if (!this.cover) return;
 
     objectFitImages(this.cover);
 
-    if (this.cover.complete) {
+    if (this.cover && this.cover.complete) {
       this.showCover();
     }
   };
 
-  setCoverRef = (ref: HTMLElement) => {
+  setCoverRef = (ref: HTMLImageElement) => {
     this.cover = ref;
   };
 
@@ -58,6 +59,7 @@ export class Cover extends React.Component {
             src={cover.fallback}
             srcSet={cover.srcset}
             className={styles.image}
+            alt=""
             ref={this.setCoverRef}
             onLoad={this.showCover}
           />

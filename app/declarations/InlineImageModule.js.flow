@@ -1,0 +1,9 @@
+/* @flow */
+
+declare module InlineImageModule {
+  declare var exports: {|
+    '480': string,
+    '910': string,
+    fallback: string,
+  |};
+}

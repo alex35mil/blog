@@ -197,6 +197,6 @@ const ReduxTree = (props: $PostProps) => (
 
 export default withPostMeta(ReduxTree, {
   type: 'article',
-  image: coverImage,
+  image: coverImage.fallback,
   description: 'There are two ways of thinking of about UI: in terms of state or in terms of interactions.',
 });
