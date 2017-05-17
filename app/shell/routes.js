@@ -3,6 +3,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import type { $StaticContext } from './types';
+
 import load from './loader';
 import resolvers from './storage/resolvers';
 import withLoadedPostProps from './withLoadedPostProps';
@@ -42,6 +44,14 @@ const Routes = () => (
         />
       )),
     )}
+    <Route
+      // $FlowIgnoreMe: looks like incorrect RR typedefs
+      render={({ staticContext }: { staticContext: $StaticContext }) => {
+        // eslint-disable-next-line no-param-reassign
+        if (staticContext) staticContext.status = 404;
+        return <div />;
+      }}
+    />
   </Switch>
 );
 

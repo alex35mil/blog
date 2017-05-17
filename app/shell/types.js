@@ -44,6 +44,6 @@ export type $PostMeta = {|
 |};
 
 export type $StaticContext = {|
-  url?: string,
+  status?: number,
   meta?: $Meta,
 |};
