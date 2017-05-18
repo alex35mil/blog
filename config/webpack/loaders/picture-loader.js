@@ -61,7 +61,8 @@ function getRequire(request, size) {
 }
 
 function exportFluid(preset, sources, fallback) {
-  const stringifiedSrcset = Object.keys(sources).map(size => `${sources[size]} + ' ${size}w'`)
+  const stringifiedSrcset = Object.keys(sources)
+    .map(size => `${sources[size]} + ' ${size}w'`)
     .join(`+ ', ' + `);
 
   return `module.exports = { srcset: ${stringifiedSrcset}, fallback: ${fallback} }`;
