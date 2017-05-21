@@ -1,6 +1,5 @@
 [ignore]
 .*/build/.*
-.*/public/.*
 .*/scripts/.*
 .*/reports/.*
 

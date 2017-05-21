@@ -1,6 +1,5 @@
 node_modules/
 build/
-public/
 reports/
 *.log
 .DS_Store

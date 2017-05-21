@@ -12,15 +12,15 @@ RUN \
     python \
     build-essential
 
-ENV APP=/home/app
-ENV DEPS=/home/deps
+ENV SRC=/www/src
+ENV DEPS=/www/deps
 
-RUN mkdir $DEPS
+RUN mkdir -p $DEPS
 COPY package.json yarn.lock $DEPS/
 RUN cd $DEPS && yarn
 
-RUN mkdir $APP
-WORKDIR $APP
+RUN mkdir -p $SRC
+WORKDIR $SRC
 
 COPY scripts/entrypoint /entrypoint
 RUN chmod +x /entrypoint

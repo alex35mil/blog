@@ -27,7 +27,7 @@ export default {
   },
 
   output: {
-    path: locations.assetsPath,
+    path: locations.assets,
     publicPath: locations.assetsPublicUrl,
     filename: `${modules.prodFilename}.js`,
     chunkFilename: `${modules.prodChunkFilename}.js`,
@@ -35,7 +35,7 @@ export default {
 
   performance: { hints: 'warning' },
 
-  context: locations.root,
+  context: locations.src,
   devtool: false,
   resolve: { extensions: ['.js'] },
   resolveLoader: { alias: loacalLoaders },
@@ -127,14 +127,14 @@ export default {
     // required to have consistend module ids
     new webpack.HashedModuleIdsPlugin(),
     new AssetsManifestPlugin({
-      path: locations.assetsPath,
+      path: locations.assets,
       filename: modules.assetsManifestFilename,
     }),
     new ModulesManifestPlugin({
-      path: locations.assetsPath,
+      path: locations.assets,
       filename: modules.modulesManifestFilename,
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'SSL', 'HOSTNAME', 'FACEBOOK_APP_ID']),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'SSL', 'WEB_HOSTNAME', 'FACEBOOK_APP_ID']),
     new webpack.DefinePlugin({ __DEV__: false }),
     new webpack.optimize.CommonsChunkPlugin({
       children: true,
@@ -168,15 +168,15 @@ export default {
     new CopyPlugin([
       // favicon.ico
       {
-        from: path.resolve(locations.root, 'app', 'styles', 'assets', 'favicon.ico'),
-        to: locations.publicPath,
+        from: path.resolve(locations.src, 'app', 'styles', 'assets', 'favicon.ico'),
+        to: locations.public,
       },
     ]),
     new webpack.LoaderOptionsPlugin({
       debug: false,
       minimize: true,
       progress: true,
-      options: { context: locations.root },
+      options: { context: locations.src },
     }),
   ],
 };

@@ -3,19 +3,24 @@
 import path from 'path';
 
 export const PROTOCOL = process.env.SSL === 'off' ? 'http' : 'https';
-export const HOSTNAME = process.env.HOSTNAME;
-export const DOMAIN = `${PROTOCOL}://${HOSTNAME}`;
+export const WEB_HOSTNAME = process.env.WEB_HOSTNAME;
+export const HOT_HOSTNAME = process.env.HOT_HOSTNAME;
+export const WEB_DOMAIN = `${PROTOCOL}://${WEB_HOSTNAME}`;
+export const HOT_DOMAIN = `${PROTOCOL}://${HOT_HOSTNAME}`;
 export const WEB_PORT = parseInt(process.env.WEB_PORT, 10);
 export const HOT_PORT = parseInt(process.env.HOT_PORT, 10);
 export const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;
 
+const www = '/www';
+const src = process.cwd();
+
 export const locations = {
-  root: process.cwd(),
-  buildPath: path.join(process.cwd(), 'build'),
-  publicPath: path.join(process.cwd(), 'public'),
-  assetsPath: path.join(process.cwd(), 'public', 'assets'),
+  src,
+  public: path.join(www, 'public'),
+  assets: path.join(www, 'public', 'assets'),
+  serverBuild: path.join(src, 'build'),
+  hotServerUrl: HOT_DOMAIN,
   assetsPublicUrl: '/assets/',
-  hotServerUrl: `http://${HOSTNAME}:${HOT_PORT}`,
 };
 
 export const modules = {

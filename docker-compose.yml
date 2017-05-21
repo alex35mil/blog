@@ -1,17 +1,36 @@
 version: "3"
 
+volumes:
+  public:
+
+networks:
+  development:
+    driver: "bridge"
+
 services:
   web:
     build: "."
     volumes:
-      - ".:/home/app"
-    ports:
-      - "80:3000"
-      - "3500:3500"
+      - ".:/www/src"
+      - "public:/www/public"
+    networks:
+      - "development"
     environment:
       NODE_ENV: "${NODE_ENV:-development}"
-      HOSTNAME: "alexfedoseev.dev"
-      SSL: "off"
+      SSL: "on"
+      WEB_HOSTNAME: "alexfedoseev.dev"
+      HOT_HOSTNAME: "hot.alexfedoseev.dev"
       WEB_PORT: 3000
       HOT_PORT: 3500
       FACEBOOK_APP_ID: "597319510289959"
+
+  nginx:
+    build: "./config/nginx"
+    restart: "always"
+    volumes:
+      - "public:/www/public"
+    networks:
+      - "development"
+    ports:
+      - "80:80"
+      - "443:443"

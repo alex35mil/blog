@@ -11,7 +11,7 @@ export default {
   entry: { app: './server' },
 
   output: {
-    path: locations.buildPath,
+    path: locations.serverBuild,
     filename: '[name].js',
     libraryTarget: 'commonjs',
     publicPath: isDevelopment
@@ -33,7 +33,7 @@ export default {
     __filename: true,
   },
 
-  context: locations.root,
+  context: locations.src,
   devtool: '#sourcemap',
   resolve: { extensions: ['.js'] },
   resolveLoader: { alias: loacalLoaders },
@@ -140,7 +140,7 @@ export default {
       debug: false,
       minimize: false,
       progress: true,
-      options: { context: locations.root },
+      options: { context: locations.src },
     }),
   ],
 };

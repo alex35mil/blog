@@ -16,13 +16,13 @@ export default {
   },
 
   output: {
-    path: locations.assetsPath,
+    path: locations.assets,
     publicPath: `${locations.hotServerUrl}${locations.assetsPublicUrl}`,
     filename: `${modules.devFilename}.js`,
     chunkFilename: `${modules.devChunkFilename}.js`,
   },
 
-  context: locations.root,
+  context: locations.src,
   devtool: '#cheap-module-eval-source-map',
   resolve: { extensions: ['.js'] },
   resolveLoader: { alias: loacalLoaders },
@@ -98,10 +98,10 @@ export default {
     new webpack.NoEmitOnErrorsPlugin(),
     // required to have consistend module ids
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'SSL', 'HOSTNAME', 'FACEBOOK_APP_ID']),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'SSL', 'WEB_HOSTNAME', 'FACEBOOK_APP_ID']),
     new webpack.DefinePlugin({ __DEV__: true }),
     new ModulesManifestPlugin({
-      path: locations.assetsPath,
+      path: locations.assets,
       filename: modules.modulesManifestFilename,
     }),
     new webpack.optimize.CommonsChunkPlugin({
@@ -124,7 +124,7 @@ export default {
       debug: true,
       minimize: false,
       progress: true,
-      options: { context: locations.root },
+      options: { context: locations.src },
     }),
   ],
 };

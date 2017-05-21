@@ -6,7 +6,7 @@ import type { Location as $Location } from 'react-router';
 import type { $StaticContext } from 'app/shell/types';
 
 import { ProgressBar } from 'app/components';
-import { DOMAIN, FACEBOOK_APP_ID } from 'config';
+import { WEB_DOMAIN, FACEBOOK_APP_ID } from 'config';
 
 import posts from './storage/posts.json';
 
@@ -26,7 +26,7 @@ const withLoadedPostProps = (year: string, postId: string, Post: () => React.Ele
       year={year}
       slug={postId}
       location={location}
-      shareLink={`${DOMAIN}${location.pathname}`}
+      shareLink={`${WEB_DOMAIN}${location.pathname}`}
       facebookAppId={FACEBOOK_APP_ID}
       staticContext={staticContext}
       copyright={{

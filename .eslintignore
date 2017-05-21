@@ -1,6 +1,5 @@
 node_modules/
 flow-typed/
 build/
-public/
 scripts/
 reports/

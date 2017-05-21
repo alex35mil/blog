@@ -23,15 +23,15 @@ if (isDevelopment) {
 
 const clean = () => {
   console.log('=> 🗑  Cleaning...');
-  const cleanScript = path.resolve(locations.root, 'scripts', 'clean');
+  const cleanScript = path.resolve(locations.src, 'scripts', 'clean');
   cp.exec(cleanScript);
   console.log('=> 🗑  Cleaned');
 };
 
 const copyFavicon = () => {
   console.log('=> 🔖  Copying favicon...');
-  const src = path.resolve(locations.root, 'app', 'styles', 'assets', 'favicon.ico');
-  const dest = path.resolve(locations.publicPath, 'favicon.ico');
+  const src = path.resolve(locations.src, 'app', 'styles', 'assets', 'favicon.ico');
+  const dest = path.resolve(locations.public, 'favicon.ico');
   fsx.copySync(src, dest);
   console.log('=> 🔖  Copied');
 };
@@ -56,7 +56,7 @@ const compileAndWatchServerBuild = () => {
 
 const compileProductionBuilds = () => new Promise(resolve => {
   console.log('=> 🔨  Compiling production builds...');
-  const buildScript = path.resolve(locations.root, 'scripts', 'build');
+  const buildScript = path.resolve(locations.src, 'scripts', 'build');
 
   cp
     .spawn(buildScript, [], { stdio: 'inherit' })
@@ -68,7 +68,7 @@ const compileProductionBuilds = () => new Promise(resolve => {
 
 const runHotServer = () => new Promise(resolve => {
   console.log('=> 🔥  Starting HOT server...');
-  const hotServer = path.resolve(locations.root, 'scripts', 'start:hot');
+  const hotServer = path.resolve(locations.src, 'scripts', 'start:hot');
 
   cp
     .fork(hotServer)
@@ -81,9 +81,9 @@ const runHotServer = () => new Promise(resolve => {
 const runAppServer = () => {
   console.log('=> 🚀  Starting WEB server...');
 
-  const app = path.resolve(locations.buildPath, 'app.js');
-  const templates = path.resolve(locations.root, 'app', 'shell', 'server', 'templates');
-  const manifest = path.resolve(locations.assetsPath, 'modules.manifest.json');
+  const app = path.resolve(locations.serverBuild, 'app.js');
+  const templates = path.resolve(locations.src, 'app', 'shell', 'server', 'templates');
+  const manifest = path.resolve(locations.assets, 'modules.manifest.json');
 
   if (!fsx.existsSync(app)) {
     console.error(`🚨  Can't find app build at path: ${app}`);

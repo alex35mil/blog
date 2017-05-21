@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 function copy_deps() {
-  cp -a /home/deps/node_modules /home/app/
+  cp -a /www/deps/node_modules /www/src/
 }
 
 function calc_yarn_md5() {
