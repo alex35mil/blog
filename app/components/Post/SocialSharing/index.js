@@ -46,8 +46,9 @@ export class SocialSharing extends React.Component {
   shareOnFacebook = () => {
     const { shareLink, facebookAppId } = this.props;
     const url = encodeURIComponent(shareLink);
-    this
-      .openPopup(`https://www.facebook.com/dialog/share?app_id=${facebookAppId}&display=popup&href=${url}`);
+    this.openPopup(
+      `https://www.facebook.com/dialog/share?app_id=${facebookAppId}&display=popup&href=${url}`,
+    );
   };
 
   openPopup = (url: string) => {
