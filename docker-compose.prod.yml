@@ -1,0 +1,34 @@
+version: "3"
+
+volumes:
+  public:
+
+networks:
+  production:
+    driver: "bridge"
+
+services:
+  web:
+    build:
+      context: "."
+      dockerfile: "config/docker/Dockerfile.prod"
+    restart: "always"
+    volumes:
+      - "public:/www/public"
+    networks:
+      - "production"
+
+  nginx:
+    build:
+      context: "./config/nginx"
+      dockerfile: "Dockerfile.prod"
+    restart: "always"
+    volumes:
+      - "public:/www/public"
+      - "/etc/letsencrypt:/etc/letsencrypt"
+      - "/www/letsencrypt:/www/letsencrypt"
+    networks:
+      - "production"
+    ports:
+      - "80:80"
+      - "443:443"

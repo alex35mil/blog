@@ -25,6 +25,16 @@ WORKDIR $SRC
 COPY scripts/entrypoint /entrypoint
 RUN chmod +x /entrypoint
 
-ENTRYPOINT ["/entrypoint"]
+ARG NODE_ENV
 
-CMD ["yarn", "start"]
+ENV NODE_ENV=$NODE_ENV
+ENV WEB_HOSTNAME="alexfedoseev.dev"
+ENV HOT_HOSTNAME="hot.alexfedoseev.dev"
+ENV WEB_PORT="3000"
+ENV HOT_PORT="3500"
+ENV FACEBOOK_APP_ID="597319510289959"
+
+ENV BABEL_ENV=server
+
+ENTRYPOINT ["/entrypoint"]
+CMD ["scripts/start"]

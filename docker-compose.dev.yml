@@ -9,24 +9,21 @@ networks:
 
 services:
   web:
-    build: "."
+    build:
+      context: "."
+      dockerfile: "config/docker/Dockerfile.dev"
+      args:
+        - NODE_ENV
     volumes:
       - ".:/www/src"
       - "public:/www/public"
     networks:
       - "development"
-    environment:
-      NODE_ENV: "${NODE_ENV:-development}"
-      SSL: "on"
-      WEB_HOSTNAME: "alexfedoseev.dev"
-      HOT_HOSTNAME: "hot.alexfedoseev.dev"
-      WEB_PORT: 3000
-      HOT_PORT: 3500
-      FACEBOOK_APP_ID: "597319510289959"
 
   nginx:
-    build: "./config/nginx"
-    restart: "always"
+    build:
+      context: "./config/nginx"
+      dockerfile: "Dockerfile.dev"
     volumes:
       - "public:/www/public"
     networks:

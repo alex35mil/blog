@@ -2,11 +2,10 @@
 
 import path from 'path';
 
-export const PROTOCOL = process.env.SSL === 'off' ? 'http' : 'https';
 export const WEB_HOSTNAME = process.env.WEB_HOSTNAME;
 export const HOT_HOSTNAME = process.env.HOT_HOSTNAME;
-export const WEB_DOMAIN = `${PROTOCOL}://${WEB_HOSTNAME}`;
-export const HOT_DOMAIN = `${PROTOCOL}://${HOT_HOSTNAME}`;
+export const WEB_DOMAIN = `https://${WEB_HOSTNAME}`;
+export const HOT_DOMAIN = `https://${HOT_HOSTNAME}`;
 export const WEB_PORT = parseInt(process.env.WEB_PORT, 10);
 export const HOT_PORT = parseInt(process.env.HOT_PORT, 10);
 export const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;

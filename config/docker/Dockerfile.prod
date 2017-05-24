@@ -1,0 +1,33 @@
+FROM ubuntu:16.04
+
+RUN \
+  apt-get update && \
+  apt-get install -y curl apt-transport-https && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+  curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
+  apt-get install -y \
+    nodejs \
+    yarn \
+    python \
+    build-essential
+
+ENV SRC=/www/src
+ENV DEPS=/www/deps
+
+RUN mkdir -p $DEPS
+COPY package.json yarn.lock $DEPS/
+RUN cd $DEPS && yarn --production
+RUN mkdir -p $SRC && cp -a $DEPS/node_modules $SRC/
+
+ENV NODE_ENV="production"
+ENV WEB_HOSTNAME="alexfedoseev.com"
+ENV WEB_PORT="3000"
+ENV FACEBOOK_APP_ID="597319510289959"
+
+WORKDIR $SRC
+COPY . $SRC/
+RUN chmod +x scripts/build scripts/clean
+RUN scripts/clean && BABEL_ENV=server scripts/build
+
+CMD ["node", "build/app.js"]

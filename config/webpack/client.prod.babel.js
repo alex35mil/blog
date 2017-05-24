@@ -134,7 +134,7 @@ export default {
       path: locations.assets,
       filename: modules.modulesManifestFilename,
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'SSL', 'WEB_HOSTNAME', 'FACEBOOK_APP_ID']),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'WEB_HOSTNAME', 'FACEBOOK_APP_ID']),
     new webpack.DefinePlugin({ __DEV__: false }),
     new webpack.optimize.CommonsChunkPlugin({
       children: true,
