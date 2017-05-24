@@ -17,14 +17,17 @@ ENV DEPS=/www/deps
 
 RUN mkdir -p $DEPS
 COPY package.json yarn.lock $DEPS/
-RUN cd $DEPS && yarn
+RUN cd $DEPS && yarn --production
+RUN mkdir -p $SRC && cp -a $DEPS/node_modules $SRC/
 
-RUN mkdir -p $SRC
+ENV NODE_ENV="production"
+ENV WEB_HOSTNAME="alexfedoseev.com"
+ENV WEB_PORT="3000"
+ENV FACEBOOK_APP_ID="597319510289959"
+
 WORKDIR $SRC
+COPY . $SRC/
+RUN chmod +x scripts/build scripts/clean
+RUN scripts/clean && BABEL_ENV=server scripts/build
 
-COPY scripts/entrypoint /entrypoint
-RUN chmod +x /entrypoint
-
-ENTRYPOINT ["/entrypoint"]
-
-CMD ["yarn", "start"]
+CMD ["node", "build/app.js"]

@@ -15,10 +15,10 @@ const Body = ({ body, scripts }: $Props) => (
       id="app"
       dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
     />
-    <script src={scripts.manifest} />
-    <script src={scripts.vendor} />
-    {scripts.chunks.map(chunk => <script key={chunk} src={chunk} />)}
-    <script src={scripts.app} />
+    <script src={scripts.manifest} defer />
+    <script src={scripts.vendor} defer />
+    {scripts.chunks.map(chunk => <script key={chunk} src={chunk} defer />)}
+    <script src={scripts.app} defer />
   </body>
 );
 

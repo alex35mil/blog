@@ -1,6 +1,6 @@
 FROM nginx:1.13
 
-COPY nginx.conf /etc/nginx/
+COPY nginx.dev.conf /etc/nginx/nginx.conf
 COPY ./certs/alexfedoseev.dev.pem /etc/ssl/certs/
 COPY ./certs/alexfedoseev.dev.key /etc/ssl/private/
 

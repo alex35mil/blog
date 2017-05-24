@@ -7,8 +7,10 @@
   "author": "Alex Fedoseev <alex.fedoseev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "BABEL_ENV=server scripts/start",
-    "build": "BABEL_ENV=server scripts/build",
+    "start": "yarn run local:development",
+    "local:development": "NODE_ENV=development docker-compose -f docker-compose.dev.yml up --build",
+    "local:production": "NODE_ENV=production docker-compose -f docker-compose.dev.yml up --build",
+    "deploy": "scripts/deploy",
     "report": "BABEL_ENV=server scripts/report",
     "prettier": "scripts/prettier",
     "lint:js": "eslint .",

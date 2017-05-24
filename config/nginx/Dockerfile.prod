@@ -1,0 +1,5 @@
+FROM nginx:1.13
+
+COPY nginx.prod.conf /etc/nginx/nginx.conf
+
+CMD ["nginx", "-g", "daemon off;"]
