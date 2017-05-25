@@ -1,4 +1,5 @@
 #!/bin/sh
 
 eval $(docker-machine env alexfedoseev.com)
+docker-compose -f docker-compose.prod.yml down --volumes && \
 docker-compose -f docker-compose.prod.yml up --build -d
