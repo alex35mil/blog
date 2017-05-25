@@ -32,8 +32,8 @@ const Head = ({ meta, styles }: $Props) => (
     <meta property="article:author" content="https://www.facebook.com/alex.fedoseev" />
 
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-    <link rel="image_src" href={`${WEB_DOMAIN}/images/apple-touch-icon.png`} />
+    {/* <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" /> */}
+    {/* <link rel="image_src" href={`${WEB_DOMAIN}/images/apple-touch-icon.png`} /> */}
 
     {styles.app && <link rel="stylesheet" href={styles.app} />}
     {styles.vendor && <link rel="stylesheet" href={styles.vendor} />}
