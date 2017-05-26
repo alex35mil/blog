@@ -7,9 +7,10 @@ import Done from './Done';
 
 export const initProgressBar = () => {
   NProgress.configure({
-    showSpinner: false,
-    trickle: true,
     speed: 200,
+    trickle: true,
+    trickleSpeed: 20,
+    showSpinner: false,
   });
 
   NProgress.start();
