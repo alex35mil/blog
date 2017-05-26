@@ -60,5 +60,5 @@ const Blog = () => (
 export default withPageMeta(Blog, {
   type: 'website',
   title: 'blog',
-  description: `Hey, I'm a frontend engineer focused on UIs, JavaScript, React, Node, CSS. And this is my blog. Hi!`,
+  description: `Hey, I'm a frontend engineer focused on UIs, JS, React, Node, CSS. And this is my blog. Hi!`,
 });

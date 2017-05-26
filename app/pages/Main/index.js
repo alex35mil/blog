@@ -59,5 +59,5 @@ const Main = () => (
 export default withPageMeta(Main, {
   type: 'profile',
   title: 'main',
-  description: `Hey, I'm a frontend engineer focused on UIs, JavaScript, React, Node & CSS. Hi!`,
+  description: `Hey, I'm a frontend engineer focused on UIs, JS, React, Node & CSS. Hi!`,
 });
