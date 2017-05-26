@@ -4,7 +4,7 @@ import React from 'react';
 
 // import type { $PostProps } from 'app/shell/types';
 
-import { H1 } from 'app/components';
+import { Page, H1 } from 'app/components';
 import { Header } from './Header';
 import { Cover } from './Cover';
 import { Navbar } from './Navbar';
@@ -47,16 +47,18 @@ export const Post = ({
   facebookAppId,
   children: post,
 }: $Props) => (
-  <section className={styles.section}>
-    <Cover cover={cover} credit={credit} />
-    <Header>
-      <H1>{title}</H1>
-    </Header>
-    <Navbar year={year} date={date} />
-    <div className={styles.post}>
-      {post}
-    </div>
-    <SocialSharing title={title} shareLink={shareLink} facebookAppId={facebookAppId} />
-    <Footer copyright={copyright} />
-  </section>
+  <Page>
+    <section className={styles.section}>
+      <Cover cover={cover} credit={credit} />
+      <Header>
+        <H1>{title}</H1>
+      </Header>
+      <Navbar year={year} date={date} />
+      <div className={styles.post}>
+        {post}
+      </div>
+      <SocialSharing title={title} shareLink={shareLink} facebookAppId={facebookAppId} />
+      <Footer copyright={copyright} />
+    </section>
+  </Page>
 );

@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { routes } from 'app/shell/routes';
 import posts from 'app/shell/storage/posts.json';
 
-import { A, ProgressBar } from 'app/components';
+import { Page, A } from 'app/components';
 import withPageMeta from 'app/shell/withPageMeta';
 
 import styles from './styles.css';
@@ -14,7 +14,7 @@ import styles from './styles.css';
 const years = Object.keys(posts).sort((a, b) => b - a);
 
 const Blog = () => (
-  <ProgressBar.Done>
+  <Page>
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
@@ -54,7 +54,7 @@ const Blog = () => (
         </div>
       </div>
     </section>
-  </ProgressBar.Done>
+  </Page>
 );
 
 export default withPageMeta(Blog, {

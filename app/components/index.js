@@ -18,3 +18,4 @@ export { Control } from './Control';
 export { Expandable } from './Expandable';
 export { ProgressBar } from './ProgressBar';
 export { Post } from './Post';
+export { default as Page } from './Page';

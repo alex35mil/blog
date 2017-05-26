@@ -5,14 +5,14 @@ import cn from 'classnames';
 
 import { routes } from 'app/shell/routes';
 
-import { A, ProgressBar } from 'app/components';
+import { Page, A } from 'app/components';
 import * as Icon from 'app/components/Svg/icons';
 import withPageMeta from 'app/shell/withPageMeta';
 
 import styles from './styles.css';
 
 const Main = () => (
-  <ProgressBar.Done>
+  <Page>
     <section className={styles.section}>
       <div className={styles.hero}>
         <div className={styles.photo} />
@@ -53,7 +53,7 @@ const Main = () => (
         </div>
       </div>
     </section>
-  </ProgressBar.Done>
+  </Page>
 );
 
 export default withPageMeta(Main, {

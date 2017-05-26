@@ -7,7 +7,7 @@ import type { $StaticContext } from './types';
 
 import load from './loader';
 import resolvers from './storage/resolvers';
-import withLoadedPostProps from './withLoadedPostProps';
+import { withPostProps } from './withPostProps';
 
 export const routes = {
   blog: () => '/blog',
@@ -40,7 +40,7 @@ const Routes = () => (
           exact
           key={`${year}${postId}`}
           path={routes.post(year, postId)}
-          component={withLoadedPostProps(year, postId, load(resolvers[year][postId]))}
+          component={withPostProps(year, postId, load(resolvers[year][postId]))}
         />
       )),
     )}
