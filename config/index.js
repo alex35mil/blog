@@ -30,10 +30,15 @@ export const modules = {
   image: [/\.jpe?g$/, /\.png$/],
   animatedGif: /\.gif$/,
 
+  // Careful w/ changing production filename templates
+  // as assets manifest plugin relies on it: `[name].[hash].[ext]`
+  // See: config/webpack/plugins/AssetsManifestPlugin.js
   devFilename: '[name]',
   devChunkFilename: '[id]',
   prodFilename: '[name].[chunkhash]',
   prodChunkFilename: '[id].[chunkhash]',
+  appProdCssFilename: 'app.[contenthash].css',
+  vendorProdCssFilename: 'vendor.[contenthash].css',
   assetFilename: '[hash].[ext]',
 
   devCssModuleClassName: '[path]__[local]__[hash:base64:5]',

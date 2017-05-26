@@ -12,12 +12,12 @@ import ModulesManifestPlugin from './plugins/ModulesManifestPlugin';
 import { locations, modules, loacalLoaders } from '../index';
 
 const appStyles = new ExtractTextPlugin({
-  filename: 'app.[contenthash].css',
+  filename: modules.appProdCssFilename,
   allChunks: true,
 });
 
 const vendorStyles = new ExtractTextPlugin({
-  filename: 'vendor.[contenthash].css',
+  filename: modules.vendorProdCssFilename,
   allChunks: true,
 });
 

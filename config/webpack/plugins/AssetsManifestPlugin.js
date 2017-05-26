@@ -18,13 +18,20 @@ function AssetsManifestPlugin(options: $Options) {
 AssetsManifestPlugin.prototype.apply = function ApplyAssetsManifestPlugin(compiler) {
   compiler.plugin('done', stats => {
     const output = stats.toJson().chunks.reduce((dict, chunk) => {
-      const name = chunk.names[0] || chunk.id;
-      const result = {};
-      chunk.files.forEach(file => {
-        const ext = path.extname(file);
-        result[`${name}${ext}`] = file;
-      });
-      return { ...dict, ...result };
+      const chunkFiles = chunk.files.reduce((files, file) => {
+        // Relying on filename pattern here: `[name].[hash].[ext]`
+        // Why:
+        //   1. `app` & `vendor` styles are splited via loader settings,
+        //      not via CommonsChunkPlugin, b/c this is the easiest way
+        //      to load vendor CSS w/o applying CSS Modules to vendor classes.
+        //   2. It means `app.css` and `vendor.css` files are inside `app` chunk item.
+        //      And `vendor` chunk holds only js file, extracted by CommonsChunkPlugin.
+        //
+        //   😵 🔫
+        const [name, hash, ext] = file.split('.'); // eslint-disable-line no-unused-vars
+        return { ...files, [`${name}.${ext}`]: file };
+      }, {});
+      return { ...dict, ...chunkFiles };
     }, {});
 
     const outputPath = path.join(this.path, this.filename);
