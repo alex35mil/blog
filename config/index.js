@@ -8,6 +8,7 @@ export const WEB_DOMAIN = `https://${WEB_HOSTNAME}`;
 export const HOT_DOMAIN = `https://${HOT_HOSTNAME}`;
 export const WEB_PORT = parseInt(process.env.WEB_PORT, 10);
 export const HOT_PORT = parseInt(process.env.HOT_PORT, 10);
+export const GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID;
 export const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;
 
 const www = '/www';

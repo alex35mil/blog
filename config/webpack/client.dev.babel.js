@@ -98,7 +98,12 @@ export default {
     new webpack.NoEmitOnErrorsPlugin(),
     // required to have consistend module ids
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'WEB_HOSTNAME', 'FACEBOOK_APP_ID']),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'WEB_HOSTNAME',
+      'GOOGLE_ANALYTICS_ID',
+      'FACEBOOK_APP_ID',
+    ]),
     new webpack.DefinePlugin({ __DEV__: true }),
     new ModulesManifestPlugin({
       path: locations.assets,

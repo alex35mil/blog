@@ -29,6 +29,7 @@ ENV WEB_HOSTNAME="alexfedoseev.dev"
 ENV HOT_HOSTNAME="hot.alexfedoseev.dev"
 ENV WEB_PORT="3000"
 ENV HOT_PORT="3500"
+ENV GOOGLE_ANALYTICS_ID="UA-36704000-8"
 ENV FACEBOOK_APP_ID="597319510289959"
 
 COPY scripts/entrypoint /entrypoint
