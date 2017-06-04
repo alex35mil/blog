@@ -19,11 +19,17 @@ type $Props = {|
   |},
 |};
 
-type $State = {| isLoaded: boolean |};
+type $State = {|
+  isLoaded: boolean,
+  parallaxFactor: number,
+|};
 
 export class Cover extends React.Component {
   props: $Props;
-  state: $State = { isLoaded: false };
+  state: $State = {
+    isLoaded: false,
+    parallaxFactor: 0,
+  };
   cover: ?HTMLImageElement;
 
   componentDidMount = () => {
@@ -34,6 +40,12 @@ export class Cover extends React.Component {
     if (this.cover && this.cover.complete) {
       this.showCover();
     }
+
+    window.addEventListener('scroll', this.parallaxCover);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.parallaxCover);
   };
 
   setCoverRef = (ref: HTMLImageElement) => {
@@ -43,6 +55,13 @@ export class Cover extends React.Component {
   showCover = () => {
     if (this.state.isLoaded) return;
     this.setState({ isLoaded: true });
+  };
+
+  parallaxCover = () => {
+    if (!this.state.isLoaded) return;
+    const scrolled = window.pageYOffset;
+    if (scrolled < 0 || scrolled > 1500) return;
+    this.setState({ parallaxFactor: scrolled / 3 });
   };
 
   render = () => {
@@ -62,6 +81,9 @@ export class Cover extends React.Component {
             alt=""
             ref={this.setCoverRef}
             onLoad={this.showCover}
+            style={{
+              transform: `translate3d(0px, ${this.state.parallaxFactor}px, 0px)`,
+            }}
           />
         </div>
         <div className={styles.overlay} />
