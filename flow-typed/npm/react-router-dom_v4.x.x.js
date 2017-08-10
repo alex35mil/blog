@@ -1,5 +1,5 @@
-// flow-typed signature: a36f060877e62b3caf807efe7db6aa1a
-// flow-typed version: 7f8b059d5f/react-router-dom_v4.x.x/flow_>=v0.38.x
+// flow-typed signature: 493d39fe9968f54f645635dbec3b2d9a
+// flow-typed version: 02d9734356/react-router-dom_v4.x.x/flow_>=v0.38.x
 
 declare module 'react-router-dom' {
   declare export class BrowserRouter extends React$Component {
@@ -80,13 +80,15 @@ declare module 'react-router-dom' {
   }
 
   declare export type Match = {
-    params: Object,
+    params: { [key: string]: ?string },
     isExact: boolean,
     path: string,
     url: string,
   }
 
-  declare export type ContextRouter = RouterHistory & {
+  declare export type ContextRouter = {
+    history: RouterHistory,
+    location: Location,
     match: Match,
   }
 
@@ -159,8 +161,9 @@ declare module 'react-router-dom' {
   declare export function withRouter<P, S>(Component: ClassComponent<void, P, S> | FunctionComponent<P>): ClassComponent<void, $Diff<P, ContextRouter>, S>;
 
   declare type MatchPathOptions = {
+    path: string,
     exact?: boolean,
     strict?: boolean,
   }
-  declare export function matchPath(pathname: string, path: string, options?: MatchPathOptions): null | Match
+  declare export function matchPath(pathname: string, options: MatchPathOptions): null | Match
 }

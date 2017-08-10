@@ -30,7 +30,6 @@ server.use(
 
 server.use(webpackHotMiddleware(compiler));
 
-// $FlowIgnoreMe
 server.listen(
   HOT_PORT,
   error =>

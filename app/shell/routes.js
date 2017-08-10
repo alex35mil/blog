@@ -45,7 +45,6 @@ const Routes = () => (
       )),
     )}
     <Route
-      // $FlowIgnoreMe: looks like incorrect RR typedefs
       render={({ staticContext }: { staticContext: $StaticContext }) => {
         // eslint-disable-next-line no-param-reassign
         if (staticContext) staticContext.status = 404;
