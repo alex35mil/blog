@@ -5,6 +5,12 @@
   flex-flow: column nowrap;
   align-items: center;
   margin: 40px 0;
+
+  & figcaption {
+    display: flex;
+    margin-top: 20px;
+    color: var(--gray-text);
+  }
 }
 
 .placement--center {

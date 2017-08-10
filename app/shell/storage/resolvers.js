@@ -8,6 +8,10 @@ type $Resolvers = { [year: string]: { [slug: $PostId]: $ChunkResolvers } };
 
 const resolvers: $Resolvers = {
   2017: {
+    tableau: {
+      resolve: () => import('../../pages/Blog/2017/Tableau'),
+      getWebpackId: () => require.resolveWeak('../../pages/Blog/2017/Tableau'),
+    },
     'redux-tree': {
       resolve: () => import('../../pages/Blog/2017/ReduxTree'),
       getWebpackId: () => require.resolveWeak('../../pages/Blog/2017/ReduxTree'),

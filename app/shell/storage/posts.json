@@ -1,5 +1,9 @@
 {
   "2017": {
+    "tableau": {
+      "title": "Tableau",
+      "date": "August 10"
+    },
     "redux-tree": {
       "title": "Redux Tree",
       "date": "March 18"
