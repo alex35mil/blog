@@ -25,7 +25,11 @@ export const A = ({
   ...otherProps
 }: $Props) =>
   internal
-    ? <RouterLink to={href} className={cn({ [styles.link]: !unstyled }, className)} {...otherProps}>
+    ? <RouterLink
+        to={href}
+        className={cn({ [styles.link]: !unstyled }, className)}
+        {...otherProps}
+      >
         {children}
       </RouterLink>
     : <a

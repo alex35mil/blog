@@ -9,23 +9,24 @@ import { Post, H2, P, B, I, Ul, Ol, Li, Snippet } from 'app/components';
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
+const IsomorphicReactWithRailsPartI = (props: $PostProps) =>
   <Post {...props}>
     <P>
-      One of the greatest features in React is a declarative way to construct the things.
-      Once you’ve tried it—you’ll never go back to imperative mess.
-      A few days ago, while rewriting some webpack configs,
-      I finally figured out what’s so annoying in the way we usually cook them:
-      we cook them in imperative way.
+      One of the greatest features in React is a declarative way to construct
+      the things. Once you’ve tried it—you’ll never go back to imperative mess.
+      A few days ago, while rewriting some webpack configs, I finally figured
+      out what’s so annoying in the way we usually cook them: we cook them in
+      imperative way.
     </P>
     <P>
       Both of the approaches I’ll be talking about in this post are trade offs.
-      And I can’t assert that one is unconditionally better than the other,
-      both have its pros and cons. But you can compare and choose which one works better for you.
+      And I can’t assert that one is unconditionally better than the other, both
+      have its pros and cons. But you can compare and choose which one works
+      better for you.
     </P>
     <P>
-      Let’s create 2 simple webpack configs in two different ways
-      (I assume you’re already familiar with webpack):
+      Let’s create 2 simple webpack configs in two different ways (I assume
+      you’re already familiar with webpack):
     </P>
     <Ol>
       <Li>
@@ -54,29 +55,21 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
       <B>Development</B> config should have:
     </P>
     <Ul>
-      <Li>
-        Hot reloading
-      </Li>
+      <Li>Hot reloading</Li>
     </Ul>
 
     <P>
       <B>Production</B> config should have:
     </P>
     <Ul>
-      <Li>
-        Cache busting
-      </Li>
-      <Li>
-        JS minification
-      </Li>
-      <Li>
-        Extracted CSS file with styles
-      </Li>
+      <Li>Cache busting</Li>
+      <Li>JS minification</Li>
+      <Li>Extracted CSS file with styles</Li>
     </Ul>
     <P>
-      It’s really simple case and in real life there will be more stuff.
-      But even now these configs are quite different.
-      First, let’s take a look at final configs and figure out how we can DRY them out.
+      It’s really simple case and in real life there will be more stuff. But
+      even now these configs are quite different. First, let’s take a look at
+      final configs and figure out how we can DRY them out.
     </P>
 
     <Snippet lang="js" file="webpack.dev.config.js">
@@ -276,16 +269,17 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
 
     <P>
       The main downside of this approach is that I can’t easily figure out
-      what’s going on inside each config. I have to construct its shape in my mind
-      after analyzing base and child configs. In case of complex setup it’s really annoying.
-      So let’s take a look at another approach, which I like better.
+      what’s going on inside each config. I have to construct its shape in my
+      mind after analyzing base and child configs. In case of complex setup it’s
+      really annoying. So let’s take a look at another approach, which I like
+      better.
     </P>
 
     <H2>Declarative way</H2>
     <P>
-      Instead of creating base config, we can place common parts
-      to stand-alone <B>config.js</B> and (re)use them by cherry-picking
-      in another configs (whose shape will be preserved).
+      Instead of creating base config, we can place common parts to stand-alone{' '}
+      <B>config.js</B> and (re)use them by cherry-picking in another configs
+      (whose shape will be preserved).
     </P>
 
     <Snippet lang="js" file="config.js">
@@ -395,12 +389,11 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
     </Snippet>
 
     <P>
-      Thus we can’t see real values under the imported props,
-      but now each config looks more structured and readable (at my taste of course).
-      So try this out and pick your way of writing webpack configs!
+      Thus we can’t see real values under the imported props, but now each
+      config looks more structured and readable (at my taste of course). So try
+      this out and pick your way of writing webpack configs!
     </P>
-  </Post>
-);
+  </Post>;
 
 export default withPostMeta(IsomorphicReactWithRailsPartI, {
   type: 'article',

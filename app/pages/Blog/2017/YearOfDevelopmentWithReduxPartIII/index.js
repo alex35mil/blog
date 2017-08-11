@@ -30,12 +30,15 @@ import withPostMeta from 'app/shell/withPostMeta';
 
 import flowAnimatedGif from './images/flow.gif';
 
-const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
+const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) =>
   <Post {...props}>
     <P>
-      In the last post of this series, I’ll demonstrate writing UI code
-      as a set of <B>interactions</B> and share how this facilitates
-      integrating Redux and <A href="https://flow.org" targetBlank>Flow</A>.
+      In the last post of this series, I’ll demonstrate writing UI code as a set
+      of <B>interactions</B> and share how this facilitates integrating Redux
+      and{' '}
+      <A href="https://flow.org" targetBlank>
+        Flow
+      </A>.
     </P>
     <H2>Interactions</H2>
     <P>
@@ -43,35 +46,34 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
     </P>
     <Ol>
       <Li>
-        What interactions are possible here
-        (e.g., <C>A</C>, <C>B</C> & <C>C</C>).
+        What interactions are possible here (e.g., <C>A</C>, <C>B</C> & <C>C</C>).
       </Li>
       <Li>
-        If interaction <C>A</C> has happened,
-        what changes did it make to the application state?
+        If interaction <C>A</C> has happened, what changes did it make to the
+        application state?
       </Li>
     </Ol>
     <P>
-      The clarity of these points is the key to the long and happy
-      development of any UI application.
+      The clarity of these points is the key to the long and happy development
+      of any UI application.
     </P>
     <P>
-      When my interactions were split between
-      the <C>actions.js</C> and <C>reducer.js</C> modules,
-      in order to read or write code, I was having to constantly
-      switch back and forth between the two.
-      Things were even worse if multiple reducers were involved.
-      I realized that I should reorganize the code around the interactions,
-      because either implementing a new or working on an existing one,
-      I’m always working <B>in the context of interaction</B>,
-      not action creators or reducers.
+      When my interactions were split between the <C>actions.js</C> and{' '}
+      <C>reducer.js</C> modules, in order to read or write code, I was having to
+      constantly switch back and forth between the two. Things were even worse
+      if multiple reducers were involved. I realized that I should reorganize
+      the code around the interactions, because either implementing a new or
+      working on an existing one, I’m always working{' '}
+      <B>in the context of interaction</B>, not action creators or reducers.
     </P>
     <P>
       Based on this, I reorganized my folders into{' '}
-      <A internal href={routes.post('2017', 'year-of-development-with-redux-part-ii')}>
+      <A
+        internal
+        href={routes.post('2017', 'year-of-development-with-redux-part-ii')}
+      >
         UI units
-      </A>,
-      like this one:
+      </A>, like this one:
     </P>
     <Snippet>
       {`
@@ -97,8 +99,8 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
 
     <H2>Easy case</H2>
     <P>
-      The simplest possible case is when a synchronous action is dispatched
-      and only one reducer should respond. For example, the interaction module below
+      The simplest possible case is when a synchronous action is dispatched and
+      only one reducer should respond. For example, the interaction module below
       defines a behavior of modal dialog:
     </P>
     <Snippet lang="js" file="interactions/modalToggle.js">
@@ -130,7 +132,8 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
     </Snippet>
 
     <P>
-      The reducer module no longer contains any logic, it’s just an index of interactions:
+      The reducer module no longer contains any logic, it’s just an index of
+      interactions:
     </P>
     <Snippet lang="js" file="reducer.js">
       {`
@@ -155,27 +158,24 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
         targetBlank
       >
         Redux’s recipes
-      </A>.
-      It makes it possible to have an exact mapping
-      of a dispatched action from an action creator
-      to the action handler in the reducer.
-      It’ll be required for accurate flow typings.
+      </A>. It makes it possible to have an exact mapping of a dispatched action
+      from an action creator to the action handler in the reducer. It’ll be
+      required for accurate flow typings.
     </Note>
 
     <H2>Advanced case</H2>
     <P>
-      Let’s say you requested to <C>PATCH</C> an entity
-      and the server responded with <C>200 OK</C>.
-      At this point to respond on the single dispatch,
-      you must apply 2 changes to the app state:
+      Let’s say you requested to <C>PATCH</C> an entity and the server responded
+      with <C>200 OK</C>. At this point to respond on the single dispatch, you
+      must apply 2 changes to the app state:
     </P>
     <Ol>
       <Li>reset UI unit store (turn off spinner, reset form state, etc.)</Li>
       <Li>update the entity in the data store</Li>
     </Ol>
     <P>
-      <B>UPDATE</B>: To handle updates of the multiple stores
-      in response to a single action use{' '}
+      <B>UPDATE</B>: To handle updates of the multiple stores in response to a
+      single action use{' '}
       <A href="https://github.com/shakacode/redux-tree">
         <C>redux-tree</C>
       </A>.
@@ -184,20 +184,21 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
     <P>The main wins here:</P>
     <Ul>
       <Li>
-        <B>Changing things is easy</B><br />
-        All the changes in the app caused by the interaction
-        are gathered in one place that’s easy to find, easy to reason about,
-        and easy to change, move or remove. If a modal must be converted
-        to inline element or a Google map must be removed: in each case,
-        you’re dealing with <I>files</I> and <I>folders</I> dedicated
-        to a given interaction instead of chunks of code scattered around
-        disparate action and reducer modules.
+        <B>Changing things is easy</B>
+        <br />
+        All the changes in the app caused by the interaction are gathered in one
+        place that’s easy to find, easy to reason about, and easy to change,
+        move or remove. If a modal must be converted to inline element or a
+        Google map must be removed: in each case, you’re dealing with{' '}
+        <I>files</I> and <I>folders</I> dedicated to a given interaction instead
+        of chunks of code scattered around disparate action and reducer modules.
       </Li>
       <Li>
-        <B>Better focus</B><br />
-        When you’re working on google map interactions, you’re focused
-        only on code related to the google map interactions.
-        There aren’t any distractions from unrelated code.
+        <B>Better focus</B>
+        <br />
+        When you’re working on google map interactions, you’re focused only on
+        code related to the google map interactions. There aren’t any
+        distractions from unrelated code.
       </Li>
     </Ul>
     <P>Check out examples on GitHub with live demos:</P>
@@ -209,15 +210,17 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
 
     <H2>Flow</H2>
     <P>
-      One additional benefit here is the ability to accurately type Redux parts with Flow.
-      Thanks to <A href="https://atom.io" targetBlank>Atom</A>,
-      I can view Flow errors in the real-time in my editor.
-      And thanks to <A href="https://nuclide.io" targetBlank>Nuclide</A>{' '}
+      One additional benefit here is the ability to accurately type Redux parts
+      with Flow. Thanks to{' '}
+      <A href="https://atom.io" targetBlank>
+        Atom
+      </A>, I can view Flow errors in the real-time in my editor. And thanks to{' '}
+      <A href="https://nuclide.io" targetBlank>
+        Nuclide
+      </A>{' '}
       for superior Flow integration.
     </P>
-    <P>
-      My goal in combining Redux & Flow was to prevent the following cases:
-    </P>
+    <P>My goal in combining Redux & Flow was to prevent the following cases:</P>
     <Expandable label="Dispatching an illegal action to reducer">
       <Snippet lang="js">
         {`
@@ -271,9 +274,7 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
       </Snippet>
     </Expandable>
 
-    <P>
-      Here is the example app I’ll refer to during the rest of this post:
-    </P>
+    <P>Here is the example app I’ll refer to during the rest of this post:</P>
     <P>
       <A
         href="https://github.com/shakacode/redux-interactions/tree/master/examples/flow-interactions"
@@ -283,10 +284,9 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
       </A>
     </P>
     <Note>
-      This is a dummy app, where you pick the blog post and edit its title.
-      It uses thunks to handle asynchronicity
-      and immutable <C>Records</C> as state containers.
-      You can check out its{' '}
+      This is a dummy app, where you pick the blog post and edit its title. It
+      uses thunks to handle asynchronicity and immutable <C>Records</C> as state
+      containers. You can check out its{' '}
       <A href="http://redux-flow-interactions.surge.sh" targetBlank>
         live version
       </A>.
@@ -318,8 +318,8 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
     </Ul>
     <P>
       Each part is defined in its context, thus all details are encapsulated.
-      Each store is defined as an Immutable <C>Record</C>.
-      In the end, all of the store types are{' '}
+      Each store is defined as an Immutable <C>Record</C>. In the end, all of
+      the store types are{' '}
       <A
         href="https://github.com/shakacode/redux-interactions/blob/master/examples/flow-interactions/src/app/tree.js"
         targetBlank
@@ -375,14 +375,12 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
       {`type Action = { type: $Subtype<string> };`}
     </Snippet>
     <P>
-      Yes, it’s less accurate <I>here</I>,
-      but it will be very accurate in the interactions, as you will see below.
+      Yes, it’s less accurate <I>here</I>, but it will be very accurate in the
+      interactions, as you will see below.
     </P>
 
     <H3>Typing interactions and selectors</H3>
-    <P>
-      At this point we can implement typings for all redux parts
-    </P>
+    <P>At this point we can implement typings for all redux parts</P>
     <Ul>
       <Li>
         <A
@@ -402,15 +400,19 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
       </Li>
     </Ul>
     <P>
-      Here’s an example of the Flow warnings in action,
-      when I refactor state property name from <C>postId</C> to <C>id</C>:
+      Here’s an example of the Flow warnings in action, when I refactor state
+      property name from <C>postId</C> to <C>id</C>:
     </P>
-    <AnimatedGif src={flowAnimatedGif} placement="bleed" alt="Refactoring with Flow" />
+    <AnimatedGif
+      src={flowAnimatedGif}
+      placement="bleed"
+      alt="Refactoring with Flow"
+    />
 
     <H3>Typing action creators in representational components</H3>
     <P>
-      Sadly, Flow can’t infer types of action creators defined in interaction modules.
-      But it’s possible to import types of JS entities, e.g.:
+      Sadly, Flow can’t infer types of action creators defined in interaction
+      modules. But it’s possible to import types of JS entities, e.g.:
     </P>
     <Snippet lang="js">
       {`
@@ -435,11 +437,8 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
 
     <Divider />
 
-    <P>
-      Thanks for reading this, more great stuff coming soon. Cheers!
-    </P>
-  </Post>
-);
+    <P>Thanks for reading this, more great stuff coming soon. Cheers!</P>
+  </Post>;
 
 export default withPostMeta(YearOfDevelopmentWithReduxPartIII, {
   type: 'article',

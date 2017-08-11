@@ -21,14 +21,17 @@ export class Expandable extends React.Component {
 
   toggle = () => this.setState(state => ({ isExpanded: !state.isExpanded }));
 
-  render = () => (
+  render = () =>
     <div className={styles.wrapper}>
       <div className={styles.labelWrapper}>
         <Control className={styles.label} onClick={this.toggle}>
           {this.props.label}
         </Control>
         <Icon.Caret
-          className={cn(styles.caret, this.state.isExpanded ? styles.caretUp : styles.caretDown)}
+          className={cn(
+            styles.caret,
+            this.state.isExpanded ? styles.caretUp : styles.caretDown,
+          )}
         />
       </div>
       {this.state.isExpanded &&
@@ -37,6 +40,5 @@ export class Expandable extends React.Component {
             {this.props.children}
           </div>
         </div>}
-    </div>
-  );
+    </div>;
 }

@@ -31,7 +31,7 @@ server.use(
 server.use(webpackHotMiddleware(compiler));
 
 server.listen(
-  HOT_PORT,
+  (HOT_PORT: number),
   error =>
     /* eslint-disable no-console */
     error

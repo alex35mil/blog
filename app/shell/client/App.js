@@ -10,12 +10,11 @@ import 'app/styles/index.css';
 
 initProgressBar();
 
-const App = () => (
+const App = () =>
   <Router>
     <ProgressBar.Start>
       <Routes />
     </ProgressBar.Start>
-  </Router>
-);
+  </Router>;
 
 export default App;

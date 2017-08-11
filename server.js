@@ -2,7 +2,11 @@
 
 import express from 'express';
 
-import type { $Request, $Response, NextFunction as $NextFunction } from 'express';
+import type {
+  $Request,
+  $Response,
+  NextFunction as $NextFunction,
+} from 'express';
 
 import App from 'app/shell/server/App';
 import { WEB_PORT } from 'config';

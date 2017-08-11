@@ -27,12 +27,11 @@ type $Props = {|
   scripts: $Scripts,
 |};
 
-const Html = ({ body, meta, scripts, styles }: $Props) => (
+const Html = ({ body, meta, scripts, styles }: $Props) =>
   <html lang="en">
     <Head {...{ meta, styles }} />
     <Body {...{ body, scripts }} />
-  </html>
-);
+  </html>;
 
 export default (props: $Props) => {
   // $FlowIgnoreMe: Exact type + props destructuring

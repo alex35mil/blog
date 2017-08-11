@@ -8,13 +8,15 @@ type $Props = {|
   message: string,
 |};
 
-export const Error = ({ status, message }: $Props) => (
+export const Error = ({ status, message }: $Props) =>
   <html lang="en">
     <head>
       <base href="/" />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>{status} | alexfedoseev.com</title>
+      <title>
+        {status} | alexfedoseev.com
+      </title>
       <link rel="shortcut icon" href="/favicon.ico" />
       <style type="text/css">
         {oneLine`
@@ -74,16 +76,9 @@ export const Error = ({ status, message }: $Props) => (
             {message}
           </div>
           <div className="links">
-            try:{' '}
-            <a href="/">
-              main
-            </a>{' '}
-            <a href="/blog">
-              blog
-            </a>
+            try: <a href="/">main</a> <a href="/blog">blog</a>
           </div>
         </div>
       </div>
     </body>
-  </html>
-);
+  </html>;

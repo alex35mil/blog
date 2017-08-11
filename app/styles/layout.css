@@ -17,7 +17,7 @@ body {
   -webkit-font-smoothing: antialiased; /* stylelint-disable-line order/properties-order  */
 }
 
-/* stylelint-disable-next-line selector-no-id  */
+/* stylelint-disable-next-line selector-max-id  */
 #app {
   display: flex;
   flex-flow: column nowrap;

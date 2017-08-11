@@ -19,14 +19,15 @@ export const Svg = ({
   viewBoxHeight = 16,
   className,
   children,
-}: $Props) => (
+}: $Props) =>
   <svg
     className={cn(styles.svg, className)}
     viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby={`${title}-title`}
   >
-    <title id={`icon-title-${title}`}>{title}</title>
+    <title id={`icon-title-${title}`}>
+      {title}
+    </title>
     {children}
-  </svg>
-);
+  </svg>;

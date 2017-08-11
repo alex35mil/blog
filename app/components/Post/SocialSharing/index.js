@@ -40,39 +40,56 @@ export class SocialSharing extends React.Component {
     const title = encodeURIComponent(`"${this.props.title}"`);
     const url = encodeURIComponent(this.props.shareLink);
     const username = 'alexfedoseev';
-    this.openPopup(`https://twitter.com/intent/tweet?text=${title}&url=${url}&via=${username}`);
+    this.openPopup(
+      `https://twitter.com/intent/tweet?text=${title}&url=${url}&via=${username}`,
+    );
   };
 
   shareOnFacebook = () => {
     const { shareLink, facebookAppId } = this.props;
     const url = encodeURIComponent(shareLink);
-    this
-      .openPopup(`https://www.facebook.com/dialog/share?app_id=${facebookAppId}&display=popup&href=${url}`);
+    this.openPopup(
+      `https://www.facebook.com/dialog/share?app_id=${facebookAppId}&display=popup&href=${url}`,
+    );
   };
 
   openPopup = (url: string) => {
-    window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=600');
+    window.open(
+      url,
+      '',
+      'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=600,height=600',
+    );
   };
 
-  render = () => (
+  render = () =>
     <div className={styles.container}>
       <div className={styles.widget}>
-        <div className={cn(styles.title, this.state.isVisible ? styles.visible : styles.hidden)}>
+        <div
+          className={cn(
+            styles.title,
+            this.state.isVisible ? styles.visible : styles.hidden,
+          )}
+        >
           share
         </div>
         <Control
-          className={cn(styles.shareButton, this.state.isVisible ? styles.visible : styles.hidden)}
+          className={cn(
+            styles.shareButton,
+            this.state.isVisible ? styles.visible : styles.hidden,
+          )}
           onClick={this.shareOnTwitter}
         >
           <Icon.TwitterShare className={styles.shareIcon} />
         </Control>
         <Control
-          className={cn(styles.shareButton, this.state.isVisible ? styles.visible : styles.hidden)}
+          className={cn(
+            styles.shareButton,
+            this.state.isVisible ? styles.visible : styles.hidden,
+          )}
           onClick={this.shareOnFacebook}
         >
           <Icon.FacebookShare className={styles.shareIcon} />
         </Control>
       </div>
-    </div>
-  );
+    </div>;
 }

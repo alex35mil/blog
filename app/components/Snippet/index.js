@@ -18,7 +18,7 @@ type $Props = {|
   children?: React.Element<*>,
 |};
 
-export const Snippet = ({ lang, file, children }: $Props) => (
+export const Snippet = ({ lang, file, children }: $Props) =>
   <pre
     className={cn(styles.pre, lang ? `language-${lang}` : 'language-none', {
       [styles.pushABit]: file,
@@ -29,7 +29,10 @@ export const Snippet = ({ lang, file, children }: $Props) => (
           className={cn(styles.code, `language-${lang}`)}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
-            __html: Prism.highlight(stripIndent`${children}`, Prism.languages[lang]),
+            __html: Prism.highlight(
+              stripIndent`${children}`,
+              Prism.languages[lang],
+            ),
           }}
         />
       : <code className={cn(styles.code, 'language-none')}>
@@ -46,5 +49,4 @@ export const Snippet = ({ lang, file, children }: $Props) => (
             {file}
           </div>}
       </div>}
-  </pre>
-);
+  </pre>;

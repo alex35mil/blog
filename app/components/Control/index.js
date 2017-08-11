@@ -13,7 +13,13 @@ type $Props = {|
   onClick: () => void,
 |};
 
-export const Control = ({ className, title, children, onClick, setRef }: $Props) => (
+export const Control = ({
+  className,
+  title,
+  children,
+  onClick,
+  setRef,
+}: $Props) =>
   <button
     type="button"
     className={cn(styles.control, className)}
@@ -22,5 +28,4 @@ export const Control = ({ className, title, children, onClick, setRef }: $Props)
     onClick={onClick}
   >
     {children}
-  </button>
-);
+  </button>;

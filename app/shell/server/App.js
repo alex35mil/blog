@@ -31,7 +31,9 @@ export default (req: $Request, res: $Response) => {
   }
 
   if (context.status === 404) {
-    const html = ReactDOMServer.renderToStaticMarkup(<Error status={404} message="not found" />);
+    const html = ReactDOMServer.renderToStaticMarkup(
+      <Error status={404} message="not found" />,
+    );
     return res.status(404).send(html);
   }
 

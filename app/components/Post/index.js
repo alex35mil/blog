@@ -46,19 +46,24 @@ export const Post = ({
   shareLink,
   facebookAppId,
   children: post,
-}: $Props) => (
+}: $Props) =>
   <Page>
     <section className={styles.section}>
       <Cover cover={cover} credit={credit} />
       <Header>
-        <H1>{title}</H1>
+        <H1>
+          {title}
+        </H1>
       </Header>
       <Navbar year={year} date={date} />
       <div className={styles.post}>
         {post}
       </div>
-      <SocialSharing title={title} shareLink={shareLink} facebookAppId={facebookAppId} />
+      <SocialSharing
+        title={title}
+        shareLink={shareLink}
+        facebookAppId={facebookAppId}
+      />
       <Footer copyright={copyright} />
     </section>
-  </Page>
-);
+  </Page>;

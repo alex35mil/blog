@@ -15,7 +15,9 @@ function AssetsManifestPlugin(options: $Options) {
   this.filename = options.filename;
 }
 
-AssetsManifestPlugin.prototype.apply = function ApplyAssetsManifestPlugin(compiler) {
+AssetsManifestPlugin.prototype.apply = function ApplyAssetsManifestPlugin(
+  compiler,
+) {
   compiler.plugin('done', stats => {
     const output = stats.toJson().chunks.reduce((dict, chunk) => {
       const chunkFiles = chunk.files.reduce((files, file) => {
@@ -35,7 +37,9 @@ AssetsManifestPlugin.prototype.apply = function ApplyAssetsManifestPlugin(compil
     }, {});
 
     const outputPath = path.join(this.path, this.filename);
-    const outputData = isDevelopment ? JSON.stringify(output, null, 2) : JSON.stringify(output);
+    const outputData = isDevelopment
+      ? JSON.stringify(output, null, 2)
+      : JSON.stringify(output);
 
     fsx.ensureDirSync(this.path);
     fsx.writeFileSync(outputPath, outputData);

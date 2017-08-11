@@ -16,10 +16,11 @@ type $Props = {
 
 const years = Object.keys(posts).sort();
 
-export const withPostProps = (year: string, postId: string, Post: () => React.Element<*>) => ({
-  location,
-  staticContext,
-}: $Props) => (
+export const withPostProps = (
+  year: string,
+  postId: string,
+  Post: () => React.Element<*>,
+) => ({ location, staticContext }: $Props) =>
   <Post
     year={year}
     slug={postId}
@@ -32,5 +33,4 @@ export const withPostProps = (year: string, postId: string, Post: () => React.El
       end: years[years.length - 1],
     }}
     {...posts[year][postId]}
-  />
-);
+  />;

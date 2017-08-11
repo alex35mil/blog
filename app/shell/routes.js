@@ -14,7 +14,7 @@ export const routes = {
   post: (year: string, postId: string) => `/${year}/${postId}`,
 };
 
-const Routes = () => (
+const Routes = () =>
   <Switch>
     <Route
       exact
@@ -35,23 +35,23 @@ const Routes = () => (
       })}
     />
     {Object.keys(resolvers).map(year =>
-      Object.keys(resolvers[year]).map(postId => (
+      Object.keys(resolvers[year]).map(postId =>
         <Route
           exact
           key={`${year}${postId}`}
           path={routes.post(year, postId)}
           component={withPostProps(year, postId, load(resolvers[year][postId]))}
-        />
-      )),
+        />,
+      ),
     )}
     <Route
-      render={({ staticContext }: { staticContext: $StaticContext }) => {
+      // $FlowIgnoreMe: react-router typedefs
+      render={({ staticContext }: { staticContext?: $StaticContext }) => {
         // eslint-disable-next-line no-param-reassign
         if (staticContext) staticContext.status = 404;
         return <div />;
       }}
     />
-  </Switch>
-);
+  </Switch>;
 
 export default Routes;

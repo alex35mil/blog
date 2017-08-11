@@ -10,8 +10,7 @@ type $Props = {|
   children?: React.Element<*>,
 |};
 
-export const P = ({ className, children }: $Props) => (
+export const P = ({ className, children }: $Props) =>
   <p className={cn(styles.paragraph, className)}>
     {children}
-  </p>
-);
+  </p>;

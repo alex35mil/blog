@@ -54,14 +54,17 @@ export function pitch(request: string) {
 function getRequire(request, size) {
   const parsedRequest = request.split('!');
   const resizeLoader = path.join(__dirname, 'resize-loader.js');
-  const loaders = parsedRequest.slice(0, -1).concat(`${resizeLoader}?size=${size}`);
+  const loaders = parsedRequest
+    .slice(0, -1)
+    .concat(`${resizeLoader}?size=${size}`);
   const image = parsedRequest[parsedRequest.length - 1];
   const resizedImage = '-!' + loaders.concat(image).join('!');
   return `require(${JSON.stringify(resizedImage)})`;
 }
 
 function exportFluid(preset, sources, fallback) {
-  const stringifiedSrcset = Object.keys(sources).map(size => `${sources[size]} + ' ${size}w'`)
+  const stringifiedSrcset = Object.keys(sources)
+    .map(size => `${sources[size]} + ' ${size}w'`)
     .join(`+ ', ' + `);
 
   return `module.exports = { srcset: ${stringifiedSrcset}, fallback: ${fallback} }`;
@@ -75,6 +78,8 @@ function exportFixed(preset, sources, fallback) {
     }),
     {},
   );
-  const stringifiedSrcsets = preset.sizes.map(size => `${size}: ${srcsets[size]}`).join(', ');
+  const stringifiedSrcsets = preset.sizes
+    .map(size => `${size}: ${srcsets[size]}`)
+    .join(', ');
   return `module.exports = { ${stringifiedSrcsets}, fallback: ${fallback} }`;
 }

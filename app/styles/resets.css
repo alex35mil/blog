@@ -2,7 +2,7 @@
 
 @import "app/styles/config";
 
-/* stylelint-disable-next-line selector-no-universal */
+/* stylelint-disable-next-line selector-max-universal */
 * {
   box-sizing: border-box;
   transform: none;

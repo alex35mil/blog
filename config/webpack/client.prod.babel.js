@@ -151,7 +151,8 @@ export default {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: module => module.context && module.context.indexOf('node_modules') !== -1,
+      minChunks: module =>
+        module.context && module.context.indexOf('node_modules') !== -1,
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
@@ -168,12 +169,18 @@ export default {
     new GzipPlugin({
       asset: '[path].gz',
       algorithm: 'gzip',
-      regExp: /\.js$|\.css$/,
+      test: /\.js$|\.css$/,
     }),
     new CopyPlugin([
       // favicon.ico
       {
-        from: path.resolve(locations.src, 'app', 'styles', 'assets', 'favicon.ico'),
+        from: path.resolve(
+          locations.src,
+          'app',
+          'styles',
+          'assets',
+          'favicon.ico',
+        ),
         to: locations.public,
       },
     ]),

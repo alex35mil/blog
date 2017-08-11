@@ -11,17 +11,20 @@ import withPageMeta from 'app/shell/withPageMeta';
 
 import styles from './styles.css';
 
-const Main = () => (
+const Main = () =>
   <Page>
     <section className={styles.section}>
       <div className={styles.hero}>
         <div className={styles.photo} />
         <div className={styles.text}>
-          <div className={styles.logo}>
-            alex.fedoseev
-          </div>
+          <div className={styles.logo}>alex.fedoseev</div>
           <div className={styles.links}>
-            <A internal unstyled href={routes.blog()} className={cn(styles.link, styles.blogLink)}>
+            <A
+              internal
+              unstyled
+              href={routes.blog()}
+              className={cn(styles.link, styles.blogLink)}
+            >
               blog
             </A>
             <hr width="1" size="30" className={styles.sep} />
@@ -53,8 +56,7 @@ const Main = () => (
         </div>
       </div>
     </section>
-  </Page>
-);
+  </Page>;
 
 export default withPageMeta(Main, {
   type: 'profile',

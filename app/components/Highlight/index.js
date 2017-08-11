@@ -8,8 +8,7 @@ type $Props = {|
   children?: React.Element<*>,
 |};
 
-export const Highlight = ({ children }: $Props) => (
+export const Highlight = ({ children }: $Props) =>
   <highlight className={styles.highlight}>
     {children}
-  </highlight>
-);
+  </highlight>;

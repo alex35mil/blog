@@ -64,5 +64,10 @@ export const modules = {
 };
 
 export const loacalLoaders = {
-  'picture-loader': path.join(__dirname, 'webpack', 'loaders', 'picture-loader'),
+  'picture-loader': path.join(
+    __dirname,
+    'webpack',
+    'loaders',
+    'picture-loader',
+  ),
 };

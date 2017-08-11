@@ -10,7 +10,7 @@ import withPostMeta from 'app/shell/withPostMeta';
 
 import enumAnimatedGif from './images/enum.gif';
 
-const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
+const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) =>
   <Post {...props}>
     <P>
       If you use{' '}
@@ -21,17 +21,16 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
       <A href="https://flow.org" targetBlank>
         <C>flow</C>
       </A>{' '}
-      in your projects, you can have statically type-checked Enums.
-      This means you’ll get errors right in your editor and on CI
-      if you try to access an Enum property that is misspelled or doesn’t exist.
+      in your projects, you can have statically type-checked Enums. This means
+      you’ll get errors right in your editor and on CI if you try to access an
+      Enum property that is misspelled or doesn’t exist.
     </P>
 
     <H2>Immutable Record</H2>
     <P>
-      <C>Record</C> is a data type that enforces
-      a specific set of allowed string keys on its instances.
-      Once you define what a record consists of, it’s not possible
-      to set unexpected properties on that record instance.
+      <C>Record</C> is a data type that enforces a specific set of allowed
+      string keys on its instances. Once you define what a record consists of,
+      it’s not possible to set unexpected properties on that record instance.
     </P>
     <Snippet lang="js">
       {`
@@ -44,22 +43,21 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
                      typo
       `}
     </Snippet>
-    <P>
-      Record also allows access to its keys using common dot notation:
-    </P>
+    <P>Record also allows access to its keys using common dot notation:</P>
     <Snippet lang="js">
       {`user.name // => 'Default'`}
     </Snippet>
     <P>
-      <A href="http://facebook.github.io/immutable-js/docs/#/Record" targetBlank>
+      <A
+        href="http://facebook.github.io/immutable-js/docs/#/Record"
+        targetBlank
+      >
         <I>More details in official docs</I>
       </A>
     </P>
 
     <H2>Enum</H2>
-    <P>
-      Let’s create a simple Enum factory:
-    </P>
+    <P>Let’s create a simple Enum factory:</P>
     <Snippet lang="js">
       {`
         const createEnum = <T: Object>(items: T): Record<T> => {
@@ -74,9 +72,10 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
       `}
     </Snippet>
     <P>
-      That’s fine, but sometimes I need helper methods on an enum instance.
-      For example, sometimes I need to get an array of all of the enum’s defined items.
-      Other times, I might need to find the item by the <C>value</C> key, e.g.,:
+      That’s fine, but sometimes I need helper methods on an enum instance. For
+      example, sometimes I need to get an array of all of the enum’s defined
+      items. Other times, I might need to find the item by the <C>value</C> key,
+      e.g.,:
     </P>
     <Snippet lang="js">
       {`
@@ -118,21 +117,19 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
         export default createEnum;
       `}
     </Snippet>
-    <P>
-      This is how it works in the end:
-    </P>
+    <P>This is how it works in the end:</P>
     <AnimatedGif src={enumAnimatedGif} placement="bleed" alt="Enum" />
 
     <P>
-      P.S. The examples above work with <C>immutable@3.8.1</C>.
-      Typedefs in Immutable v4 (RC at the moment) were significantly improved,
-      but are still in flux for the extended records.
-      Hopefully, these issues will be resolved soon!
+      P.S. The examples above work with <C>immutable@3.8.1</C>. Typedefs in
+      Immutable v4 (RC at the moment) were significantly improved, but are still
+      in flux for the extended records. Hopefully, these issues will be resolved
+      soon!
     </P>
-  </Post>
-);
+  </Post>;
 
 export default withPostMeta(EnumsUsingImmutableRecordsAndFlow, {
   type: 'article',
-  description: 'If you use immutable-js and flow in your projects, you can have statically type-checked Enums.',
+  description:
+    'If you use immutable-js and flow in your projects, you can have statically type-checked Enums.',
 });

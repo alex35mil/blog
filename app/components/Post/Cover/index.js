@@ -72,7 +72,12 @@ export class Cover extends React.Component {
 
     return (
       <div className={styles.background}>
-        <div className={cn(styles.cover, isLoaded ? styles.loaded : styles.loading)}>
+        <div
+          className={cn(
+            styles.cover,
+            isLoaded ? styles.loaded : styles.loading,
+          )}
+        >
           <img
             sizes="100vw"
             src={cover.fallback}
@@ -82,7 +87,8 @@ export class Cover extends React.Component {
             ref={this.setCoverRef}
             onLoad={this.showCover}
             style={{
-              transform: `translate3d(0px, ${this.state.parallaxFactor}px, 0px)`,
+              transform: `translate3d(0px, ${this.state
+                .parallaxFactor}px, 0px)`,
             }}
           />
         </div>
@@ -90,7 +96,9 @@ export class Cover extends React.Component {
         {credit &&
           <div className={styles.credit}>
             Artwork:{' '}
-            <A unstyled href={credit.url} targetBlank>{credit.author}</A>
+            <A unstyled href={credit.url} targetBlank>
+              {credit.author}
+            </A>
           </div>}&gt;
       </div>
     );

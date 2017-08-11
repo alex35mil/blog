@@ -15,12 +15,16 @@ type $Props = {|
   |},
 |};
 
-export const Footer = ({ copyright }: $Props) => (
+export const Footer = ({ copyright }: $Props) =>
   <div className={styles.container}>
     <div className={styles.footer}>
       <div className={styles.index}>
-        <A internal href="" className={styles.indexLink}>Home</A>
-        <A internal href="/blog" className={styles.indexLink}>Blog</A>
+        <A internal href="" className={styles.indexLink}>
+          Home
+        </A>
+        <A internal href="/blog" className={styles.indexLink}>
+          Blog
+        </A>
       </div>
       <div className={styles.src}>
         <Icon.Sources className={styles.srcIcon} />
@@ -79,5 +83,4 @@ export const Footer = ({ copyright }: $Props) => (
         </A>
       </div>
     </div>
-  </div>
-);
+  </div>;
