@@ -1,7 +1,5 @@
 # alexfedoseev.com
 
-[ __WIP__ ]
-
 ## Development
 
 I use `alexfedoseev.dev` domain for local development, so this needs to be added to `/etc/hosts`:
@@ -9,10 +7,10 @@ I use `alexfedoseev.dev` domain for local development, so this needs to be added
 ```
 fe80::1%lo0  alexfedoseev.dev
 127.0.0.1    alexfedoseev.dev
-fe80::1%lo0  hot.alexfedoseev.dev
-127.0.0.1    hot.alexfedoseev.dev
 fe80::1%lo0  www.alexfedoseev.dev
 127.0.0.1    www.alexfedoseev.dev
+fe80::1%lo0  hot.alexfedoseev.dev
+127.0.0.1    hot.alexfedoseev.dev
 ```
 
 Then run `yarn start` (docker will build development services) and visit `alexfedoseev.dev`.
@@ -77,7 +75,7 @@ cat alexfedoseev.dev.crt alexfedoseev.dev.key > alexfedoseev.dev.pem
 ### LetsEncrypt for production
 Obtain a cert from LetsEncrypt (run against production host):
 
-```
+```bash
 docker run \
   -it \
   --rm \
@@ -90,4 +88,26 @@ docker run \
   -d www.alexfedoseev.com \
   --webroot \
   --webroot-path /www/letsencrypt
+```
+
+Renew it manually:
+
+```bash
+docker run \
+  -t \
+  --rm \
+  -v "/etc/letsencrypt:/etc/letsencrypt" \
+  -v "/www/letsencrypt:/www/letsencrypt" \
+  -v "/var/log/letsencrypt:/var/log/letsencrypt" \
+  certbot/certbot \
+  renew \
+  --webroot \
+  --webroot-path /www/letsencrypt \
+&& docker-compose -f docker-compose.prod.yml kill -s HUP nginx
+```
+
+Or using cron:
+
+```
+0 0 */15 * * docker run -t --rm -v "/etc/letsencrypt:/etc/letsencrypt" -v "/www/letsencrypt:/www/letsencrypt" -v "/var/log/letsencrypt:/var/log/letsencrypt" certbot/certbot renew --webroot --webroot-path /www/letsencrypt && docker-compose -f docker-compose.prod.yml kill -s HUP nginx >/dev/null 2>&1
 ```

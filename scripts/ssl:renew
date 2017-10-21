@@ -1,0 +1,14 @@
+#!/bin/sh
+
+eval $(docker-machine env alexfedoseev.com)
+docker run \
+  -t \
+  --rm \
+  -v "/etc/letsencrypt:/etc/letsencrypt" \
+  -v "/www/letsencrypt:/www/letsencrypt" \
+  -v "/var/log/letsencrypt:/var/log/letsencrypt" \
+  certbot/certbot \
+  renew \
+  --webroot \
+  --webroot-path /www/letsencrypt \
+&& docker-compose -f docker-compose.prod.yml kill -s HUP nginx
