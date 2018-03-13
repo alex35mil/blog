@@ -7,6 +7,13 @@ import type { $ChunkResolvers } from '../loader';
 type $Resolvers = { [year: string]: { [slug: $PostId]: $ChunkResolvers } };
 
 const resolvers: $Resolvers = {
+  2018: {
+    'reasonml-modules': {
+      resolve: () => import('../../pages/Blog/2018/ReasonModules'),
+      getWebpackId: () =>
+        require.resolveWeak('../../pages/Blog/2018/ReasonModules'),
+    },
+  },
   2017: {
     tableau: {
       resolve: () => import('../../pages/Blog/2017/Tableau'),
