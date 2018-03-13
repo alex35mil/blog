@@ -8,15 +8,24 @@ import { stripIndent } from 'common-tags';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-nginx';
+import 'prismjs/components/prism-reason';
 
 import 'prismjs/themes/prism.css';
 import styles from './styles.css';
 
+type $Lang = 'js' | 'jsx' | 'bash' | 'nginx' | 'reason';
+
 type $Props = {|
-  lang?: 'js' | 'jsx' | 'bash' | 'nginx',
+  lang?: $Lang,
   file?: string,
   children?: React.Node,
 |};
+
+const getLangLabel = (lang: $Lang) => {
+  if (lang === 'jsx') return 'js';
+  if (lang === 'reason') return 're';
+  return lang;
+};
 
 export const Snippet = ({ lang, file, children }: $Props) => (
   <pre
@@ -44,7 +53,7 @@ export const Snippet = ({ lang, file, children }: $Props) => (
       <div className={styles.badges}>
         {lang && (
           <div className={cn(styles.badge, styles.langBadge)}>
-            {lang === 'jsx' ? 'js' : lang}
+            {getLangLabel(lang)}
           </div>
         )}
         {file && (
