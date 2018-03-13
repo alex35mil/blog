@@ -45,6 +45,7 @@ export class Cover extends React.Component<$Props, $State> {
   };
 
   componentWillUnmount = () => {
+    if (!this.cover) return;
     window.removeEventListener('scroll', this.parallaxCover);
   };
 
@@ -68,10 +69,14 @@ export class Cover extends React.Component<$Props, $State> {
     const { cover, credit } = this.props;
     const { isLoaded } = this.state;
 
-    if (!cover) return <div className={styles.background} />;
+    if (!cover) {
+      return (
+        <div className={cn(styles.background, styles.backgroundWithoutCover)} />
+      );
+    }
 
     return (
-      <div className={styles.background}>
+      <div className={cn(styles.background, styles.backgroundWithCover)}>
         <div
           className={cn(
             styles.cover,

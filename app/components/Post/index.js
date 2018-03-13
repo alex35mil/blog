@@ -50,7 +50,7 @@ export const Post = ({
   <Page>
     <section className={styles.section}>
       <Cover cover={cover} credit={credit} />
-      <Header>
+      <Header withCover={!!cover}>
         <H1>{title}</H1>
       </Header>
       <Navbar year={year} date={date} />

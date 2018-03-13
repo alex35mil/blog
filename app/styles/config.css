@@ -47,8 +47,16 @@
     font-style: normal;
   }
 
-  --header-height: {
+  --header-with-cover-height: {
     height: 75vh;
+
+    @media (--small-screen) {
+      height: 100vh;
+    }
+  }
+
+  --header-without-cover-height: {
+    height: 50vh;
 
     @media (--small-screen) {
       height: 100vh;

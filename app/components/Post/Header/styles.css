@@ -1,8 +1,6 @@
 @import "app/styles/config";
 
 .header {
-  @apply --header-height;
-
   display: flex;
   position: relative;
   flex-flow: column nowrap;
@@ -15,6 +13,14 @@
   color: #fff;
   text-shadow: var(--header-text-shadow);
   pointer-events: none;
+}
+
+.headerWithCover {
+  @apply --header-with-cover-height;
+}
+
+.headerWithoutCover {
+  @apply --header-without-cover-height;
 }
 
 .title {
