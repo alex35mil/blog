@@ -41,7 +41,6 @@ export default {
   resolveLoader: { alias: loacalLoaders },
 
   module: {
-    noParse: modules.minifiedJs,
     rules: [
       {
         test: modules.jsModule,
