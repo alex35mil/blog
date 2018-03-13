@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -23,7 +23,7 @@ import withPostMeta from 'app/shell/withPostMeta';
 
 import coverImage from './images/cover.jpg?preset=cover';
 
-const ReduxTree = (props: $PostProps) =>
+const ReduxTree = (props: $PostProps) => (
   <Post
     {...props}
     cover={coverImage}
@@ -201,7 +201,8 @@ const ReduxTree = (props: $PostProps) =>
       </Li>
     </Ul>
     <P>And let me know how it works for you!</P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(ReduxTree, {
   type: 'article',

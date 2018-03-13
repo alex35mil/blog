@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { Location as $Location } from 'react-router';
 import type { $PageMeta, $StaticContext } from 'app/shell/types';
@@ -13,7 +13,7 @@ type $Props = {
 };
 
 const withPageMeta = (Page: $Page, meta: $PageMeta) =>
-  class PageMetaInjector extends React.Component {
+  class PageMetaInjector extends React.Component<$Props> {
     props: $Props;
 
     componentDidMount = () => {

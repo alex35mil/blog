@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import { Control } from 'app/components';
@@ -10,18 +10,18 @@ import styles from './styles.css';
 
 type $Props = {|
   label: string,
-  children?: React.Element<*>,
+  children?: React.Node,
 |};
 
 type $State = {| isExpanded: boolean |};
 
-export class Expandable extends React.Component {
+export class Expandable extends React.Component<$Props, $State> {
   props: $Props;
   state: $State = { isExpanded: false };
 
   toggle = () => this.setState(state => ({ isExpanded: !state.isExpanded }));
 
-  render = () =>
+  render = () => (
     <div className={styles.wrapper}>
       <div className={styles.labelWrapper}>
         <Control className={styles.label} onClick={this.toggle}>
@@ -34,11 +34,11 @@ export class Expandable extends React.Component {
           )}
         />
       </div>
-      {this.state.isExpanded &&
+      {this.state.isExpanded && (
         <div className={styles.contentWrapper}>
-          <div className={styles.content}>
-            {this.props.children}
-          </div>
-        </div>}
-    </div>;
+          <div className={styles.content}>{this.props.children}</div>
+        </div>
+      )}
+    </div>
+  );
 }

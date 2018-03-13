@@ -35,15 +35,12 @@ AssetsManifestPlugin.prototype.apply = function ApplyAssetsManifestPlugin(
       }, {});
       return { ...dict, ...chunkFiles };
     }, {});
-
     const outputPath = path.join(this.path, this.filename);
     const outputData = isDevelopment
       ? JSON.stringify(output, null, 2)
       : JSON.stringify(output);
-
     fsx.ensureDirSync(this.path);
     fsx.writeFileSync(outputPath, outputData);
   });
 };
-
 export default AssetsManifestPlugin;

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -26,7 +26,7 @@ import withPostMeta from 'app/shell/withPostMeta';
 import uiUnitImage from './images/01-ui-unit.png?preset=inline';
 import formImage from './images/02-form.png?preset=inline';
 
-const YearOfDevelopmentWithReduxPartII = (props: $PostProps) =>
+const YearOfDevelopmentWithReduxPartII = (props: $PostProps) => (
   <Post {...props}>
     <P>
       <A
@@ -201,7 +201,8 @@ const YearOfDevelopmentWithReduxPartII = (props: $PostProps) =>
       typing Redux parts with Flow.
     </P>
     <P>Stay tuned!</P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(YearOfDevelopmentWithReduxPartII, {
   type: 'article',

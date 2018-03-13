@@ -1,7 +1,7 @@
 /* @flow */
 /* eslint-disable no-useless-escape */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -9,7 +9,7 @@ import { Post, H2, P, B, I, Ul, Ol, Li, Snippet } from 'app/components';
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-const IsomorphicReactWithRailsPartI = (props: $PostProps) =>
+const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
   <Post {...props}>
     <P>
       One of the greatest features in React is a declarative way to construct
@@ -393,7 +393,8 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) =>
       config looks more structured and readable (at my taste of course). So try
       this out and pick your way of writing webpack configs!
     </P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(IsomorphicReactWithRailsPartI, {
   type: 'article',

@@ -19,14 +19,14 @@
   --content-width: 700px;
   --small-screen-padding: 30px;
 
-  --transition-duration: .2s;
+  --transition-duration: 0.2s;
   --transition-timing-function: ease-in-out;
 
   --regular-font-face: Menlo, Consolas, Courier New, monospace;
   --headings-font-face: "Noto Sans", var(--regular-font-face);
 
   --font-size: 18px;
-  --text-color: rgba(0, 0, 0, .8);
+  --text-color: rgba(0, 0, 0, 0.8);
   --line-height: 1.5;
 
   --regular-font: {

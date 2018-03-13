@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
 import type { $Meta } from 'app/shell/types';
@@ -27,11 +27,12 @@ type $Props = {|
   scripts: $Scripts,
 |};
 
-const Html = ({ body, meta, scripts, styles }: $Props) =>
+const Html = ({ body, meta, scripts, styles }: $Props) => (
   <html lang="en">
-    <Head {...{ meta, styles }} />
-    <Body {...{ body, scripts }} />
-  </html>;
+    <Head meta={meta} styles={styles} />
+    <Body body={body} scripts={scripts} />
+  </html>
+);
 
 export default (props: $Props) => {
   // $FlowIgnoreMe: Exact type + props destructuring

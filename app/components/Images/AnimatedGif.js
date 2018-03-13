@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import type { $Placement } from './types';
@@ -14,11 +14,9 @@ type $Props = {|
   caption?: string,
 |};
 
-export const AnimatedGif = ({ src, placement, alt, caption }: $Props) =>
+export const AnimatedGif = ({ src, placement, alt, caption }: $Props) => (
   <figure className={cn(styles.figure, styles[`placement--${placement}`])}>
     <img src={src} alt={alt || caption} />
-    {caption &&
-      <figcaption>
-        {caption}
-      </figcaption>}
-  </figure>;
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+);

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -30,7 +30,7 @@ import withPostMeta from 'app/shell/withPostMeta';
 
 import flowAnimatedGif from './images/flow.gif';
 
-const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) =>
+const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) => (
   <Post {...props}>
     <P>
       In the last post of this series, I’ll demonstrate writing UI code as a set
@@ -371,9 +371,7 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) =>
     <P>
       It’s defined as just <C>$Subtype</C> of string:
     </P>
-    <Snippet lang="js">
-      {`type Action = { type: $Subtype<string> };`}
-    </Snippet>
+    <Snippet lang="js">{`type Action = { type: $Subtype<string> };`}</Snippet>
     <P>
       Yes, it’s less accurate <I>here</I>, but it will be very accurate in the
       interactions, as you will see below.
@@ -438,7 +436,8 @@ const YearOfDevelopmentWithReduxPartIII = (props: $PostProps) =>
     <Divider />
 
     <P>Thanks for reading this, more great stuff coming soon. Cheers!</P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(YearOfDevelopmentWithReduxPartIII, {
   type: 'article',

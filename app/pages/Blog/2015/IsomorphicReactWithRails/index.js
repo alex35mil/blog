@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -28,7 +28,7 @@ import draftImage from './images/01-draft.png?preset=inline';
 import corsImage from './images/02-cors.png?preset=inline';
 import proxyImage from './images/03-proxy.png?preset=inline';
 
-const IsomorphicReactWithRailsPartI = (props: $PostProps) =>
+const IsomorphicReactWithRailsPartI = (props: $PostProps) => (
   <Post
     {...props}
     cover={coverImage}
@@ -275,7 +275,8 @@ const IsomorphicReactWithRailsPartI = (props: $PostProps) =>
       </A>{' '}
       but they are pretty much out of date.
     </P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(IsomorphicReactWithRailsPartI, {
   type: 'article',

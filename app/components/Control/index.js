@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import styles from './styles.css';
@@ -8,8 +8,8 @@ import styles from './styles.css';
 type $Props = {|
   title?: string,
   className?: string,
-  children?: React.Element<*>,
-  setRef?: (ref: HTMLElement) => void,
+  children?: React.Node,
+  setRef?: (ref: HTMLElement | null) => void,
   onClick: () => void,
 |};
 
@@ -19,7 +19,7 @@ export const Control = ({
   children,
   onClick,
   setRef,
-}: $Props) =>
+}: $Props) => (
   <button
     type="button"
     className={cn(styles.control, className)}
@@ -28,4 +28,5 @@ export const Control = ({
     onClick={onClick}
   >
     {children}
-  </button>;
+  </button>
+);

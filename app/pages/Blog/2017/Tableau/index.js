@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -27,7 +27,7 @@ import coverImage from './images/cover.jpg?preset=cover';
 import automatorAnimatedGif from './images/automator.gif';
 import chromeAnimatedGif from './images/chrome.gif';
 
-const Tableau = (props: $PostProps) =>
+const Tableau = (props: $PostProps) => (
   <Post {...props} cover={coverImage}>
     <P>
       I’ve been lazily looking for a simple, flexible and lightweight new tab
@@ -189,7 +189,8 @@ const Tableau = (props: $PostProps) =>
     </P>
 
     <P>That’s pretty much all. Enjoy!</P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(Tableau, {
   type: 'article',

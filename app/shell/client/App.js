@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { initProgressBar, ProgressBar } from 'app/components/ProgressBar';
@@ -10,11 +10,12 @@ import 'app/styles/index.css';
 
 initProgressBar();
 
-const App = () =>
+const App = () => (
   <Router>
     <ProgressBar.Start>
       <Routes />
     </ProgressBar.Start>
-  </Router>;
+  </Router>
+);
 
 export default App;

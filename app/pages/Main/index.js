@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import { routes } from 'app/shell/routes';
@@ -11,7 +11,7 @@ import withPageMeta from 'app/shell/withPageMeta';
 
 import styles from './styles.css';
 
-const Main = () =>
+const Main = () => (
   <Page>
     <section className={styles.section}>
       <div className={styles.hero}>
@@ -56,7 +56,8 @@ const Main = () =>
         </div>
       </div>
     </section>
-  </Page>;
+  </Page>
+);
 
 export default withPageMeta(Main, {
   type: 'profile',

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import styles from './styles.css';
@@ -10,7 +10,7 @@ type $Props = {|
   viewBoxWidth?: number,
   viewBoxHeight?: number,
   className?: string,
-  children?: React.Element<*>,
+  children?: React.Node,
 |};
 
 export const Svg = ({
@@ -19,15 +19,14 @@ export const Svg = ({
   viewBoxHeight = 16,
   className,
   children,
-}: $Props) =>
+}: $Props) => (
   <svg
     className={cn(styles.svg, className)}
     viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
     xmlns="http://www.w3.org/2000/svg"
     aria-labelledby={`${title}-title`}
   >
-    <title id={`icon-title-${title}`}>
-      {title}
-    </title>
+    <title id={`icon-title-${title}`}>{title}</title>
     {children}
-  </svg>;
+  </svg>
+);

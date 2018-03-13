@@ -15,7 +15,7 @@ rules:
   property-no-unknown: true
 
   # Numbers
-  number-leading-zero: "never"
+  number-leading-zero: "always"
   number-max-precision: 2
 
   # Quotes

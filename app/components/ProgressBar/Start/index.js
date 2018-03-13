@@ -1,15 +1,15 @@
 /* @flow */
 
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import * as React from 'react';
+import { withRouter, type RouterHistory } from 'react-router-dom';
 import NProgress from 'nprogress';
 
 type $Props = {
-  history: { listen: (listener: () => void) => () => void },
-  children?: React.Element<*>,
+  history: RouterHistory,
+  children?: React.Node,
 };
 
-class ProgressBarStart extends React.Component {
+class ProgressBarStart extends React.Component<$Props> {
   props: $Props;
   removeListener: () => void;
   componentDidMount = () => {

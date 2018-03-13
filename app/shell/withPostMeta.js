@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { Location as $Location } from 'react-router';
 import type { $PostMeta, $PostProps, $StaticContext } from 'app/shell/types';
@@ -14,7 +14,7 @@ type $Props = {
 };
 
 const withPostMeta = (Post: $Post, meta: $PostMeta) =>
-  class PostMetaInjector extends React.Component {
+  class PostMetaInjector extends React.Component<$Props> {
     props: $Props;
 
     componentDidMount = () => {

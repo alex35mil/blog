@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { oneLine } from 'common-tags';
 
 type $Props = {|
@@ -8,15 +8,13 @@ type $Props = {|
   message: string,
 |};
 
-export const Error = ({ status, message }: $Props) =>
+export const Error = ({ status, message }: $Props) => (
   <html lang="en">
     <head>
       <base href="/" />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>
-        {status} | alexfedoseev.com
-      </title>
+      <title>{status} | alexfedoseev.com</title>
       <link rel="shortcut icon" href="/favicon.ico" />
       <style type="text/css">
         {oneLine`
@@ -67,18 +65,15 @@ export const Error = ({ status, message }: $Props) =>
     </head>
     <body>
       <div className="container">
-        <div className="status">
-          {status}
-        </div>
+        <div className="status">{status}</div>
         <hr width="1" size="100" className="divider" />
         <div className="info">
-          <div className="message">
-            {message}
-          </div>
+          <div className="message">{message}</div>
           <div className="links">
             try: <a href="/">main</a> <a href="/blog">blog</a>
           </div>
         </div>
       </div>
     </body>
-  </html>;
+  </html>
+);

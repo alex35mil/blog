@@ -25,7 +25,7 @@
   width: 100%;
   height: var(--navbar-height);
   background-color: #fff;
-  font-size: .7em;
+  font-size: 0.7em;
 
   &.position--top {
     position: absolute;
@@ -35,7 +35,8 @@
 
   &.position--sticky,
   &.position--hidden {
-    transition: transform var(--transition-duration) var(--transition-timing-function);
+    transition: transform var(--transition-duration)
+      var(--transition-timing-function);
   }
 
   &.position--sticky {

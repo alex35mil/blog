@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $Scripts } from './Html';
 
@@ -9,7 +9,7 @@ type $Props = {|
   scripts: $Scripts,
 |};
 
-const Body = ({ body, scripts }: $Props) =>
+const Body = ({ body, scripts }: $Props) => (
   <body>
     <div
       id="app"
@@ -19,6 +19,7 @@ const Body = ({ body, scripts }: $Props) =>
     <script src={scripts.vendor} defer />
     {scripts.chunks.map(chunk => <script key={chunk} src={chunk} defer />)}
     <script src={scripts.app} defer />
-  </body>;
+  </body>
+);
 
 export default Body;

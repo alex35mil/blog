@@ -10,7 +10,9 @@ export default {
   entry: {
     app: [
       'react-hot-loader/patch',
-      `webpack-hot-middleware/client?path=${locations.hotServerUrl}/__webpack_hmr`,
+      `webpack-hot-middleware/client?path=${
+        locations.hotServerUrl
+      }/__webpack_hmr`,
       './app/shell/client/start.dev',
     ],
   },

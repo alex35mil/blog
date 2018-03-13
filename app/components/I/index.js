@@ -1,12 +1,11 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import styles from './styles.css';
 
-type $Props = {| children?: React.Element<*> |};
+type $Props = {| children?: React.Node |};
 
-export const I = ({ children }: $Props) =>
-  <i className={styles.italic}>
-    {children}
-  </i>;
+export const I = ({ children }: $Props) => (
+  <i className={styles.italic}>{children}</i>
+);

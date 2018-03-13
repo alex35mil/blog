@@ -1,10 +1,4 @@
 #!/bin/sh
 
-$(yarn bin)/prettier \
-  --print-width 80 \
-  --tab-width 2 \
-  --single-quote \
-  --trailing-comma all \
-  --parser babylon \
-  --write \
-  "{server.js,server.hot.js,{app,config}/**/*.js}"
+$(yarn bin)/prettier --write \
+  "{server.js,server.hot.js,package.json,{app,config}/**/*.js,app/**/*.json,app/**/*.css}"

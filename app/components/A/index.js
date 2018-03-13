@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -12,7 +12,7 @@ type $Props = {
   unstyled?: boolean,
   targetBlank?: boolean,
   className?: string,
-  children?: React.Element<*>,
+  children?: React.Node,
 };
 
 export const A = ({
@@ -24,20 +24,22 @@ export const A = ({
   children,
   ...otherProps
 }: $Props) =>
-  internal
-    ? <RouterLink
-        to={href}
-        className={cn({ [styles.link]: !unstyled }, className)}
-        {...otherProps}
-      >
-        {children}
-      </RouterLink>
-    : <a
-        {...otherProps}
-        href={href}
-        target={targetBlank && '_blank'}
-        rel={targetBlank && 'noopener noreferrer'}
-        className={cn({ [styles.link]: !unstyled }, className)}
-      >
-        {children}
-      </a>;
+  internal ? (
+    <RouterLink
+      to={href}
+      className={cn({ [styles.link]: !unstyled }, className)}
+      {...otherProps}
+    >
+      {children}
+    </RouterLink>
+  ) : (
+    <a
+      {...otherProps}
+      href={href}
+      target={targetBlank && '_blank'}
+      rel={targetBlank && 'noopener noreferrer'}
+      className={cn({ [styles.link]: !unstyled }, className)}
+    >
+      {children}
+    </a>
+  );

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import { routes } from 'app/shell/routes';
@@ -13,7 +13,7 @@ import styles from './styles.css';
 
 const years = Object.keys(posts).sort((a, b) => b - a);
 
-const Blog = () =>
+const Blog = () => (
   <Page>
     <section className={styles.section}>
       <div className={styles.container}>
@@ -25,13 +25,11 @@ const Blog = () =>
           </div>
           <div className={styles.blog}>blog</div>
         </div>
-        {years.map(year =>
+        {years.map(year => (
           <div key={year} className={styles.yearPosts}>
-            {Object.keys(posts[year]).map((postId, index) =>
+            {Object.keys(posts[year]).map((postId, index) => (
               <div key={postId} className={styles.post}>
-                <div className={styles.year}>
-                  {index === 0 && year}
-                </div>
+                <div className={styles.year}>{index === 0 && year}</div>
                 <A
                   internal
                   unstyled
@@ -40,10 +38,10 @@ const Blog = () =>
                 >
                   {posts[year][postId].title}
                 </A>
-              </div>,
-            )}
-          </div>,
-        )}
+              </div>
+            ))}
+          </div>
+        ))}
         <div className={styles.footer}>
           <div className={styles.push} />
           <div className={styles.copy}>
@@ -52,7 +50,8 @@ const Blog = () =>
         </div>
       </div>
     </section>
-  </Page>;
+  </Page>
+);
 
 export default withPageMeta(Blog, {
   type: 'website',

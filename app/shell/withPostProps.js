@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { Location as $Location } from 'react-router';
 import type { $StaticContext } from 'app/shell/types';
@@ -20,7 +20,7 @@ export const withPostProps = (
   year: string,
   postId: string,
   Post: () => React.Element<*>,
-) => ({ location, staticContext }: $Props) =>
+) => ({ location, staticContext }: $Props) => (
   <Post
     year={year}
     slug={postId}
@@ -33,4 +33,5 @@ export const withPostProps = (
       end: years[years.length - 1],
     }}
     {...posts[year][postId]}
-  />;
+  />
+);

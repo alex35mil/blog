@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -25,7 +25,7 @@ import withPostMeta from 'app/shell/withPostMeta';
 import topDownImage from './images/01-top-down.png?preset=inline';
 import sideImage from './images/02-side.png?preset=inline';
 
-const YearOfDevelopmentWithReduxPartI = (props: $PostProps) =>
+const YearOfDevelopmentWithReduxPartI = (props: $PostProps) => (
   <Post {...props}>
     <P>
       I’ve spent the past year working on the primary product of{' '}
@@ -263,7 +263,8 @@ const YearOfDevelopmentWithReduxPartI = (props: $PostProps) =>
       new issues, which are the subject of Part II.
     </P>
     <P>Stay tuned!</P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(YearOfDevelopmentWithReduxPartI, {
   type: 'article',

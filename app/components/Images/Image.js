@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import type { $Placement } from './types';
@@ -18,14 +18,12 @@ type $Props = {|
   caption?: string,
 |};
 
-export const Image = ({ src, placement, alt, caption }: $Props) =>
+export const Image = ({ src, placement, alt, caption }: $Props) => (
   <figure className={cn(styles.figure, styles[`placement--${placement}`])}>
     <picture>
       <source media="(max-width: 480px)" srcSet={src['480']} />
       <img src={src.fallback} srcSet={src['910']} alt={alt || caption} />
     </picture>
-    {caption &&
-      <figcaption>
-        {caption}
-      </figcaption>}
-  </figure>;
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+);

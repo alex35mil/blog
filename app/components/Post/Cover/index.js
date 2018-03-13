@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import objectFitImages from 'object-fit-images';
 
@@ -24,7 +24,7 @@ type $State = {|
   parallaxFactor: number,
 |};
 
-export class Cover extends React.Component {
+export class Cover extends React.Component<$Props, $State> {
   props: $Props;
   state: $State = {
     isLoaded: false,
@@ -48,7 +48,7 @@ export class Cover extends React.Component {
     window.removeEventListener('scroll', this.parallaxCover);
   };
 
-  setCoverRef = (ref: HTMLImageElement) => {
+  setCoverRef = (ref: HTMLImageElement | null) => {
     this.cover = ref;
   };
 
@@ -87,19 +87,21 @@ export class Cover extends React.Component {
             ref={this.setCoverRef}
             onLoad={this.showCover}
             style={{
-              transform: `translate3d(0px, ${this.state
-                .parallaxFactor}px, 0px)`,
+              transform: `translate3d(0px, ${
+                this.state.parallaxFactor
+              }px, 0px)`,
             }}
           />
         </div>
         <div className={styles.overlay} />
-        {credit &&
+        {credit && (
           <div className={styles.credit}>
             Artwork:{' '}
             <A unstyled href={credit.url} targetBlank>
               {credit.author}
             </A>
-          </div>}&gt;
+          </div>
+        )}&gt;
       </div>
     );
   };

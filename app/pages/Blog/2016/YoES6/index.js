@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -8,7 +8,7 @@ import { Post, H2, P, A, Ol, Ul, Li, C, Snippet } from 'app/components';
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-const YoES6 = (props: $PostProps) =>
+const YoES6 = (props: $PostProps) => (
   <Post {...props}>
     <P>
       The only thing I officially couldn’t write using ES6 syntax/Babel is{' '}
@@ -100,7 +100,8 @@ const YoES6 = (props: $PostProps) =>
         <C>generator-react-sandbox-server</C>
       </A>
     </P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(YoES6, {
   type: 'article',

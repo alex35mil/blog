@@ -81,7 +81,7 @@
   top: 0;
   background-color: #e7e7e7;
   padding: 1px 7px;
-  font-size: .9em;
+  font-size: 0.9em;
 
   @media (--small-screen) {
     position: relative;

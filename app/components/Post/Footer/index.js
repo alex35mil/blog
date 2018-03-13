@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import { A } from 'app/components';
@@ -15,7 +15,7 @@ type $Props = {|
   |},
 |};
 
-export const Footer = ({ copyright }: $Props) =>
+export const Footer = ({ copyright }: $Props) => (
   <div className={styles.container}>
     <div className={styles.footer}>
       <div className={styles.index}>
@@ -83,4 +83,5 @@ export const Footer = ({ copyright }: $Props) =>
         </A>
       </div>
     </div>
-  </div>;
+  </div>
+);

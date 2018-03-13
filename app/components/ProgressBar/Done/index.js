@@ -1,11 +1,11 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import NProgress from 'nprogress';
 
-type $Props = {| children?: React.Element<*> |};
+type $Props = {| children?: React.Node |};
 
-class ProgressBarDone extends React.Component {
+class ProgressBarDone extends React.Component<$Props> {
   props: $Props;
   componentDidMount = () => NProgress.done();
   render = () => React.Children.only(this.props.children);

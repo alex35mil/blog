@@ -1,5 +1,5 @@
 /* @flow */
 
 declare module CSSModule {
-  declare var exports: { [string]: string };
+  declare module.exports: { [string]: string };
 }

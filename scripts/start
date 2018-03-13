@@ -68,7 +68,7 @@ const compileProductionBuilds = () => new Promise(resolve => {
 
 const runHotServer = () => new Promise(resolve => {
   console.log('=> 🔥  Starting HOT server...');
-  const hotServer = path.resolve(locations.src, 'scripts', 'start:hot');
+  const hotServer = path.resolve(locations.src, 'scripts', 'start.hot');
 
   cp
     .fork(hotServer)

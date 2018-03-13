@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -8,7 +8,7 @@ import { Post, P, Ul, Li } from 'app/components';
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-const CodeDiet = (props: $PostProps) =>
+const CodeDiet = (props: $PostProps) => (
   <Post {...props}>
     <P>
       For the past 3 (+/–) years my relationships with the code can be described
@@ -36,7 +36,8 @@ const CodeDiet = (props: $PostProps) =>
       Code is extremely powerful matter, but code for code is road to nowhere
       (of course there are exceptions, but I’m not one of them for sure).
     </P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(CodeDiet, {
   type: 'article',

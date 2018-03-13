@@ -39,7 +39,6 @@ server.listen(
       : console.log('=> 🔥  HOT server is running on port', HOT_PORT),
   /* eslint-enable no-console */
 );
-
 compiler.plugin('done', () => {
   if (initialCompile) {
     initialCompile = false;

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import Scroll from 'moveto';
 import cn from 'classnames';
 
@@ -20,13 +20,13 @@ type $Props = {|
 
 type $State = {| position: $Position |};
 
-export class Navbar extends React.Component {
+export class Navbar extends React.Component<$Props, $State> {
   props: $Props;
   state: $State = { position: 'top' };
 
   scrolled: number = 0;
-  container: HTMLElement;
-  scrollTopTrigger: HTMLElement;
+  container: HTMLElement | null;
+  scrollTopTrigger: HTMLElement | null;
 
   componentDidMount = () => {
     window.addEventListener('scroll', this.updatePosition);
@@ -36,15 +36,17 @@ export class Navbar extends React.Component {
     window.removeEventListener('scroll', this.updatePosition);
   };
 
-  setContainerRef = (ref: HTMLElement) => {
+  setContainerRef = (ref: HTMLElement | null) => {
     this.container = ref;
   };
 
-  setScrollTopTriggerRef = (ref: HTMLElement) => {
+  setScrollTopTriggerRef = (ref: HTMLElement | null) => {
     this.scrollTopTrigger = ref;
   };
 
   updatePosition = () => {
+    if (!this.container) return;
+
     const { state } = this;
     const containerPosition = this.container.getBoundingClientRect();
     const scrolled = window.pageYOffset;
@@ -83,10 +85,11 @@ export class Navbar extends React.Component {
   };
 
   blurScrollTopTrigger = () => {
+    if (!this.scrollTopTrigger) return;
     this.scrollTopTrigger.blur();
   };
 
-  render = () =>
+  render = () => (
     <div ref={this.setContainerRef} className={styles.container}>
       <div
         className={cn(
@@ -121,5 +124,6 @@ export class Navbar extends React.Component {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 }

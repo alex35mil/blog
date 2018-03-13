@@ -1,18 +1,22 @@
 /* @flow */
 /* eslint-disable import/no-extraneous-dependencies */
 
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import App from './App';
 
+const domNode = document.getElementById('app');
+
+if (!domNode) throw new Error('No #app dom node');
+
 const renderApp = () => {
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <AppContainer>
       <App />
     </AppContainer>,
-    document.getElementById('app'),
+    domNode,
   );
 };
 

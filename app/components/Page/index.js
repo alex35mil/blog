@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import type {
@@ -17,19 +17,20 @@ type $Props = {|
   location: $Location,
   history: $History,
   match: $Match,
-  children?: React.Element<*>,
+  children?: React.Node,
 |};
 
-class Page extends React.Component {
+class Page extends React.Component<$Props> {
   props: $Props;
   componentDidMount = () => {
     window.scrollTo(0, 0);
     GA.sendPageview(this.props.location.pathname);
   };
-  render = () =>
+  render = () => (
     <ProgressBar.Done>
       {React.Children.only(this.props.children)}
-    </ProgressBar.Done>;
+    </ProgressBar.Done>
+  );
 }
 
 export default withRouter(Page);

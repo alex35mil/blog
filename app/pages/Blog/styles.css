@@ -94,7 +94,7 @@
 .year {
   @apply --prefix-side;
 
-  font-size: .6em;
+  font-size: 0.6em;
   color: var(--gray-text);
 
   @media (--small-screen) {
@@ -120,7 +120,7 @@
 }
 
 .postLink {
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .footer {
@@ -142,13 +142,13 @@
 }
 
 .copy {
-  font-size: .6em;
+  font-size: 0.6em;
   color: var(--gray-text);
 }
 
 .link {
   transition-property: background-color, box-shadow, text-shadow;
-  transition-duration: .03s;
+  transition-duration: 0.03s;
   transition-timing-function: ease-in;
   background-color: transparent;
   box-shadow: none;
@@ -162,11 +162,12 @@
 
   &:focus,
   &:hover {
-    box-shadow: inset 0 -5px 0 0 #fff, inset 0 -6px 0 0 color(var(--text-color) l(+55%));
+    box-shadow: inset 0 -5px 0 0 #fff,
+      inset 0 -6px 0 0 color(var(--text-color) l(+55%));
   }
 
   &:focus {
-    background-color: rgba(0, 0, 0, .05);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   &:hover {

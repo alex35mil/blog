@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -8,7 +8,7 @@ import { Post, P, B } from 'app/components';
 
 import withPostMeta from 'app/shell/withPostMeta';
 
-const NumberOneThingThatKillsYourProductivity = (props: $PostProps) =>
+const NumberOneThingThatKillsYourProductivity = (props: $PostProps) => (
   <Post {...props}>
     <P>
       It’s not a routine, not meetings. Not even social networks or messengers.
@@ -29,7 +29,8 @@ const NumberOneThingThatKillsYourProductivity = (props: $PostProps) =>
       mind busy with and start doing this. Few hours a day, on the weekends or 1
       week in the month—adjust intervals and do yourself a favour—switch.
     </P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(NumberOneThingThatKillsYourProductivity, {
   type: 'article',

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $Meta } from 'app/shell/types';
 import type { $Styles } from './Html';
@@ -14,15 +14,13 @@ type $Props = {|
   styles: $Styles,
 |};
 
-const Head = ({ meta, styles }: $Props) =>
+const Head = ({ meta, styles }: $Props) => (
   <head>
     <base href="/" />
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>
-      {meta.title} | alexfedoseev.com
-    </title>
+    <title>{meta.title} | alexfedoseev.com</title>
     <meta name="description" content={meta.description} />
     <meta name="keywords" content="javascript, js, react, redux, node, css" />
 
@@ -52,6 +50,7 @@ const Head = ({ meta, styles }: $Props) =>
 
     {styles.app && <link rel="stylesheet" href={styles.app} />}
     {styles.vendor && <link rel="stylesheet" href={styles.vendor} />}
-  </head>;
+  </head>
+);
 
 export default Head;

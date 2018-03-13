@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 
 import type { $PostProps } from 'app/shell/types';
 
@@ -10,7 +10,7 @@ import withPostMeta from 'app/shell/withPostMeta';
 
 import enumAnimatedGif from './images/enum.gif';
 
-const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) =>
+const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) => (
   <Post {...props}>
     <P>
       If you use{' '}
@@ -44,9 +44,7 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) =>
       `}
     </Snippet>
     <P>Record also allows access to its keys using common dot notation:</P>
-    <Snippet lang="js">
-      {`user.name // => 'Default'`}
-    </Snippet>
+    <Snippet lang="js">{`user.name // => 'Default'`}</Snippet>
     <P>
       <A
         href="http://facebook.github.io/immutable-js/docs/#/Record"
@@ -126,7 +124,8 @@ const EnumsUsingImmutableRecordsAndFlow = (props: $PostProps) =>
       in flux for the extended records. Hopefully, these issues will be resolved
       soon!
     </P>
-  </Post>;
+  </Post>
+);
 
 export default withPostMeta(EnumsUsingImmutableRecordsAndFlow, {
   type: 'article',

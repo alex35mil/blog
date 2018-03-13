@@ -1,0 +1,5 @@
+#!/bin/sh
+
+docker-compose \
+  -f docker-compose.dev.yml \
+  run --rm web yarn upgrade-interactive --exact --latest

@@ -2,7 +2,7 @@
 @import "app/styles/z-indexes";
 
 :root {
-  --visible-opacity: .5;
+  --visible-opacity: 0.5;
 }
 
 .container {
@@ -69,7 +69,7 @@
 
 .title {
   opacity: var(--visible-opacity);
-  font-size: .8em;
+  font-size: 0.8em;
   color: var(--gray-text);
   text-transform: uppercase;
 }

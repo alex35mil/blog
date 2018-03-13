@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 
 import { Control } from 'app/components';
@@ -16,7 +16,7 @@ type $Props = {|
 
 type $State = {| isVisible: boolean |};
 
-export class SocialSharing extends React.Component {
+export class SocialSharing extends React.Component<$Props, $State> {
   props: $Props;
   state: $State = { isVisible: false };
 
@@ -61,7 +61,7 @@ export class SocialSharing extends React.Component {
     );
   };
 
-  render = () =>
+  render = () => (
     <div className={styles.container}>
       <div className={styles.widget}>
         <div
@@ -91,5 +91,6 @@ export class SocialSharing extends React.Component {
           <Icon.FacebookShare className={styles.shareIcon} />
         </Control>
       </div>
-    </div>;
+    </div>
+  );
 }

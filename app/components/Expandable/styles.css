@@ -36,7 +36,8 @@
 }
 
 .caret {
-  transition: transform var(--transition-duration) var(--transition-timing-function);
+  transition: transform var(--transition-duration)
+    var(--transition-timing-function);
 }
 
 .caretDown {

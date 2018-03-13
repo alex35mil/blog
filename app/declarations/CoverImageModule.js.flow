@@ -1,7 +1,7 @@
 /* @flow */
 
 declare module CoverImageModule {
-  declare var exports: {|
+  declare module.exports: {|
     srcset: string,
     fallback: string,
   |};
