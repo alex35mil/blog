@@ -81,7 +81,7 @@ export class Navbar extends React.Component<$Props, $State> {
       duration: 400,
       callback: this.blurScrollTopTrigger,
     });
-    scroll.move(0);
+    scroll.move(document.body);
   };
 
   blurScrollTopTrigger = () => {
