@@ -13,6 +13,10 @@
   color: #fff;
   text-shadow: var(--header-text-shadow);
   pointer-events: none;
+
+  @media (--small-screen) {
+    padding-bottom: 70px;
+  }
 }
 
 .headerWithCover {

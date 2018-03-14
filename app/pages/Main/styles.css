@@ -18,6 +18,7 @@
 
   @media (--small-screen) {
     flex-direction: column;
+    height: 85vh;
     padding-bottom: 0;
   }
 }
