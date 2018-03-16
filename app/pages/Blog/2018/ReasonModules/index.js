@@ -39,7 +39,7 @@ const ReasonModules = (props: $PostProps) => (
       name file <C>math.re</C> but module name is still capitalized: <C>Math</C>.
     </Note>
 
-    <H2>Fact #2: All content of the module is exported by default</H2>
+    <H2>Fact #2: All content of a module is exported by default</H2>
     <P>
       If you create a type or a function or whatever inside your module it’s
       automatically available for module’s consumers using dot notation.
@@ -79,11 +79,11 @@ const ReasonModules = (props: $PostProps) => (
     </H2>
     <P>
       Of course, you can use folders to group your files as you usually do
-      (requires a bit of configuration) but for the compiler, all your files is
-      a flat list of modules. So all your files, no matter where they are
-      located, must have unique names (remember, all modules are available
-      globally). Compiler backs you up in case you accidentally created a file
-      with a non-unique name.
+      (requires a bit of configuration) but for the compiler, all your files
+      within a project is a flat list of modules. So all your files, no matter
+      where they are located, must have unique names (remember, all modules are
+      available globally). Compiler backs you up in case you accidentally
+      created a file with a non-unique name.
     </P>
     <P>
       At the very beginning, it might seem inconvenient constraint but in
