@@ -3,6 +3,10 @@
     "reasonml-modules": {
       "title": "ReasonML: Modules",
       "date": "March 13"
+    },
+    "reasonml-eliminating-illegal-state": {
+      "title": "ReasonML: Eliminating illegal state",
+      "date": "March 22"
     }
   },
   "2017": {

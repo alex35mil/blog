@@ -13,6 +13,14 @@ const resolvers: $Resolvers = {
       getWebpackId: () =>
         require.resolveWeak('../../pages/Blog/2018/ReasonModules'),
     },
+    'reasonml-eliminating-illegal-state': {
+      resolve: () =>
+        import('../../pages/Blog/2018/ReasonEliminatingIllegalState'),
+      getWebpackId: () =>
+        require.resolveWeak(
+          '../../pages/Blog/2018/ReasonEliminatingIllegalState',
+        ),
+    },
   },
   2017: {
     tableau: {
