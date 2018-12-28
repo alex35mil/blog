@@ -8,11 +8,6 @@ type $Resolvers = { [year: string]: { [slug: $PostId]: $ChunkResolvers } };
 
 const resolvers: $Resolvers = {
   2018: {
-    'reasonml-modules': {
-      resolve: () => import('../../pages/Blog/2018/ReasonModules'),
-      getWebpackId: () =>
-        require.resolveWeak('../../pages/Blog/2018/ReasonModules'),
-    },
     'reasonml-eliminating-illegal-state': {
       resolve: () =>
         import('../../pages/Blog/2018/ReasonEliminatingIllegalState'),
@@ -20,6 +15,11 @@ const resolvers: $Resolvers = {
         require.resolveWeak(
           '../../pages/Blog/2018/ReasonEliminatingIllegalState',
         ),
+    },
+    'reasonml-modules': {
+      resolve: () => import('../../pages/Blog/2018/ReasonModules'),
+      getWebpackId: () =>
+        require.resolveWeak('../../pages/Blog/2018/ReasonModules'),
     },
   },
   2017: {
