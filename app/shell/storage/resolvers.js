@@ -7,6 +7,12 @@ import type { $ChunkResolvers } from '../loader';
 type $Resolvers = { [year: string]: { [slug: $PostId]: $ChunkResolvers } };
 
 const resolvers: $Resolvers = {
+  2019: {
+    minima: {
+      resolve: () => import('../../pages/Blog/2019/Minima'),
+      getWebpackId: () => require.resolveWeak('../../pages/Blog/2019/Minima'),
+    },
+  },
   2018: {
     'reasonml-eliminating-illegal-state': {
       resolve: () =>

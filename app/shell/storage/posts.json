@@ -1,4 +1,10 @@
 {
+  "2019": {
+    "minima": {
+      "title": "minima",
+      "date": "Jun 10"
+    }
+  },
   "2018": {
     "reasonml-eliminating-illegal-state": {
       "title": "ReasonML: Eliminating illegal state",
