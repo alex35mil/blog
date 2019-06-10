@@ -3,3 +3,4 @@ build/
 reports/
 *.log
 .DS_Store
+config/nginx/certs
